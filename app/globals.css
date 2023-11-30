@@ -88,3 +88,7 @@
   height: 50px; 
   width: 50px; 
 }
+
+.slick-track {
+  overflow: hidden;
+}

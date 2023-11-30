@@ -6,7 +6,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "SAI Technology",
-  description: "Software Engineering",
+  description:
+    "Advance your digital edge with our industry-wide innovative solutions.",
 };
 
 export default function RootLayout({

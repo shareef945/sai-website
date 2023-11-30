@@ -33,7 +33,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <div className="text-3xl">{icon}</div>
       </div>
       <p className="font-bold text-lg" style={{ color: headerColor }}>{title}</p>
-      <p className="text-sm text-wrap text-justify text-gray-600">
+      <p className="text-sm text-wrap text-justify text-gray-500 font-light">
         {description}
       </p>
     </div>
