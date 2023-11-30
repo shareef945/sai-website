@@ -19,7 +19,7 @@ const Services = () => {
 
   return (
     <section
-      className="h-[650px] bg-[#BF212E] bg-opacity-5 border-t border-b border-[#741F26] flex flex-col items-center py-8 gap-12"
+      className="h-[650px] bg-[#BF212E] bg-opacity-5 border-t border-b border-[#741F26] flex flex-col items-center py-8 gap-12 overflow-x-auto"
       id="services"
     >
       <p className="text-3xl text-[#741F26] font-bold">Services we offer</p>
