@@ -6,7 +6,7 @@ import sailogo from "../public/small-logo.png";
 
 export const Navbar = () => {
   return (
-    <div className="flex w-full justify-between h-[80px] px-4 items-center shadow-md">
+    <div className="fixed top-0 left-0 right-0 flex w-full justify-between h-[80px] px-4 items-center shadow-md bg-white z-50">
       <div>
         <Image src={sailogo} width={50} height={50} alt="Sai logo" />
       </div>

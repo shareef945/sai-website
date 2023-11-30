@@ -78,3 +78,13 @@
 .custom-height {
   height: calc(100vh - 80px);
 }
+.icon-circle {
+  border: 2px solid #741F26; 
+  border-radius: 50%; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  padding: 0.5em;
+  height: 50px; 
+  width: 50px; 
+}
