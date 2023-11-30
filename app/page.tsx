@@ -5,6 +5,9 @@ import Landing from "@/components/ui/landing";
 import Services from "@/components/ui/services";
 import Clients from "@/components/ui/clients";
 import CustomerReviews from "@/components/ui/customer-reviews";
+import Footer from "@/components/ui/footer";
+import DevelopmentProcess from "@/components/ui/development-process";
+import TechStack from "@/components/ui/tech-stack";
 
 export default function Home() {
   return (
@@ -14,6 +17,9 @@ export default function Home() {
       <Services />
       <Clients />
       <CustomerReviews />
+      <TechStack />
+      <DevelopmentProcess />
+      <Footer />
     </>
   );
 }

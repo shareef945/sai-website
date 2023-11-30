@@ -32,7 +32,7 @@ const Clients = () => {
         <div className="flex flex-col gap-10">
           <div className="h-2 bg-[#741f28] w-20"></div>
           <p className="text-3xl font-extralight">
-            Meet the people
+            Meet the people {" "}
             <span className="font-bold text-[#741f28]">
               we&apos;ve worked with
             </span>
