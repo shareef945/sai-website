@@ -1,30 +1,35 @@
-'use client'
-
 import React from "react";
-import {
-  Card,
-  Flex,
-  Metric,
-  ProgressBar,
-  Tab,
-  TabGroup,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Text,
-} from "@tremor/react";
+import { TabGroup, TabList, Tab, TabPanels, TabPanel } from "@tremor/react";
+import Image from "next/image";
+
+// Importing logos
+import nodejs from "../../public/tech-stack/node.png";
+import python from "../../public/tech-stack/python.png";
+import react from "../../public/tech-stack/react.png";
+import nextjs from "../../public/tech-stack/nextjs.png";
+import supabase from "../../public/tech-stack/supabase.png";
+import firebase from "../../public/tech-stack/firebase.png";
+import mysql from "../../public/tech-stack/mysql.png";
+import redis from "../../public/tech-stack/redis.png";
+import mongo from "../../public/tech-stack/mongo.png";
+import googlecloud from "../../public/tech-stack/googlecloud.png";
+import vercel from "../../public/tech-stack/vercel.png";
+import digitalocean from "../../public/tech-stack/digitalocean.png";
+import linux from "../../public/tech-stack/linux.png";
+import github from "../../public/tech-stack/github.png";
+import docker from "../../public/tech-stack/docker.png";
 
 const TechStack = () => {
+  const logoContainerClass = "flex justify-center items-center gap-12 mt-20";
+
   return (
-    <section className="h-screen flex flex-col border py-20">
-      <div>
-        <div className="flex flex-col items-center gap-6">
-          <div className="h-2 bg-[#741f28] w-20 flex"></div>
-          <p className="text-3xl font-extralight text-center">Our</p>
-          <p className="font-bold text-[#741f28] text-center text-3xl">
-            Tech stack
-          </p>
-        </div>
+    <section className="h-1/2 flex flex-col border py-20">
+      <div className="flex flex-col items-center gap-6">
+        <div className="h-2 bg-[#741f28] w-20"></div>
+        <p className="text-3xl font-extralight text-center">Our</p>
+        <p className="font-bold text-[#741f28] text-center text-3xl">
+          Tech stack
+        </p>
       </div>
       <div className="px-20 flex items-center justify-center">
         <TabGroup defaultIndex={0}>
@@ -32,34 +37,100 @@ const TechStack = () => {
             <Tab>Backend</Tab>
             <Tab>Frontend</Tab>
             <Tab>Databases</Tab>
-            <Tab>CMS</Tab>
+            <Tab>Cloud</Tab>
             <Tab>DevOps</Tab>
           </TabList>
           <TabPanels>
-            {/* <TabPanel>
-              <div className="mt-10">
-                <Flex className="mt-4">
-                  <Text className="w-full">Product Y</Text>
-                  <Flex className="space-x-2" justifyContent="end">
-                    <Text>$ 108,799</Text>
-                    <Text>38%</Text>
-                  </Flex>
-                </Flex>
-                <ProgressBar value={38} className="mt-2" />
+            <TabPanel>
+              <div className={logoContainerClass}>
+                <Image
+                  src={nodejs}
+                  width={150}
+                  height={150}
+                  alt="Node.js logo"
+                />
+                <Image
+                  src={python}
+                  width={150}
+                  height={150}
+                  alt="Python logo"
+                />
               </div>
-            </TabPanel> */}
-            {/* <TabPanel>
-              <div className="mt-10">
-                <Flex className="mt-4">
-                  <Text className="w-full">Product Z</Text>
-                  <Flex className="space-x-2" justifyContent="end">
-                    <Text>$ 99,484</Text>
-                    <Text>16%</Text>
-                  </Flex>
-                </Flex>
-                <ProgressBar value={12} className="mt-2" />
+            </TabPanel>
+            <TabPanel>
+              <div className={logoContainerClass}>
+                <Image src={react} width={150} height={150} alt="React logo" />
+                <Image
+                  src={nextjs}
+                  width={150}
+                  height={150}
+                  alt="Next.js logo"
+                />
               </div>
-            </TabPanel> */}
+            </TabPanel>
+            <TabPanel>
+              <div className={logoContainerClass}>
+                <Image
+                  src={supabase}
+                  width={150}
+                  height={150}
+                  alt="Supabase logo"
+                />
+                <Image
+                  src={firebase}
+                  width={150}
+                  height={150}
+                  alt="Firebase logo"
+                />
+                <Image src={mysql} width={150} height={150} alt="MySQL logo" />
+                <Image src={redis} width={150} height={150} alt="Redis logo" />
+                <Image
+                  src={mongo}
+                  width={150}
+                  height={150}
+                  alt="MongoDB logo"
+                />
+              </div>
+            </TabPanel>
+            <TabPanel>
+              <div className={logoContainerClass}>
+                <Image
+                  src={googlecloud}
+                  width={150}
+                  height={150}
+                  alt="Google Cloud logo"
+                />
+                <Image
+                  src={vercel}
+                  width={150}
+                  height={150}
+                  alt="Vercel logo"
+                />
+                <Image
+                  src={digitalocean}
+                  width={150}
+                  height={150}
+                  alt="DigitalOcean logo"
+                />
+              </div>
+            </TabPanel>
+            <TabPanel>
+              <div className={logoContainerClass}>
+                <Image src={linux} width={150} height={150} alt="Linux logo" />
+                <Image
+                  src={github}
+                  width={150}
+                  height={150}
+                  alt="GitHub logo"
+                />
+                <Image
+                  src={docker}
+                  width={150}
+                  height={150}
+                  alt="Docker logo"
+                />
+              </div>
+            </TabPanel>
           </TabPanels>
         </TabGroup>
       </div>
