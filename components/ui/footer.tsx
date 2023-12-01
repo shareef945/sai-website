@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <>
+    <footer className="flex flex-col ">
       <div className="flex items-center justify-center">
         <div className="h-[200px] bg-[#BF212E] w-full flex-col bg-opacity-5 border-t border-b border-[#741F26] flex items-center py-8 gap-12 justify-center">
           <p className="font-bold">Contact Us</p>
@@ -15,7 +15,7 @@ const Footer = () => {
           © Powered by SAI Technology
         </p>
       </div>
-    </>
+    </footer>
   );
 };
 
