@@ -42,11 +42,13 @@ const Services = () => {
           size="2.5em"
           className="cursor-pointer"
           onClick={scrollLeft}
+          color="#741f28"
         />
         <CiCircleChevRight
           size="2.5em"
           className="cursor-pointer"
           onClick={scrollRight}
+          color="#741f28"
         />
       </div>
     </section>

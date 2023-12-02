@@ -8,15 +8,16 @@ import CustomerReviews from "@/components/ui/customer-reviews";
 import Footer from "@/components/ui/footer";
 import DevelopmentProcess from "@/components/ui/development-process";
 import TechStack from "@/components/ui/tech-stack";
+import RecentProjects from "@/components/ui/recent-projects";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
       <Landing />
       <Services />
       <Clients />
       <CustomerReviews />
+      <RecentProjects />
       <TechStack />
       <DevelopmentProcess />
       <Footer />
