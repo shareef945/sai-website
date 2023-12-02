@@ -1,18 +1,13 @@
-'use client'
+"use client";
 
 import React, { useState } from "react";
 import { Link as ScrollLink, Events, scrollSpy } from "react-scroll";
+import Link from "next/link";
 
 const Links = () => {
   const [activeSection, setActiveSection] = useState("");
 
-  const links = [
-    { section: "home", name: "Home" },
-    { section: "services", name: "Services" },
-    { section: "case-studies", name: "Case Studies" },
-    { section: "technology", name: "Technology" },
-    { section: "blog", name: "Blog" },
-  ];
+  const links = [{ section: "services", name: "Services" }];
 
   React.useEffect(() => {
     Events.scrollEvent.register("begin", (to, element) => {
@@ -28,6 +23,9 @@ const Links = () => {
 
   return (
     <div className="flex">
+      <Link href="/" className="px-4">
+        Home
+      </Link>
       {links.map((link) => (
         <ScrollLink
           key={link.name}
@@ -38,12 +36,17 @@ const Links = () => {
           duration={500}
           onSetActive={() => setActiveSection(link.section)}
           className={`px-4 cursor-pointer ${
-            activeSection === link.section ? "text-[#741F26] font-bold" : "text-black"
+            activeSection === link.section
+              ? "text-[#741F26] font-bold"
+              : "text-black"
           }`}
         >
           {link.name}
         </ScrollLink>
       ))}
+      <Link href="/projects" className="px-4">
+        Projects
+      </Link>
     </div>
   );
 };

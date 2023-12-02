@@ -18,6 +18,9 @@ import digitalocean from "../../public/tech-stack/digitalocean.png";
 import linux from "../../public/tech-stack/linux.png";
 import github from "../../public/tech-stack/github.png";
 import docker from "../../public/tech-stack/docker.png";
+import express from "../../public/tech-stack/express.png";
+import flask from "../../public/tech-stack/flask.png";
+import django from "../../public/tech-stack/django.png";
 
 const TechStack = () => {
   const logoContainerClass = "flex justify-center items-center gap-12 mt-20";
@@ -50,10 +53,23 @@ const TechStack = () => {
                   alt="Node.js logo"
                 />
                 <Image
+                  src={express}
+                  width={150}
+                  height={150}
+                  alt="express logo"
+                />
+                <Image
                   src={python}
                   width={150}
                   height={150}
                   alt="Python logo"
+                />
+                <Image src={flask} width={150} height={150} alt="flask logo" />
+                <Image
+                  src={django}
+                  width={150}
+                  height={150}
+                  alt="django logo"
                 />
               </div>
             </TabPanel>
