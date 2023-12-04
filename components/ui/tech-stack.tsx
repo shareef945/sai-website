@@ -1,8 +1,6 @@
 import React from "react";
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from "@tremor/react";
 import Image from "next/image";
-
-// Importing logos
 import nodejs from "../../public/tech-stack/node.png";
 import python from "../../public/tech-stack/python.png";
 import react from "../../public/tech-stack/react.png";
@@ -23,7 +21,7 @@ import flask from "../../public/tech-stack/flask.png";
 import django from "../../public/tech-stack/django.png";
 
 const TechStack = () => {
-  const logoContainerClass = "flex justify-center items-center gap-12 mt-20";
+  const logoContainerClass = "flex justify-center items-center gap-12 mt-20 flex-wrap";
 
   return (
     <section className="h-1/2 flex flex-col border py-20">

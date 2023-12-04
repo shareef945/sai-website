@@ -1,19 +1,17 @@
 import React from "react";
 import CustomerLogos from "./customer-logos";
+import Image from "next/image";
 
 const Clients = () => {
   return (
     <div className="flex flex-col">
-      <section className="h-screen flex">
-        <div className="grid grid-cols-2 px-20 py-40 gap-10">
-          <div className="flex flex-col gap-10">
+      <section className="flex flex-col md:flex-row md:h-screen">
+        <div className="flex flex-col px-4 md:px-20 py-10 md:py-40 md:gap-10 w-full md:grid md:grid-cols-2">
+          <div className="flex flex-col gap-10 mb-4 md:mb-0">
             <div className="h-2 bg-[#741f28] w-20"></div>
-            <p className="text-5xl font-extralight">
+            <p className="text-3xl md:text-5xl font-extralight">
               Leading companies trust us
-              <span className="font-bold text-[#741f28]">
-                {" "}
-                to develop software
-              </span>
+              <span className="font-bold text-[#741f28]"> to develop software</span>
             </p>
             <p className="font-extralight text-justify">
               We add development capacity to tech teams. Our value isn’t limited
@@ -23,16 +21,22 @@ const Clients = () => {
             </p>
             <p className="text-[#741f28]">See more Information</p>
           </div>
-          <div>
-            <div className="bg-gray-200 h-full w-full">video</div>
+          <div className="w-full h-64 md:h-full relative">
+            <Image
+              src="/trust.jpg"
+              alt="image"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-lg"
+            />
           </div>
         </div>
       </section>
-      <div className="px-20 pb-10 flex">
+      <div className="px-4 md:px-20 pb-10 flex">
         <div className="flex flex-col gap-10">
           <div className="h-2 bg-[#741f28] w-20"></div>
           <p className="text-3xl font-extralight">
-            Meet the people {" "}
+            Meet the people{" "}
             <span className="font-bold text-[#741f28]">
               we&apos;ve worked with
             </span>
@@ -49,6 +53,7 @@ const Clients = () => {
             "/customer-logos/munchies.png",
             "/customer-logos/sensory-play.png",
             "/customer-logos/softtribe.png",
+            "/customer-logos/lucidarray.png",
           ]}
         />
       </div>
