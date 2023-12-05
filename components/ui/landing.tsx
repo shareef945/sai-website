@@ -6,7 +6,10 @@ import MailtoLink from "./mailto";
 
 const Landing = () => {
   return (
-    <main className="flex h-screen items-center px-4 md:px-20" id="home">
+    <main
+      className="flex h-screen items-center px-4 md:px-20 pt-20 sm:pt-0"
+      id="home"
+    >
       <div className="flex flex-col md:flex-row gap-4 w-full">
         <div className="flex flex-col gap-10 py-4">
           <p className="text-3xl md:text-5xl font-extralight">

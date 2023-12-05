@@ -73,7 +73,7 @@ export const Navbar = () => {
         } flex-col items-center py-8`}
       >
         <Links />
-        <Button className="text-2xl md:text-lg font-light">Contact us</Button>
+        <Button className="text-2xl md:text-lg font-light"><MailtoLink /></Button>
       </div>
     </nav>
   );
