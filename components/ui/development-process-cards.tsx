@@ -23,7 +23,7 @@ export default function DevProcessCard({ items }: ComponentProps) {
                   <CardHeader>
                     <CardTitle className="text-[#741f28] text-lg">{item.title}</CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className=" text-gray-500">
                     {item.content}
                   </CardContent>
                 </Card>

@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "./button";
 import Image from "next/image";
 import brain from "../../public/brain.png";
+import MailtoLink from "./mailto";
 
 const Landing = () => {
   return (
@@ -17,7 +18,9 @@ const Landing = () => {
             competition with our proven expertise in delivering cutting-edge
             solutions for a wide range of industries.
           </p>
-          <Button className="w-max">Submit a request</Button>
+          <Button className="w-max">
+            <MailtoLink />
+          </Button>
         </div>
         <div className="flex justify-center md:justify-start">
           <Image src={brain} width={850} height={850} alt="picture of brain" />

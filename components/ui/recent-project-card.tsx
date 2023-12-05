@@ -26,7 +26,7 @@ const RecentProjectCard = ({
             <p className="text-wrap mb-6 text-light text-gray-500">{body}</p>
           </div>
           <a className="text-right sm:text-left text-[#741f28]" href={link}>
-            Read more
+            Visit
           </a>
         </div>
       </div>

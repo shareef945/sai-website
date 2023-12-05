@@ -1,6 +1,7 @@
 import React from "react";
 import CustomerLogos from "./customer-logos";
 import Image from "next/image";
+import Link from "next/link";
 
 const Clients = () => {
   return (
@@ -11,15 +12,26 @@ const Clients = () => {
             <div className="h-2 bg-[#741f28] w-20"></div>
             <p className="text-3xl md:text-5xl font-extralight">
               Leading companies trust us
-              <span className="font-bold text-[#741f28]"> to develop software</span>
+              <span className="font-bold text-[#741f28]">
+                {" "}
+                to develop software
+              </span>
             </p>
             <p className="font-extralight text-justify">
-              We add development capacity to tech teams. Our value isn’t limited
-              to building teams but is equally distributed across the project
-              lifecycle. We are a custom software development company that
-              guarantees the successful delivery of your project.
+              With a proven track record of delivering high-quality software
+              solutions, we have earned the trust of industry leaders across
+              various sectors. Our commitment to excellence is reflected in our
+              portfolio of successful projects, where we consistently meet and
+              exceed the expectations of our clients. By choosing us, these
+              top-tier companies gain a strategic partner who brings innovative
+              ideas to life through cutting-edge technology and tailored
+              software development services. Our focus on reliability,
+              scalability, and security ensures that our clients stay ahead in
+              the competitive digital landscape.
             </p>
-            <p className="text-[#741f28]">See more Information</p>
+            <Link href="/projects">
+              <p className="text-[#741f28]">See more</p>
+            </Link>
           </div>
           <div className="w-full h-64 md:h-full relative">
             <Image

@@ -5,6 +5,7 @@ import Links from "./ui/links";
 import Image from "next/image";
 import sailogo from "../public/small-logo.png";
 import Link from "next/link";
+import MailtoLink from "./ui/mailto";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -63,7 +64,7 @@ export const Navbar = () => {
 
       <div className="hidden md:flex items-center gap-6">
         <Links />
-        <Button>Contact us</Button>
+        <Button><MailtoLink /></Button>
       </div>
 
       <div

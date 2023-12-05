@@ -12,16 +12,16 @@ const RecentProjects = () => {
         </p>
       </div>
       <RecentProjectCard
-        title="hello"
-        body="iueshrgfuiewhgf woieurfgh ew9rfh woeirufg wiuoefhrowieruf guh iueshrgfuiewhgf woieurfgh ew9rfh woeirufg wiuoefhrowieruf guh iueshrgfuiewhgf woieurfgh ew9rfh woeirufg wiuoefhrowieruf guh iueshrgfuiewhgf woieurfgh ew9rfh woeirufg wiuoefhrowieruf guh iueshrgfuiewhgf woieurfgh ew9rfh woeirufg wiuoefhrowieruf guh iueshrgfuiewhgf woieurfgh ew9rfh woeirufg wiuoefhrowieruf guh "
-        link="/test"
-        imageSrc="/customer-logos/mastercard.png"
+        title="Agriconnect"
+        body="Join Agriconnect, where education meets innovation, and every connection opens doors to new opportunities. Our platform is meticulously engineered to streamline educational processes, foster growth for organizations, and unlock the full potential of students and institutions alike. Embrace the future with us—where learning is limitless, and your journey to success is supported every step of the way."
+        link="https://www.agriconnectghana.com/"
+        imageSrc="/project-thumbnail/agriconnect.png"
       />
       <RecentProjectCard
-        title="hello"
-        body="iueshrgfuiewhgf woieurfgh ew9rfh woeirufg wiuoefhrowieruf guh iueshrgfuiewhgf woieurfgh ew9rfh woeirufg wiuoefhrowieruf guh iueshrgfuiewhgf woieurfgh ew9rfh woeirufg wiuoefhrowieruf guh iueshrgfuiewhgf woieurfgh ew9rfh woeirufg wiuoefhrowieruf guh iueshrgfuiewhgf woieurfgh ew9rfh woeirufg wiuoefhrowieruf guh iueshrgfuiewhgf woieurfgh ew9rfh woeirufg wiuoefhrowieruf guh "
-        link="/test"
-        imageSrc="/customer-logos/mastercard.png"
+        title="Furddle"
+        body="At SAI Technology, we specialize in crafting tailored web experiences, like Furddle – a vibrant online hub for pet lovers. Our web development expertise brings communities together through intuitive design and engaging features, allowing users to share and celebrate their pets with ease."
+        link="https://furddle.com/"
+        imageSrc="/project-thumbnail/furddle.png"
       />
     </div>
   );
