@@ -21,7 +21,7 @@ const Links = () => {
           Home
         </p>
       </Link>
-      <Link href="/projects">
+      {/* <Link href="/projects">
         <p
           className={`${
             isActive("/projects")
@@ -31,7 +31,7 @@ const Links = () => {
         >
           Projects
         </p>
-      </Link>
+      </Link> */}
     </div>
   );
 };

@@ -34,7 +34,7 @@ const TechStack = () => {
       </div>
       <div className="px-20 flex items-center justify-center">
         <TabGroup defaultIndex={0}>
-          <TabList className="mt-8 flex items-center justify-center">
+          <TabList className="mt-8 flex items-center justify-center flex-wrap">
             <Tab>Backend</Tab>
             <Tab>Frontend</Tab>
             <Tab>Databases</Tab>
