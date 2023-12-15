@@ -23,24 +23,27 @@ const CustomerReviews = () => {
             working with us
           </p>
           <div className="flex w-full flex-col md:flex-row">
-          <div className="w-full md:w-1/5 md:flex justify-center hidden">
+            <div className="w-full md:w-1/5 md:flex justify-center hidden">
               <RiSingleQuotesL color="#741f28" size="4em" />
             </div>
             <p className="text-center text-lg text-gray-500 px-4 md:px-0 md:pt-20">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
-         
-              consequat.
+              SAI Technology has demonstrated exceptional adaptability and
+              professionalism in their collaboration with us. They consistently
+              meet heightened demands with commendable resilience and
+              efficiency. Our engagement has been notably productive and
+              gratifying.
             </p>
             <div className="w-full md:w-1/5 md:flex justify-center hidden">
               <RiSingleQuotesR color="#741f28" size="4em" />
             </div>
           </div>
           <div className="pt-10 items-center justify-center text-center">
-            <p className=" text-xl md:text-3xl font-bold text-[#741f28]">Shareef Ali</p>
-            <p className="text-sm md:text-base text-gray-500 font-light">CEO SAI Technology</p>
+            <p className=" text-xl md:text-3xl font-bold text-[#741f28]">
+              Ebo Bentsil
+            </p>
+            <p className="text-sm md:text-base text-gray-500 font-light">
+              CEO Lucid Array
+            </p>
           </div>
         </div>
       </div>
