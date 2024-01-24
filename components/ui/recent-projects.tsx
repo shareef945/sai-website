@@ -23,6 +23,12 @@ const RecentProjects = () => {
         link="https://furddle.com/"
         imageSrc="/project-thumbnail/furddle.png"
       />
+      <RecentProjectCard
+        title="DriganoStruct"
+        body="At SAI Technology, we excel in creating bespoke digital platforms, such as our recent project for a prestigious architectural firm. Leveraging our web development prowess, we delivered a sophisticated website complete with a custom CMS, enabling seamless portfolio updates and content management to showcase their architectural mastery."
+        link="https://driganosstruct.com/"
+        imageSrc="/project-thumbnail/driganostruct.png"
+      />
     </div>
   );
 };
