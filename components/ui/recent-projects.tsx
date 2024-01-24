@@ -26,7 +26,7 @@ const RecentProjects = () => {
       <RecentProjectCard
         title="DriganoStruct"
         body="At SAI Technology, we excel in creating bespoke digital platforms, such as our recent project for a prestigious architectural firm. Leveraging our web development prowess, we delivered a sophisticated website complete with a custom CMS, enabling seamless portfolio updates and content management to showcase their architectural mastery."
-        link="https://driganosstruct.com/"
+        link="https://driganostruct.com/"
         imageSrc="/project-thumbnail/driganostruct.png"
       />
     </div>
