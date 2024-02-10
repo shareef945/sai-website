@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="flex flex-col">
           <div className="flex gap-4">
           <p>About</p>
-          <a href="https://api.saitechnology.co/">Developer</a>
+          <a className='hover:underline' href="https://api.saitechnology.co/">Developer</a>
           </div>
           <p className="font-extralight text-xs sm:text-sm">
            2023 All rights reserved. Powered by SAI Technology  © 
