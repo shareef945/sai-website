@@ -29,6 +29,12 @@ const RecentProjects = () => {
         link="https://driganostruct.com/"
         imageSrc="/project-thumbnail/driganostruct.png"
       />
+      <RecentProjectCard
+        title="Falcon"
+        body="We crafted a robust loan management system tailored for a microfinance institution in Ghana. Our solution streamlines loan processes and offers additional services to enhance efficiency in financial operations."
+        link="https://sairesources.netlify.app/"
+        imageSrc="/project-thumbnail/falcon.png"
+      />
     </div>
   );
 };
