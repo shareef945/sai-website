@@ -3,11 +3,11 @@ import RecentProjectCard from "./recent-project-card";
 
 const RecentProjects = () => {
   return (
-    <div className="h-full bg-[#BF212E] bg-opacity-5 border-t border-b border-[#741F26] pb-20">
+    <div className="h-full border-b border-t border-[#741F26] bg-[#BF212E] bg-opacity-5 pb-20">
       <div className="flex flex-col items-center gap-6 py-20">
-        <div className="h-2 bg-[#741f28] w-20"></div>
-        <p className="text-3xl font-extralight text-center">Our recent</p>
-        <p className="font-bold text-[#741f28] text-center text-3xl">
+        <div className="h-2 w-20 bg-[#741f28]"></div>
+        <p className="text-center text-3xl font-extralight">Our recent</p>
+        <p className="text-center text-3xl font-bold text-[#741f28]">
           Projects
         </p>
       </div>
@@ -34,6 +34,12 @@ const RecentProjects = () => {
         body="We crafted a robust loan management system tailored for a microfinance institution in Ghana. Our solution streamlines loan processes and offers additional services to enhance efficiency in financial operations."
         link="https://sairesources.netlify.app/"
         imageSrc="/project-thumbnail/falcon.png"
+      />
+      <RecentProjectCard
+        title="Boxbites"
+        body="BoxBites, a trailblazer in the food industry, offers a unique combination of local pepper delicacies and convenient vending machine services. We designed their website with Webflow, providing an intuitive user interface and a powerful CMS that empowers them to manage content and update their vending machine locations with ease."
+        link="https://boxbites.webflow.io/"
+        imageSrc="/project-thumbnail/boxbites.png"
       />
     </div>
   );
