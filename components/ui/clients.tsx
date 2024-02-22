@@ -55,19 +55,21 @@ const Clients = () => {
           </p>
         </div>
       </div>
-      <div className="h-[200px] bg-[#BF212E] bg-opacity-5 border-t border-b border-[#741F26] flex items-center py-8 gap-12 overflow-x-auto justify-center">
-        <CustomerLogos
-          imagePaths={[
-            "/customer-logos/boxbites.png",
-            "/customer-logos/drigano.png",
-            "/customer-logos/furddle.png",
-            "/customer-logos/mastercard.png",
-            "/customer-logos/munchies.png",
-            "/customer-logos/sensory-play.png",
-            "/customer-logos/softtribe.png",
-            "/customer-logos/lucidarray.png",
-          ]}
-        />
+      <div className="overflow-x-auto">
+        <div className="h-[200px] bg-[#BF212E] bg-opacity-5 border-t border-b border-[#741F26] flex items-center py-8 gap-12 justify-center">
+          <CustomerLogos
+            imagePaths={[
+              "/customer-logos/boxbites.png",
+              "/customer-logos/drigano.png",
+              "/customer-logos/furddle.png",
+              "/customer-logos/mastercard.png",
+              "/customer-logos/munchies.png",
+              "/customer-logos/sensory-play.png",
+              "/customer-logos/softtribe.png",
+              "/customer-logos/lucidarray.png",
+            ]}
+          />
+        </div>
       </div>
     </div>
   );
