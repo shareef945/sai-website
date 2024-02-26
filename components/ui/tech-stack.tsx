@@ -20,9 +20,12 @@ import express from "../../public/tech-stack/express.png";
 import flask from "../../public/tech-stack/flask.png";
 import django from "../../public/tech-stack/django.png";
 import nestJs from "../../public/tech-stack/nest.png";
+import wordpress from "../../public/tech-stack/wordpress.png";
+import webflow from "../../public/tech-stack/webflow.svg";
 
 const TechStack = () => {
-  const logoContainerClass = "flex justify-center items-center gap-12 mt-20 flex-wrap";
+  const logoContainerClass =
+    "flex justify-center items-center gap-12 mt-20 flex-wrap";
 
   return (
     <section className="h-1/2 flex flex-col border py-20">
@@ -86,6 +89,18 @@ const TechStack = () => {
                   width={150}
                   height={150}
                   alt="Next.js logo"
+                />
+                <Image
+                  src={webflow}
+                  width={150}
+                  height={150}
+                  alt="webflow logo"
+                />
+                <Image
+                  src={wordpress}
+                  width={150}
+                  height={150}
+                  alt="wordpress logo"
                 />
               </div>
             </TabPanel>
