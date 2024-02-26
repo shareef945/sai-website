@@ -19,6 +19,7 @@ import docker from "../../public/tech-stack/docker.png";
 import express from "../../public/tech-stack/express.png";
 import flask from "../../public/tech-stack/flask.png";
 import django from "../../public/tech-stack/django.png";
+import nestJs from "../../public/tech-stack/nest.png";
 
 const TechStack = () => {
   const logoContainerClass = "flex justify-center items-center gap-12 mt-20 flex-wrap";
@@ -58,6 +59,12 @@ const TechStack = () => {
                 />
                 <Image
                   src={python}
+                  width={150}
+                  height={150}
+                  alt="Python logo"
+                />
+                <Image
+                  src={nestJs}
                   width={150}
                   height={150}
                   alt="Python logo"
