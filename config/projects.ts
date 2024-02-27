@@ -1,0 +1,42 @@
+export const projects = [
+  {
+    title: "Agriconnect",
+    body: "Join Agriconnect, where education meets innovation, and every connection opens doors to new opportunities. Our platform is meticulously engineered to streamline educational processes, foster growth for organizations, and unlock the full potential of students and institutions alike. Embrace the future with us—where learning is limitless, and your journey to success is supported every step of the way.",
+    imageSrc: "/project-thumbnail/agriconnect.png",
+    link: "https://www.agriconnectghana.com/",
+    tags: ["#Web App", "#NextJS", "#React", "#NodeJS"],
+    date: "April 2023",
+  },
+  {
+    title: "Furddle",
+    body: "At SAI Technology, we specialize in crafting tailored web experiences, like Furddle – a vibrant online hub for pet lovers. Our web development expertise brings communities together through intuitive design and engaging features, allowing users to share and celebrate their pets with ease.",
+    imageSrc: "/project-thumbnail/furddle.png",
+    link: "https://furddle.com/",
+    tags: ["#Wordpress"],
+    date: "July 2023",
+  },
+  {
+    title: "DriganoStruct",
+    body: "At SAI Technology, we excel in creating bespoke digital platforms, such as our recent project for a prestigious architectural firm. Leveraging our web development prowess, we delivered a sophisticated website complete with a custom CMS, enabling seamless portfolio updates and content management to showcase their architectural mastery.",
+    imageSrc: "/project-thumbnail/driganostruct.png",
+    link: "https://driganostruct.com/",
+    tags: ["#Webflow"],
+    date: "Janurary 2024",
+  },
+  {
+    title: "Falcon",
+    body: "We crafted a robust loan management system tailored for a microfinance institution in Ghana. Our solution streamlines loan processes and offers additional services to enhance efficiency in financial operations.",
+    imageSrc: "/project-thumbnail/falcon.png",
+    link: "https://sairesources.netlify.app/",
+    tags: ["#React", "#NextJS", "#NodeJS", "#MongoDB"],
+    date: "October 2022",
+  },
+  {
+    title: "Boxbites",
+    body: "BoxBites, a trailblazer in the food industry, offers a unique combination of local pepper delicacies and convenient vending machine services. We designed their website with Webflow, providing an intuitive user interface and a powerful CMS that empowers them to manage content and update their vending machine locations with ease.",
+    imageSrc: "/project-thumbnail/boxbites.png",
+    link: "https://boxbites.webflow.io/",
+    tags: ["#Webflow", "CMS"],
+    date: "Feburary 2024",
+  },
+];
