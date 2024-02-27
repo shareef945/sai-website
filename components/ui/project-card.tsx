@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { Card } from "./card";
 
 const ProjectCard = ({
   title,
@@ -15,28 +16,55 @@ const ProjectCard = ({
   imageSrc: string;
   tags: string[];
 }) => {
-  return (
-    <div className="flex flex-col border rounded-lg border-[#741f28] w-full max-w-sm shadow-sm">
-    <div className="relative w-full h-0 pb-[100%]">
-      <Link href={link}>
-          <Image src={imageSrc} alt="image" layout="fill" objectFit="cover" />
-      </Link>
-    </div>
-    <div className="flex border-t flex-col p-4 gap-2 border-[#741f28] bg-[#BF212E] bg-opacity-5">
-      <Link href={link}>
-          <p className="text-[#741f28] text-xl font-semibold">{title}</p>
-          <p className="text-light text-gray-500">{body}</p>
-          <div className="text-light text-gray-500 text-xs flex gap-1">
-            {tags.map((tag, index) => (
-              <p key={index} className="py-1">
-                {tag}
-              </p>
-            ))}
-          </div>
+  function ChevronRightIcon(props: any) {
+    return (
+      <svg
+        {...props}
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="m9 18 6-6-6-6" />
+      </svg>
+    );
+  }
 
-      </Link>
-    </div>
-  </div>
+  return (
+    <Card className="w-full max-w-sm rounded-xl border">
+      <img
+        alt="Neumorphism UI Kit Image"
+        className="object-cover rounded-t-xl"
+        height={200}
+        src={imageSrc}
+        style={{
+          aspectRatio: "null/200",
+          objectFit: "cover",
+        }}
+        // width={null}
+      />
+      <div className="grid gap-4 p-6">
+        <h3 className="text-lg font-bold text-[#741F26]">{title}</h3>
+        <p className="text-sm leading-none text-gray-500">
+          {tags.join(", ")}
+        </p>{" "}
+        <p className="text-sm leading-none">{body}</p>
+        <div className="flex items-center gap-2">
+          <Link
+            className="text-sm font-medium flex items-center gap-1 text-[#741F26]"
+            href={link}
+          >
+            View
+            <ChevronRightIcon className="w-4 h-4" />
+          </Link>
+        </div>
+      </div>
+    </Card>
   );
 };
 
