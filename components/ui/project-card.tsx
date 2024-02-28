@@ -9,12 +9,14 @@ const ProjectCard = ({
   link,
   imageSrc,
   tags,
+  date,
 }: {
   title: string;
   body: string;
   link: string;
   imageSrc: string;
   tags: string[];
+  date: string;
 }) => {
   function ChevronRightIcon(props: any) {
     return (
@@ -48,7 +50,10 @@ const ProjectCard = ({
         />
       </Link>
       <div className="grid gap-4 p-6">
-        <h3 className="text-lg font-bold text-[#741F26]">{title}</h3>
+        <div className="flex items-center gap-1">
+          <h3 className="text-lg font-bold text-[#741F26]">{title}</h3>
+          <p className="text-gray-500 text-xs">- {date}</p>
+        </div>
         <p className="text-sm leading-none text-gray-500">{tags.join(", ")}</p>
         <p className="text-sm leading-none">{body}</p>
         <div className="flex items-center gap-2">
