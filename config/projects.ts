@@ -39,4 +39,12 @@ export const projects = [
     tags: ["#Webflow", "CMS"],
     date: "Feburary 2024",
   },
+  {
+    title: "Swift Transport",
+    body: "SAI Technology has innovated public transit with a multifaceted platform that simplifies ticket purchases, vehicle management, and logistics coordination. Our solution spans a user-friendly website, a versatile web app, comprehensive mobile applications, and accessible USSD service, complemented by a robust API for seamless third-party integration. We're driving forward the future of transport accessibility and efficiency.",
+    imageSrc: "/project-thumbnail/swift-transport.png",
+    link: "https://swifttransport.app/",
+    tags: ["#Web App", "#Mobile App", "#USSD", "#API"],
+    date: "March 2024",
+  },
 ];
