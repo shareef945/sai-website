@@ -6,7 +6,7 @@ import Footer from "@/components/ui/footer";
 const Projects = () => {
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center py-40 md:px-40 px-20 gap-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center py-40 md:px-40 px-10 gap-20">
         {projects.map((project) => (
           <ProjectCard
             title={project.title}

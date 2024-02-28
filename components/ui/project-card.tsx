@@ -37,22 +37,19 @@ const ProjectCard = ({
 
   return (
     <Card className="w-full max-w-sm rounded-xl border">
-      <img
-        alt="Neumorphism UI Kit Image"
-        className="object-cover rounded-t-xl"
-        height={200}
-        src={imageSrc}
-        style={{
-          aspectRatio: "null/200",
-          objectFit: "cover",
-        }}
-        // width={null}
-      />
+      <Link href={link}>
+        <Image
+          alt="Neumorphism UI Kit Image"
+          className="object-cover rounded-t-xl"
+          height={200}
+          width={500}
+          src={imageSrc}
+          loading="eager"
+        />
+      </Link>
       <div className="grid gap-4 p-6">
         <h3 className="text-lg font-bold text-[#741F26]">{title}</h3>
-        <p className="text-sm leading-none text-gray-500">
-          {tags.join(", ")}
-        </p>{" "}
+        <p className="text-sm leading-none text-gray-500">{tags.join(", ")}</p>
         <p className="text-sm leading-none">{body}</p>
         <div className="flex items-center gap-2">
           <Link
