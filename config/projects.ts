@@ -47,4 +47,12 @@ export const projects = [
     tags: ["#Web App", "#Mobile App", "#USSD", "#API"],
     date: "March 2024",
   },
+  {
+    title: "Precision Engravings",
+    body: "Precision Engravings, a cutting-edge e-commerce store, specializes in custom laser-engraved NFC cards. Developed on Shopify, our platform offers a streamlined shopping experience, allowing customers to personalize NFC cards with precision and ease, while also ensuring secure and efficient online transactions.",
+    imageSrc: "/project-thumbnail/precision.png",
+    link: "https://precisionengravings.store/",
+    tags: ["#Ecommerce", "#Shopify", "#Web App"],
+    date: "Feburary 2024",
+  },
 ];
