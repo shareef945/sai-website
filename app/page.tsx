@@ -9,6 +9,7 @@ import Footer from "@/components/ui/footer";
 import DevelopmentProcess from "@/components/ui/development-process";
 import TechStack from "@/components/ui/tech-stack";
 import RecentProjects from "@/components/ui/recent-projects";
+import HubspotContactForm from "@/components/ui/form";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <RecentProjects />
       <TechStack />
       <DevelopmentProcess />
+      <HubspotContactForm />
       <Footer />
     </>
   );
