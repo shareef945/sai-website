@@ -40,6 +40,7 @@ const Clients = () => {
               layout="fill"
               objectFit="cover"
               className="rounded-lg"
+              loading="eager"
             />
           </div>
         </div>

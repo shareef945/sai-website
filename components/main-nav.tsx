@@ -37,7 +37,7 @@ export const Navbar = () => {
       <div className="flex items-center">
         <Link href={"/"}>
           <p>
-            <Image src={sailogo} width={50} height={50} alt="Sai logo" />
+            <Image src={sailogo} width={50} height={50} alt="Sai logo" loading="eager" />
           </p>
         </Link>
       </div>

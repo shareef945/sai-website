@@ -26,7 +26,13 @@ const Landing = () => {
           </Button>
         </div>
         <div className="flex justify-center md:justify-start">
-          <Image src={brain} width={850} height={850} alt="picture of brain" />
+          <Image
+            src={brain}
+            width={850}
+            height={850}
+            alt="picture of brain"
+            loading="eager"
+          />
         </div>
       </div>
     </main>
