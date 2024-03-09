@@ -12,6 +12,8 @@ COPY . .
 
 RUN pnpm build
 
+RUN pnpm export -o /out
+
 EXPOSE 3000
 
 CMD ["pnpm", "start"]
