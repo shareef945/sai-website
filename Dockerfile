@@ -12,7 +12,7 @@ COPY . .
 
 RUN pnpm build
 
-RUN pnpm export -o /out
+RUN pnpm next export -o /out
 
 EXPOSE 3000
 
