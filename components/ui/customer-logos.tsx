@@ -18,6 +18,7 @@ const CustomerLogos: React.FC<CustomerLogosProps> = ({ imagePaths }) => {
           width={80}
           height={80}
           alt={`Customer logo ${index + 1}`}
+          loading="eager"
         />
       ))}
     </div>

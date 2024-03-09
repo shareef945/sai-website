@@ -53,54 +53,74 @@ const TechStack = () => {
                   width={150}
                   height={150}
                   alt="Node.js logo"
+                  loading="eager"
                 />
                 <Image
                   src={express}
                   width={150}
                   height={150}
                   alt="express logo"
+                  loading="eager"
                 />
                 <Image
                   src={python}
                   width={150}
                   height={150}
                   alt="Python logo"
+                  loading="eager"
                 />
                 <Image
                   src={nestJs}
                   width={150}
                   height={150}
                   alt="Python logo"
+                  loading="eager"
                 />
-                <Image src={flask} width={150} height={150} alt="flask logo" />
+                <Image
+                  src={flask}
+                  width={150}
+                  height={150}
+                  alt="flask logo"
+                  loading="eager"
+                />
                 <Image
                   src={django}
                   width={150}
                   height={150}
                   alt="django logo"
+                  loading="eager"
                 />
               </div>
             </TabPanel>
             <TabPanel>
               <div className={logoContainerClass}>
-                <Image src={react} width={150} height={150} alt="React logo" />
+                <Image
+                  src={react}
+                  width={150}
+                  height={150}
+                  alt="React logo"
+                  loading="eager"
+                />
                 <Image
                   src={nextjs}
                   width={150}
                   height={150}
                   alt="Next.js logo"
+                  loading="eager"
                 />
                 <Image
                   src={webflow}
                   width={150}
                   height={150}
                   alt="webflow logo"
+                  loading="eager"
                 />
                 <Image
                   src={wordpress}
                   width={150}
                   height={150}
                   alt="wordpress logo"
+                  loading="eager"
                 />
               </div>
             </TabPanel>
@@ -111,20 +131,35 @@ const TechStack = () => {
                   width={150}
                   height={150}
                   alt="Supabase logo"
+                  loading="eager"
                 />
                 <Image
                   src={firebase}
                   width={150}
                   height={150}
                   alt="Firebase logo"
+                  loading="eager"
                 />
-                <Image src={mysql} width={150} height={150} alt="MySQL logo" />
-                <Image src={redis} width={150} height={150} alt="Redis logo" />
+                <Image
+                  src={mysql}
+                  width={150}
+                  height={150}
+                  alt="MySQL logo"
+                  loading="eager"
+                />
+                <Image
+                  src={redis}
+                  width={150}
+                  height={150}
+                  alt="Redis logo"
+                  loading="eager"
+                />
                 <Image
                   src={mongo}
                   width={150}
                   height={150}
                   alt="MongoDB logo"
+                  loading="eager"
                 />
               </div>
             </TabPanel>
@@ -135,35 +170,46 @@ const TechStack = () => {
                   width={150}
                   height={150}
                   alt="Google Cloud logo"
+                  loading="eager"
                 />
                 <Image
                   src={vercel}
                   width={150}
                   height={150}
                   alt="Vercel logo"
+                  loading="eager"
                 />
                 <Image
                   src={digitalocean}
                   width={150}
                   height={150}
                   alt="DigitalOcean logo"
+                  loading="eager"
                 />
               </div>
             </TabPanel>
             <TabPanel>
               <div className={logoContainerClass}>
-                <Image src={linux} width={150} height={150} alt="Linux logo" />
+                <Image
+                  src={linux}
+                  width={150}
+                  height={150}
+                  alt="Linux logo"
+                  loading="eager"
+                />
                 <Image
                   src={github}
                   width={150}
                   height={150}
                   alt="GitHub logo"
+                  loading="eager"
                 />
                 <Image
                   src={docker}
                   width={150}
                   height={150}
                   alt="Docker logo"
+                  loading="eager"
                 />
               </div>
             </TabPanel>

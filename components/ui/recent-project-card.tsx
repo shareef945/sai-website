@@ -16,7 +16,14 @@ const RecentProjectCard = ({
     <div className="flex flex-col sm:flex-row px-4 sm:px-10 lg:px-40 py-4 items-center sm:items-stretch">
       <div className="border flex flex-col sm:flex-row bg-white rounded-lg p-6 sm:p-12 gap-4 sm:gap-10 ">
         <div className="mb-4 sm:mb-0 w-full sm:w-1/3">
-          <Image src={imageSrc} layout="responsive" width={700} height={475} alt="image" />
+          <Image
+            src={imageSrc}
+            layout="responsive"
+            width={700}
+            height={475}
+            alt="image"
+            loading="eager"
+          />
         </div>
         <div className="flex flex-col justify-between flex-grow w-full sm:w-1/2">
           <div>
