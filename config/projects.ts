@@ -1,5 +1,13 @@
 export const projects = [
   {
+    title: "Techsgiving",
+    body: "Techsgiving represents our dedication to empowering communities through technology. We've built a responsive CMS website with Webflow, offering our client a seamless, adaptable online platform. This project showcases our commitment to creating user-friendly, visually appealing websites that maintain functionality across all devices.",
+    imageSrc: "/project-thumbnail/techsgiving.png",
+    link: "https://www.techsgiving.org/",
+    tags: ["#Web App", "#Webflow", "#CMS"],
+    date: "May 2024",
+  },
+  {
     title: "Agriconnect",
     body: "Join Agriconnect, where education meets innovation, and every connection opens doors to new opportunities. Our platform is meticulously engineered to streamline educational processes, foster growth for organizations, and unlock the full potential of students and institutions alike. Embrace the future with us—where learning is limitless, and your journey to success is supported every step of the way.",
     imageSrc: "/project-thumbnail/agriconnect.png",
