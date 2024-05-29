@@ -43,7 +43,7 @@ export const projects = [
     title: "Boxbites",
     body: "BoxBites, a trailblazer in the food industry, offers a unique combination of local pepper delicacies and convenient vending machine services. We designed their website with Webflow, providing an intuitive user interface and a powerful CMS that empowers them to manage content and update their vending machine locations with ease.",
     imageSrc: "/project-thumbnail/boxbites.png",
-    link: "https://boxbites.webflow.io/",
+    link: "https://boxbitesghana.com/",
     tags: ["#Webflow", "CMS"],
     date: "Feburary 2024",
   },
