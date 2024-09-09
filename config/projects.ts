@@ -63,4 +63,12 @@ export const projects = [
     tags: ["#Ecommerce", "#Shopify", "#Web App"],
     date: "Feburary 2024",
   },
+  {
+    title: "CH | GH",
+    body: "CH|GH is a luxury watch brand based in Accra, Ghana. We crafted a refined online presence to showcase their premium Swiss watches and expert services, offering a seamless experience for watch enthusiasts across West Africa and beyond.",
+    imageSrc: "/project-thumbnail/chgh.png",
+    link: "https://chgh.org/",
+    tags: ["#WordPress", "#LuxuryWatches"],
+    date: "August 2024",
+  },
 ];
