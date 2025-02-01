@@ -1,17 +1,31 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
+import { RequestDialog } from "./request-dialog";
+import { Button } from "./button";
 
 const MailtoLink = () => {
-  const scrollToForm = (e: any) => {
-    e.preventDefault();
-    const formElement = document.getElementById("hubspotForm");
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-    if (formElement) {
-      formElement.scrollIntoView({ behavior: "smooth" });
-    }
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDialogOpen(true);
   };
 
-  return <a onClick={scrollToForm}>Submit a request</a>;
+  return (
+    <>
+      <button
+        onClick={handleClick}
+        className="text-base  font-medium text-white"
+      >
+        Submit a request
+      </button>
+      <RequestDialog
+        isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+      />
+    </>
+  );
 };
 
 export default MailtoLink;
