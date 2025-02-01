@@ -1,18 +1,23 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import ServiceCard from "@/components/service-card";
-import { services } from "@/config/services";
-import MailtoLink from "@/components/ui/mailto";
 import Hero from "@/components/Hero";
 import Companies from "@/components/Companies";
 import ServicesComponent from "@/components/ServiceComponent";
+import Stats from "@/components/Stats";
+import Timeline  from "@/components/Timeline";
+import Testimonials from "@/components/Testimonials";
+import TechStack from "@/components/TechStack";
+import { GridBackground } from "@/components/GricBackground";
 
 export default function Page() {
   return (
     <>
+    <GridBackground/>
       <Hero />
       <Companies />
       <ServicesComponent />
+      <Stats/>
+      <Timeline/>
+      <Testimonials/>
+      {/* <TechStack/> */}
     </>
   );
 }

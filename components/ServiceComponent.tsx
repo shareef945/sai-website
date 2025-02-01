@@ -7,6 +7,10 @@ import {
   MessageSquare,
 } from "lucide-react";
 import Laptop from "./icons/Laptop";
+import Phone from "./icons/Phone";
+import Connect from "./icons/Connect";
+import React from "react";
+import Dashboard from "./icons/Dashboard";
 
 export default function ServicesComponent() {
   const services = [
@@ -15,25 +19,28 @@ export default function ServicesComponent() {
       description:
         "Crafting visually stunning and user-friendly websites tailored to your brand's needs.",
       icon: Laptop,
+      gridBackground: true,
     },
     {
-      title: "Mobile App Design & Development",
+      title: "Mobile App Development",
       description:
         "Creating intuitive and impactful mobile applications for iOS and Android platforms.",
-      icon: Smartphone,
+      icon: Phone,
       codeSnippet: true,
     },
     {
       title: "API Development and Integration",
       description:
         "Developing scalable and secure APIs to extend the functionality of your digital products.",
-      icon: Database,
+      icon: Connect,
+      gridBackground: true,
+      centerGrid: true,
     },
     {
       title: "Software Testing and Quality Assurance",
       description:
         "Ensuring the highest quality software with comprehensive testing services.",
-      icon: Target,
+      icon: Dashboard,
       concentric: true,
     },
     {
@@ -42,6 +49,7 @@ export default function ServicesComponent() {
         "Creating intuitive and impactful mobile applications for iOS and Android platforms.",
       icon: Cpu,
       grid: true,
+      gridBackground: true,
     },
     {
       title: "IT Consulting",
@@ -52,13 +60,38 @@ export default function ServicesComponent() {
   ];
 
   return (
-    <div className="flex justify-center w-full">
+    <div className="flex flex-col items-center justify-center mt-14 w-full mb-32">
+      <h1 className="text-[50px] font-medium text-center text-white">
+        Services we Offer
+      </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-4 max-w-[72rem] h-[47.5625rem] ">
-        {services.map((service, index) => (
+        {services.map((service: any, index: number) => (
           <div
             key={index}
-            className="relative p-6 bg-[#212121] rounded-lg overflow-hidden"
+            className="relative p-6 bg-[#191919] rounded-lg overflow-hidden"
           >
+            {service.gridBackground && (
+              <div className="absolute inset-0">
+                <div
+                  className="absolute inset-0 opacity-30"
+                  style={{
+                    backgroundImage: `
+                      repeating-linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 1px, transparent 1px, transparent 20px),
+                      repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 1px, transparent 1px, transparent 20px)
+                    `,
+                  }}
+                >
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background: service.centerGrid
+                        ? "radial-gradient(circle at center, rgba(33, 33, 33, 0) 0%, rgba(33, 33, 33, 0.7) 60%, rgba(33, 33, 33, 1) 100%)"
+                        : "linear-gradient(to top, rgba(33, 33, 33, 0) 0%, rgba(33, 33, 33, 0.7) 60%, rgba(33, 33, 33, 1) 100%)",
+                    }}
+                  />
+                </div>
+              </div>
+            )}
             {service.grid && (
               <div className="absolute inset-0 opacity-20">
                 <div className="grid grid-cols-8 gap-4 p-4">
@@ -107,10 +140,10 @@ function updateGutters() {
             )}
             <div className="relative flex flex-col items-center h-full">
               <div>
-                <h2 className="text-xl font-semibold text-white mb-2 text-center">
+                <h2 className="text-xl font-semibold text-white mb-2 text-left">
                   {service.title}
                 </h2>
-                <p className="text-gray-400 text-sm text-center mb-8">
+                <p className="text-gray-400 text-sm text-left mb-8">
                   {service.description}
                 </p>
               </div>

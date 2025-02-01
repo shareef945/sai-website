@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { RequestDialog } from "./request-dialog";
+import { Button } from "./button";
 
 const MailtoLink = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -15,7 +16,7 @@ const MailtoLink = () => {
     <>
       <button
         onClick={handleClick}
-        className="text-base font-medium text-white"
+        className="text-base  font-medium text-white"
       >
         Submit a request
       </button>

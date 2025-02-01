@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const COMPANY_LOGOS = [
   "/comp1.svg",
@@ -15,27 +15,49 @@ const COMPANY_LOGOS = [
 ] as const;
 
 export default function Companies() {
-  const [position, setPosition] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setPosition((prev) => (prev + 1) % (COMPANY_LOGOS.length * 158)); // Use actual logo width
-    }, 50);
-    return () => clearInterval(interval);
-  }, []);
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    let scrollInterval: NodeJS.Timeout;
+
+    const startScroll = () => {
+      scrollInterval = setInterval(() => {
+        if (!isHovered && scrollContainer) {
+          scrollContainer.scrollLeft += 1;
+          
+          // Reset scroll position when reaching the end
+          if (scrollContainer.scrollLeft >= (scrollContainer.scrollWidth - scrollContainer.clientWidth) / 2) {
+            scrollContainer.scrollLeft = 0;
+          }
+        }
+      }, 20);
+    };
+
+    startScroll();
+
+    return () => {
+      if (scrollInterval) {
+        clearInterval(scrollInterval);
+      }
+    };
+  }, [isHovered]);
 
   return (
     <section className="py-12 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-6">
         <div className="relative overflow-hidden">
-          <div
-            className="relative flex items-center gap-0 [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] transition-transform duration-50"
-            style={{
-              transform: `translateX(-${position}px)`,
-            }}
+          <div 
+            ref={scrollRef}
+            className="flex items-center overflow-x-hidden scroll-smooth [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
-            {[...COMPANY_LOGOS, ...COMPANY_LOGOS].map((logo, i) => (
-              <div key={i} className="h-16 min-w-[250px] flex-shrink-0">
+            {[...COMPANY_LOGOS, ...COMPANY_LOGOS, ...COMPANY_LOGOS].map((logo, i) => (
+              <div key={i} className="h-16 min-w-[200px] flex-shrink-0 px-4">
                 <Image
                   src={logo}
                   alt={`Company Logo ${i + 1}`}
@@ -47,7 +69,7 @@ export default function Companies() {
             ))}
           </div>
         </div>
-        <p className="text-center text-gray-400 mt-6 text-sm">
+        <p className="text-center text-gray-300 mt-10 text-sm">
           Trusted by fast-growing companies worldwide
         </p>
       </div>

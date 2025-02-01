@@ -1,28 +1,33 @@
-"use client"
-import React, { useState, useEffect, useRef } from "react"
-import { Button } from "@/components/ui/button"
-import Links from "./ui/links"
-import Image from "next/image"
-import Link from "next/link"
-import MailtoLink from "./ui/mailto"
+"use client";
+import React, { useState, useEffect, useRef } from "react";
+import { Button } from "@/components/ui/button";
+import Links from "./ui/links";
+import Image from "next/image";
+import Link from "next/link";
+import MailtoLink from "./ui/mailto";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog";
 
 export const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const navRef = useRef<HTMLDivElement>(null)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const closeMenu = (event: MouseEvent) => {
-      if (isMenuOpen && navRef.current && !navRef.current.contains(event.target as Node)) {
-        setIsMenuOpen(false)
+      if (
+        isMenuOpen &&
+        navRef.current &&
+        !navRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
       }
-    }
+    };
 
-    document.addEventListener("mousedown", closeMenu)
+    document.addEventListener("mousedown", closeMenu);
 
     return () => {
-      document.removeEventListener("mousedown", closeMenu)
-    }
-  }, [isMenuOpen])
+      document.removeEventListener("mousedown", closeMenu);
+    };
+  }, [isMenuOpen]);
 
   return (
     <nav
@@ -36,7 +41,10 @@ export const Navbar = () => {
       </div>
 
       <div className="md:hidden">
-        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white">
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="text-white"
+        >
           <svg
             className="h-6 w-6"
             fill="none"
@@ -46,16 +54,28 @@ export const Navbar = () => {
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            {isMenuOpen ? <path d="M6 18L18 6M6 6l12 12" /> : <path d="M4 6h16M4 12h16M4 18h16" />}
+            {isMenuOpen ? (
+              <path d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            )}
           </svg>
         </button>
       </div>
 
       <div className="hidden md:flex items-center gap-8">
         <Links />
-        <Button variant="destructive" className="bg-[#E65722] hover:bg-[#E65722]/90 rounded-none">
-          <MailtoLink />
-        </Button>
+        <Dialog>
+          <DialogTrigger>
+            <Button
+              variant="destructive"
+              className="bg-[#E65722] hover:bg-[#E65722]/90 rounded-none"
+            >Submit a Request</Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogTitle></DialogTitle>
+          </DialogContent>
+        </Dialog>
       </div>
 
       <div
@@ -64,11 +84,13 @@ export const Navbar = () => {
         } flex-col items-center py-8 gap-8`}
       >
         <Links />
-        <Button variant="destructive" className="bg-[#E65722] hover:bg-[#E65722]/90 rounded-none">
+        <Button
+          variant="destructive"
+          className="bg-[#E65722] hover:bg-[#E65722]/90 rounded-none"
+        >
           <MailtoLink />
         </Button>
       </div>
     </nav>
-  )
-}
-
+  );
+};
