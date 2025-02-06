@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import MailtoLink from "./ui/mailto";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -72,9 +74,92 @@ export const Navbar = () => {
               className="bg-[#E65722] hover:bg-[#E65722]/90 rounded-none"
             >Submit a Request</Button>
           </DialogTrigger>
-          <DialogContent>
-            <DialogTitle></DialogTitle>
-          </DialogContent>
+          <DialogContent className="p-0 gap-0 border-none bg-[#1C1C1C] max-w-[800px]">
+        <div className="grid lg:grid-cols-2">
+          {/* Left side */}
+          <div className="relative hidden lg:block bg-gradient-to-b from-transparent to-[#1a1a1a]">
+            <div
+              className="absolute inset-0 opacity-10"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h30v30H0V0zm1 1h28v28H1V1z' fill='%23FFFFFF' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")`,
+                backgroundSize: "30px 30px",
+              }}
+            />
+            <div className="relative h-full flex items-center p-12">
+              <h2 className="text-white text-5xl font-medium leading-tight">
+              Let&apos;s bring
+              <br />
+                your vision
+                <br />
+                to Life.
+              </h2>
+            </div>
+          </div>
+
+          {/* Right side */}
+          <div className="p-8">
+            <div className="flex justify-between items-center mb-8">
+              <h2 className="text-white text-xl font-normal">Start a project</h2>
+            </div>
+
+            <form className="space-y-6">
+              <div className="grid grid-cols-2 gap-4">
+                <input
+                  placeholder="First Name"
+                  className="bg-transparent border-b border-[#D35F39] pb-2 text-white placeholder:text-gray-500 focus:outline-none w-full"
+                />
+                <input
+                  placeholder="Last Name"
+                  className="bg-transparent border-b border-[#D35F39] pb-2 text-white placeholder:text-gray-500 focus:outline-none w-full"
+                />
+              </div>
+
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="bg-transparent border-b border-[#D35F39] pb-2 text-white placeholder:text-gray-500 focus:outline-none w-full"
+              />
+
+              <input
+                type="tel"
+                placeholder="Phone Number"
+                className="bg-transparent border-b border-[#D35F39] pb-2 text-white placeholder:text-gray-500 focus:outline-none w-full"
+              />
+
+              <div className="space-y-6">
+                <Select>
+                  <SelectTrigger className="bg-transparent border-0 border-b border-[#D35F39] rounded-none pb-2 text-gray-500 focus:ring-0 [&>span]:text-left">
+                    <SelectValue placeholder="Please select service" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="web">Web Development</SelectItem>
+                    <SelectItem value="mobile">Mobile Development</SelectItem>
+                    <SelectItem value="design">Design</SelectItem>
+                  </SelectContent>
+                </Select>
+
+                <Select>
+                  <SelectTrigger className="bg-transparent border-0 border-b border-[#D35F39] rounded-none pb-2 text-gray-500 focus:ring-0 [&>span]:text-left">
+                    <SelectValue placeholder="Please select service" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="5k">$5,000 - $10,000</SelectItem>
+                    <SelectItem value="10k">$10,000 - $25,000</SelectItem>
+                    <SelectItem value="25k">$25,000+</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-[#D35F39] text-white py-2 px-4 rounded hover:bg-[#D35F39]/90 transition-colors"
+              >
+                Submit a request
+              </button>
+            </form>
+          </div>
+        </div>
+      </DialogContent>
         </Dialog>
       </div>
 
