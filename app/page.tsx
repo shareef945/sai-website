@@ -5,7 +5,7 @@ import Stats from "@/components/Stats";
 import Timeline  from "@/components/Timeline";
 import Testimonials from "@/components/Testimonials";
 import TechStack from "@/components/TechStack";
-import { GridBackground } from "@/components/GricBackground";
+import { GridBackground } from "@/components/GridBackground";
 
 export default function Page() {
   return (
