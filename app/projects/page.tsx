@@ -1,32 +1,64 @@
+"use client"
 import ProjectCard from "@/components/ui/project-card";
-import React from "react";
+import React, { useState } from "react";
 import { projects } from "@/config/projects";
-import Footer from "@/components/ui/footer";
-import { dateToComparableNumber } from "@/utils/utils";
+import { GridBackground } from "@/components/GridBackground";
+
+
+
+
+type FilterType = "all" | "mobile" | "web"
 
 const Projects = () => {
-  const sortedProjects = [...projects].sort(
-    (a, b) => dateToComparableNumber(b.date) - dateToComparableNumber(a.date)
-  );
+  const [filter, setFilter] = useState<FilterType>("all")
+
+  const filteredProjects = projects.filter((project:any) => {
+    if (filter === "all") return true
+    return project.type === filter
+  })
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center py-40 md:px-40 px-10 gap-20">
-        {sortedProjects.map((project) => (
-          <ProjectCard
-            title={project.title}
-            key={project.title}
-            body={project.body}
-            imageSrc={project.imageSrc}
-            link={project.link}
-            tags={project.tags}
-            date={project.date}
-          />
-        ))}
+      <GridBackground size="md"/>
+      <div className="relative container mx-auto px-4">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-[4.375rem] font-bold text-white">Our Projects</h2>
+          <p className="mx-auto max-w-2xl text-lg text-zinc-400">
+            At SAI Technology, we take pride in delivering innovative and impactful projects that drive transformation
+            across industries. Here are some of our standout initiatives:
+          </p>
+        </div>
+
+        <div className="mb-12 flex justify-center gap-8">
+          {["All", "Mobile App", "Web App"].map((type) => (
+            <button
+              key={type}
+              onClick={() =>
+                setFilter(
+                  type.toLowerCase().includes("mobile") ? "mobile" : type.toLowerCase().includes("web") ? "web" : "all",
+                )
+              }
+              className={`text-sm transition-colors ${
+                (type === "All" && filter === "all") ||
+                (type === "Mobile App" && filter === "mobile") ||
+                (type === "Web App" && filter === "web")
+                  ? "text-white"
+                  : "text-zinc-600 hover:text-zinc-400"
+              }`}
+            >
+              {type}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid justify-center items-center ml-[12.0625rem] mr-[12.0625rem] gap-[1.3125rem] md:grid-cols-1 ">
+          {filteredProjects.map((project) => (
+            <ProjectCard key={project.title} {...project} />
+          ))}
+        </div>
       </div>
-      <Footer />
     </>
-  );
-};
+  )
+}
 
 export default Projects;
