@@ -40,6 +40,8 @@ export default function WhyChoose() {
                   <Image
                     src={partner.logo || "/placeholder.svg"}
                     alt={partner.name}
+                    width={120}
+                    height={60}
                     className="max-w-full max-h-full object-contain opacity-50 hover:opacity-100 transition-opacity"
                   />
                 </div>
