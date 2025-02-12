@@ -51,7 +51,7 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="grid justify-center items-center ml-[12.0625rem] mr-[12.0625rem] gap-[1.3125rem] md:grid-cols-1 ">
+        <div className="grid justify-center items-center mx-auto gap-[1.3125rem] md:grid-cols-1 ">
           {filteredProjects.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}
