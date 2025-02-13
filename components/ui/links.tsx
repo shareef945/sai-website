@@ -20,6 +20,11 @@ const Links = () => {
           Projects
         </p>
       </Link>
+      <Link href="/stories">
+        <p className="text-gray-500 font-semibold text-base leading-none mb-4 md:mb-0">
+          Stories
+        </p>
+      </Link>
     </div>
   );
 };

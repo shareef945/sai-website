@@ -1,5 +1,7 @@
 export const projects = [
   {
+    number: "01",
+    index: 0,
     title: "Techsgiving",
     body: "Techsgiving represents our dedication to empowering communities through technology. We've built a responsive CMS website with Webflow, offering our client a seamless, adaptable online platform. This project showcases our commitment to creating user-friendly, visually appealing websites that maintain functionality across all devices.",
     imageSrc: "/project-thumbnail/techsgiving.png",
@@ -8,6 +10,8 @@ export const projects = [
     date: "May 2024",
   },
   {
+    number: "02",
+    index: 1,
     title: "Agriconnect",
     body: "Join Agriconnect, where education meets innovation, and every connection opens doors to new opportunities. Our platform is meticulously engineered to streamline educational processes, foster growth for organizations, and unlock the full potential of students and institutions alike. Embrace the future with us—where learning is limitless, and your journey to success is supported every step of the way.",
     imageSrc: "/project-thumbnail/agriconnect.png",
@@ -16,6 +20,8 @@ export const projects = [
     date: "April 2023",
   },
   {
+    number: "03",
+    index: 2,
     title: "Furddle",
     body: "At SAI Technology, we specialize in crafting tailored web experiences, like Furddle – a vibrant online hub for pet lovers. Our web development expertise brings communities together through intuitive design and engaging features, allowing users to share and celebrate their pets with ease.",
     imageSrc: "/project-thumbnail/furddle.png",
@@ -24,6 +30,8 @@ export const projects = [
     date: "July 2023",
   },
   {
+    number: "04",
+    index: 3,
     title: "DriganoStruct",
     body: "At SAI Technology, we excel in creating bespoke digital platforms, such as our recent project for a prestigious architectural firm. Leveraging our web development prowess, we delivered a sophisticated website complete with a custom CMS, enabling seamless portfolio updates and content management to showcase their architectural mastery.",
     imageSrc: "/project-thumbnail/driganostruct.png",
@@ -32,6 +40,8 @@ export const projects = [
     date: "Janurary 2024",
   },
   {
+    number: "05",
+    index: 4,
     title: "Falcon",
     body: "We crafted a robust loan management system tailored for a microfinance institution in Ghana. Our solution streamlines loan processes and offers additional services to enhance efficiency in financial operations.",
     imageSrc: "/project-thumbnail/falcon.png",
@@ -40,6 +50,8 @@ export const projects = [
     date: "October 2022",
   },
   {
+    number: "06",
+    index: 5,
     title: "Boxbites",
     body: "BoxBites, a trailblazer in the food industry, offers a unique combination of local pepper delicacies and convenient vending machine services. We designed their website with Webflow, providing an intuitive user interface and a powerful CMS that empowers them to manage content and update their vending machine locations with ease.",
     imageSrc: "/project-thumbnail/boxbites.png",
@@ -48,6 +60,8 @@ export const projects = [
     date: "Feburary 2024",
   },
   {
+    number: "07",
+    index: 6,
     title: "Swift Transport",
     body: "SAI Technology has innovated public transit with a multifaceted platform that simplifies ticket purchases, vehicle management, and logistics coordination. Our solution spans a user-friendly website, a versatile web app, comprehensive mobile applications, and accessible USSD service, complemented by a robust API for seamless third-party integration. We're driving forward the future of transport accessibility and efficiency.",
     imageSrc: "/project-thumbnail/swift-transport.png",
@@ -56,6 +70,8 @@ export const projects = [
     date: "March 2024",
   },
   {
+    number: "08",
+    index: 7,
     title: "Precision Engravings",
     body: "Precision Engravings, a cutting-edge e-commerce store, specializes in custom laser-engraved NFC cards. Developed on Shopify, our platform offers a streamlined shopping experience, allowing customers to personalize NFC cards with precision and ease, while also ensuring secure and efficient online transactions.",
     imageSrc: "/project-thumbnail/precision.png",
@@ -64,6 +80,8 @@ export const projects = [
     date: "Feburary 2024",
   },
   {
+    number: "09",
+    index: 8,
     title: "CH | GH",
     body: "CH|GH is a luxury watch brand based in Accra, Ghana. We crafted a refined online presence to showcase their premium Swiss watches and expert services, offering a seamless experience for watch enthusiasts across West Africa and beyond.",
     imageSrc: "/project-thumbnail/chgh.png",
