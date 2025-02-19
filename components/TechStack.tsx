@@ -1,8 +1,9 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { cn } from "@/lib/utils"
-import Image from "next/image"
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const categories = [
   { id: "backend", label: "Backend" },
@@ -10,187 +11,281 @@ const categories = [
   { id: "databases", label: "Databases" },
   { id: "cloud", label: "Cloud" },
   { id: "devops", label: "DevOps" },
-]
-
+];
 const techStacks = {
   backend: [
     {
       name: "Node.js",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/node-dot-js.png",
     },
     {
       name: "Express",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/express.png",
     },
     {
       name: "Python",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/python.png",
     },
     {
       name: "Django",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/django.png",
     },
     {
       name: "Flask",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/flask.png",
     },
     {
       name: "NestJS",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/nest.png",
     },
   ],
   frontend: [
     {
       name: "React",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/react.png",
     },
-    {
-      name: "Vue",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
-    },
+
     {
       name: "Angular",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/angular.png",
     },
     {
       name: "Svelte",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/svelte.png",
     },
   ],
   databases: [
     {
       name: "MongoDB",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/mongo.png",
     },
     {
       name: "PostgreSQL",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/postgresql.png",
     },
     {
       name: "MySQL",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/mysql.png",
     },
     {
       name: "Redis",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/redis.png",
     },
   ],
   cloud: [
     {
       name: "AWS",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/amazonaws.png",
     },
     {
       name: "GCP",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/googlecloud.png",
     },
     {
       name: "Azure",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/microsoftazure.png",
     },
     {
       name: "Vercel",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/vercel.png",
     },
   ],
   devops: [
     {
       name: "Docker",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/docker.png",
     },
     {
-      name: "Kubernetes",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      name: "Firebase",
+      image: "/tech-stack/firebase.png",
     },
     {
       name: "Jenkins",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/jenkins.png",
     },
     {
       name: "GitLab",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%205.39.13%E2%80%AFPM-M5XGk7ZusK7NfGfMRKX2a6jsbeyykB.png",
+      image: "/tech-stack/gitlab.png",
     },
   ],
-}
+};
 
+const TechCard = ({
+  tech,
+  index,
+  shouldAnimate,
+}: {
+  tech: { name: string; image: string };
+  index: number;
+  shouldAnimate: boolean;
+}) => {
+  return (
+    <motion.div
+      initial={shouldAnimate ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.3, delay: index * 0.1 }}
+      className="relative group bg-[#151515] border border-white border-opacity-60 p-6 transition-all duration-300 hover:bg-white/10 w-[170px] h-[170px]"
+    >
+      <div className="flex items-center justify-center h-24">
+        <Image
+          src={tech.image}
+          alt={tech.name}
+          width={170}
+          height={170}
+          className="w-16 h-16 object-contain opacity-50 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0"
+        />
+      </div>
+    </motion.div>
+  );
+};
 export default function TechStack() {
-  const [activeCategory, setActiveCategory] = useState("backend")
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [currentCategory, setCurrentCategory] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+  const animationInProgress = useRef(false);
+  const lastScrollTime = useRef<number>(Date.now());
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShouldAnimate(entry.isIntersecting);
+      },
+      {
+        threshold: 0.5,
+        rootMargin: "-50% 0% -50% 0%",
+      }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const handleWheel = (e: WheelEvent) => {
+    if (!shouldAnimate) return;
+
+    // Only prevent default if we're handling the scroll
+    e.preventDefault();
+    handleScroll(e.deltaY);
+  };
+
+  const handleScroll = (deltaY: number) => {
+    if (!shouldAnimate || animationInProgress.current) return;
+
+    const now = Date.now();
+    if (now - lastScrollTime.current < 150) return;
+    lastScrollTime.current = now;
+
+    const direction = deltaY > 0 ? 1 : -1;
+    const nextCategory = currentCategory + direction;
+
+    if (nextCategory >= 0 && nextCategory < categories.length) {
+      animationInProgress.current = true;
+      setIsTransitioning(true);
+      setCurrentCategory(nextCategory);
+
+      setTimeout(() => {
+        animationInProgress.current = false;
+        setIsTransitioning(false);
+      }, 400);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+    };
+  }, [currentCategory, shouldAnimate]);
+
+  const handleCategoryClick = (index: number) => {
+    if (animationInProgress.current) return;
+    animationInProgress.current = true;
+    setIsTransitioning(true);
+    setCurrentCategory(index);
+
+    setTimeout(() => {
+      animationInProgress.current = false;
+      setIsTransitioning(false);
+    }, 400);
+  };
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <div className="mx-auto max-w-7xl px-4 py-12">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[200px_1fr]">
-          {/* Sidebar Navigation */}
-          <nav className="space-y-2">
-            <h2 className="text-2xl font-bold mb-6">Our Tech stack</h2>
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={cn(
-                  "w-full text-left px-4 py-2 rounded-lg transition-colors",
-                  activeCategory === category.id
-                    ? "bg-white/10 text-white"
-                    : "text-white/60 hover:bg-white/5 hover:text-white",
-                )}
-              >
-                {category.label}
-              </button>
-            ))}
-          </nav>
+    <section
+      ref={sectionRef}
+      className="h-[653px] relative bg-[#151515] overflow-hidden"
+    >
+      <div className="h-full flex items-center justify-center">
+        <div className="mx-auto max-w-7xl w-full px-4">
+          <div className="flex items-center justify-between">
+            <nav className="space-y-2 w-48">
+              <h2 className="text-4xl font-bold mb-8 text-white">
+                Our Tech stack
+              </h2>
+              {categories.map((category, index) => (
+                <button
+                  key={category.id}
+                  onClick={() => handleCategoryClick(index)}
+                  className={cn(
+                    "w-full text-left px-4 py-2 rounded-lg transition-colors relative",
+                    currentCategory === index
+                      ? "text-white"
+                      : "text-white/40 hover:text-white/60"
+                  )}
+                >
+                  {currentCategory === index && (
+                    <motion.div
+                      layoutId="indicator"
+                      className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-4 bg-orange-500 rounded-full"
+                    />
+                  )}
+                  {category.label}
+                </button>
+              ))}
+            </nav>
 
-          {/* Tech Stack Grid */}
-          <div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px)",
-              backgroundSize: "64px 64px",
-            }}
-          >
-            {techStacks[activeCategory as keyof typeof techStacks].map((tech) => (
+            <div className="relative w-[40.5rem] h-[653px]">
               <div
-                key={tech.name}
-                className="relative group bg-white/5 rounded-lg p-6 transition-all duration-300 hover:bg-white/10"
-              >
-                <div className="flex items-center justify-center h-24">
-                  <Image
-                    src={tech.image || "/placeholder.svg"}
-                    alt={tech.name}
-                    width={256}
-                    height={256}
-                    className="w-16 h-16 object-contain opacity-75 group-hover:opacity-100 transition-opacity"
-                  />
-                </div>
-                <p className="text-center mt-4 text-sm text-white/80 group-hover:text-white">{tech.name}</p>
+                className="absolute inset-0"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px)",
+                  backgroundSize: "64px 64px",
+                }}
+              />
+
+              <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentCategory}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
+                    className="relative"
+                  >
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-8">
+                      {!isTransitioning &&
+                        techStacks[
+                          categories[currentCategory]
+                            .id as keyof typeof techStacks
+                        ].map((tech, index) => (
+                          <TechCard
+                            key={tech.name}
+                            tech={tech}
+                            index={index}
+                            shouldAnimate={shouldAnimate}
+                          />
+                        ))}
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  )
+    </section>
+  );
 }
-

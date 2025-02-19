@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { GridBackground } from "./grid-background";
+import { GridBackground } from "./GridFade";
 import { Globe } from "./ui/globe";
 
 export default function OurValues() {
   return (
     <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2 bg-black relative">
-              <GridBackground/>
+      <GridBackground />
 
       <div className="flex flex-col justify-center p-8 lg:p-16 ">
         <h2 className="text-4xl font-medium text-white mb-12">Our Values</h2>
@@ -33,18 +33,25 @@ export default function OurValues() {
         <Globe className="lg:scale-80" />
       </div>
     </div>
-  )
+  );
 }
 
-function ValueItem({ title, description }: { title: string; description: string }) {
+function ValueItem({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) {
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-2">
         <div className="h-4 w-1 bg-[#FB6415]" />
         <h3 className="text-xl font-medium text-white">{title}</h3>
       </div>
-      <p className="text-zinc-400 text-sm leading-relaxed pl-6">{description}</p>
+      <p className="text-zinc-400 text-sm leading-relaxed pl-6">
+        {description}
+      </p>
     </div>
-  )
+  );
 }
-

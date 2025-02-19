@@ -2,9 +2,13 @@
 
 interface GridBackgroundProps {
   size?: 'sm' | 'md' | 'lg'
+  variant?: 'viewport' | 'fullPage' | 'fullScreen'
 }
 
-export function GridBackground({ size = 'md' }: GridBackgroundProps) {
+export function GridBackground({ 
+  size = 'md',
+  variant = 'viewport' 
+}: GridBackgroundProps) {
   // Define grid sizes in pixels
   const gridSizes = {
     sm: 30,    // Original size
@@ -13,9 +17,16 @@ export function GridBackground({ size = 'md' }: GridBackgroundProps) {
   }
 
   const gridSize = gridSizes[size]
+  
+  // Define positioning based on variant
+  const positioningClass = variant === 'viewport' 
+    ? "fixed inset-0 h-screen" 
+    : variant === 'fullScreen'
+    ? "fixed inset-0"
+    : "absolute inset-0 min-h-screen"
 
   return (
-    <div className="fixed inset-0 z-0">
+    <div className={`${positioningClass} z-0`}>
       {/* Base grid pattern */}
       <div
         className="absolute inset-0"

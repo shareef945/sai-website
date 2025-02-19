@@ -1,44 +1,21 @@
-"use client";
-
+"use client"
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import projectData from "./data.json";
+import { projects } from "@/config/projects";
+import { dateToComparableNumber } from "@/utils/utils";
 
-interface Company {
-  ID: string;
-  Name: string;
-}
-
-interface Project {
-  title: string;
-  description: string;
-  url: string;
-  imageUrl: string;
-}
-
-interface ProjectData {
-  Companies: Company[];
-  "Staging URL": string;
-  "Landing Media Url": string;
-  "Short Description": string;
-  Name: string;
-}
-
-export const TimelineComponent = ({ data }: { data: Project[] }) => {
+export const TimelineComponent = () => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
-  const transformedData: Project[] = [
-    {
-      title: projectData.Companies[0].Name,
-      description: projectData["Short Description"],
-      url: projectData["Staging URL"],
-      imageUrl: projectData["Landing Media Url"],
-    },
-  ];
+  const sortedProjects = [...projects]
+    .sort(
+      (a, b) => dateToComparableNumber(b.date) - dateToComparableNumber(a.date)
+    )
+    .slice(0, 3);
 
   useEffect(() => {
     if (ref.current) {
@@ -57,22 +34,17 @@ export const TimelineComponent = ({ data }: { data: Project[] }) => {
 
   return (
     <div
-      className="w-full bg-[#1A1A1A] dark:bg-neutral-950 font-sans md:px-10"
+      className="w-full bg-[#151515] font-sans md:px-10"
       ref={containerRef}
-      style={{
-        backgroundImage: "radial-gradient(#333 1px, transparent 0)",
-        backgroundSize: "40px 40px",
-        backgroundPosition: "-19px -19px",
-      }}
     >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
+    <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
         <h2 className="text-lg md:text-[40px] mb-4 text-white font-medium max-w-4xl">
           Our Recent Projects
         </h2>
       </div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
-        {transformedData.map((item, index) => (
+        {sortedProjects.map((item, index) => (
           <div
             key={index}
             className="flex justify-start pt-10 md:pt-40 md:gap-10"
@@ -84,10 +56,10 @@ export const TimelineComponent = ({ data }: { data: Project[] }) => {
                 </h3>
                 <div className="hidden md:block md:pl-20 pr-4">
                   <p className="text-sm text-neutral-500 mb-4">
-                    {item.description}
+                    {item.body}
                   </p>
                   <Link
-                    href={item.url}
+                    href={item.link}
                     className="inline-block px-6 py-2 bg-[#EA5C1C] text-white rounded hover:bg-[#EA5C1C]/90 transition-colors"
                   >
                     Visit
@@ -102,10 +74,10 @@ export const TimelineComponent = ({ data }: { data: Project[] }) => {
                   {item.title}
                 </h3>
                 <p className="text-sm text-neutral-500 mb-4">
-                  {item.description}
+                  {item.body}
                 </p>
                 <Link
-                  href={item.url}
+                  href={item.link}
                   className="inline-block px-6 py-2 mb-6 bg-[#EA5C1C] text-white rounded hover:bg-[#EA5C1C]/90 transition-colors"
                 >
                   Visit
@@ -113,7 +85,7 @@ export const TimelineComponent = ({ data }: { data: Project[] }) => {
               </div>
               <div className="relative w-full aspect-[16/9] rounded-lg overflow-hidden">
                 <Image
-                  src={item.imageUrl || "/placeholder.svg"}
+                  src={item.imageSrc || "/placeholder.svg"}
                   alt={item.title}
                   fill
                   className="object-cover"
@@ -148,6 +120,4 @@ export const TimelineComponent = ({ data }: { data: Project[] }) => {
   );
 };
 
-export default function Timeline() {
-  return <TimelineComponent data={[]} />;
-}
+export default TimelineComponent;

@@ -60,7 +60,7 @@ export default function ServicesComponent() {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center mt-14 w-full mb-32">
+    <div className="flex flex-col items-center justify-center mt-[7.875rem] bg-[#151515] w-full py-24 ">
       <h1 className="text-[50px] font-medium text-center text-white">
         Services we Offer
       </h1>

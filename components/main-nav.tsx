@@ -6,12 +6,30 @@ import Image from "next/image";
 import Link from "next/link";
 import MailtoLink from "./ui/mailto";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
+  const COMMON_STYLES = {
+    nav: (isScrolled: boolean) =>
+      `fixed top-0 z-50 w-full transition-all duration-300 py-2 px-2 ${
+        isScrolled ? "bg-[#151515] border-[#898989]" : "bg-transparent"
+      }`,
+    container: "flex h-16 w-full items-center justify-between px-6",
+    logo: "flex items-center gap-4",
+    logoText: "text-white font-semibold",
+    mobileButton: "lg:hidden text-white", // Changed from text-black to text-white
+    desktopNav: "hidden lg:flex lg:items-center lg:gap-8",
+    link: "flex w-full items-center text-secondary md:text-white text-xl md:text-sm font-semibold hover:text-gray-300 transition-colors", // Added hover effect
+  };
+  
 
   useEffect(() => {
     const closeMenu = (event: MouseEvent) => {
@@ -34,11 +52,18 @@ export const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className="h-[80px] top-0 left-0 right-0 flex w-full justify-between bg-transparent px-6 py-4 relative z-20"
+      className="h-[10vh] top-0 left-0 right-0 flex w-full justify-between bg-transparent px-6 py-4 relative z-20"
     >
       <div className="flex items-center">
-        <Link href={"/"}>
-          <Image src="/logo.svg" alt="SAT Logo" width={100} height={50} />
+        <Link href="/" className={COMMON_STYLES.logo} prefetch={false}>
+          <Image
+            src="/logos/sai-main.png"
+            width={50}
+            alt="logo"
+            height={50}
+            priority
+          />
+          <p className={COMMON_STYLES.logoText}>TECHNOLOGY</p>
         </Link>
       </div>
 
@@ -71,95 +96,101 @@ export const Navbar = () => {
           <DialogTrigger>
             <Button
               variant="destructive"
-              className="bg-[#E65722] hover:bg-[#E65722]/90 rounded-none"
-            >Submit a Request</Button>
+              className="bg-[#E65722] hover:bg-[#E65722]/90 "
+            >
+              Submit a Request
+            </Button>
           </DialogTrigger>
           <DialogContent className="p-0 gap-0 border-none bg-[#1C1C1C] max-w-[800px]">
-        <div className="grid lg:grid-cols-2">
-          {/* Left side */}
-          <div className="relative hidden lg:block bg-gradient-to-b from-transparent to-[#1a1a1a]">
-            <div
-              className="absolute inset-0 opacity-10"
-              style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h30v30H0V0zm1 1h28v28H1V1z' fill='%23FFFFFF' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")`,
-                backgroundSize: "30px 30px",
-              }}
-            />
-            <div className="relative h-full flex items-center p-12">
-              <h2 className="text-white text-5xl font-medium leading-tight">
-              Let&apos;s bring
-              <br />
-                your vision
-                <br />
-                to Life.
-              </h2>
-            </div>
-          </div>
-
-          {/* Right side */}
-          <div className="p-8">
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="text-white text-xl font-normal">Start a project</h2>
-            </div>
-
-            <form className="space-y-6">
-              <div className="grid grid-cols-2 gap-4">
-                <input
-                  placeholder="First Name"
-                  className="bg-transparent border-b border-[#D35F39] pb-2 text-white placeholder:text-gray-500 focus:outline-none w-full"
+            <div className="grid lg:grid-cols-2">
+              {/* Left side */}
+              <div className="relative hidden lg:block bg-gradient-to-b from-transparent to-[#1a1a1a]">
+                <div
+                  className="absolute inset-0 opacity-10"
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h30v30H0V0zm1 1h28v28H1V1z' fill='%23FFFFFF' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")`,
+                    backgroundSize: "30px 30px",
+                  }}
                 />
-                <input
-                  placeholder="Last Name"
-                  className="bg-transparent border-b border-[#D35F39] pb-2 text-white placeholder:text-gray-500 focus:outline-none w-full"
-                />
+                <div className="relative h-full flex items-center p-12">
+                  <h2 className="text-white text-5xl font-medium leading-tight">
+                    Let&apos;s bring
+                    <br />
+                    your vision
+                    <br />
+                    to Life.
+                  </h2>
+                </div>
               </div>
 
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="bg-transparent border-b border-[#D35F39] pb-2 text-white placeholder:text-gray-500 focus:outline-none w-full"
-              />
+              {/* Right side */}
+              <div className="p-8">
+                <div className="flex justify-between items-center mb-8">
+                  <h2 className="text-white text-xl font-normal">
+                    Start a project
+                  </h2>
+                </div>
 
-              <input
-                type="tel"
-                placeholder="Phone Number"
-                className="bg-transparent border-b border-[#D35F39] pb-2 text-white placeholder:text-gray-500 focus:outline-none w-full"
-              />
+                <form className="space-y-6">
+                  <div className="grid grid-cols-2 gap-4">
+                    <input
+                      placeholder="First Name"
+                      className="bg-transparent border-b border-[#D35F39] pb-2 text-white placeholder:text-gray-500 focus:outline-none w-full"
+                    />
+                    <input
+                      placeholder="Last Name"
+                      className="bg-transparent border-b border-[#D35F39] pb-2 text-white placeholder:text-gray-500 focus:outline-none w-full"
+                    />
+                  </div>
 
-              <div className="space-y-6">
-                <Select>
-                  <SelectTrigger className="bg-transparent border-0 border-b border-[#D35F39] rounded-none pb-2 text-gray-500 focus:ring-0 [&>span]:text-left">
-                    <SelectValue placeholder="Please select service" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="web">Web Development</SelectItem>
-                    <SelectItem value="mobile">Mobile Development</SelectItem>
-                    <SelectItem value="design">Design</SelectItem>
-                  </SelectContent>
-                </Select>
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    className="bg-transparent border-b border-[#D35F39] pb-2 text-white placeholder:text-gray-500 focus:outline-none w-full"
+                  />
 
-                <Select>
-                  <SelectTrigger className="bg-transparent border-0 border-b border-[#D35F39] rounded-none pb-2 text-gray-500 focus:ring-0 [&>span]:text-left">
-                    <SelectValue placeholder="Please select service" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="5k">$5,000 - $10,000</SelectItem>
-                    <SelectItem value="10k">$10,000 - $25,000</SelectItem>
-                    <SelectItem value="25k">$25,000+</SelectItem>
-                  </SelectContent>
-                </Select>
+                  <input
+                    type="tel"
+                    placeholder="Phone Number"
+                    className="bg-transparent border-b border-[#D35F39] pb-2 text-white placeholder:text-gray-500 focus:outline-none w-full"
+                  />
+
+                  <div className="space-y-6">
+                    <Select>
+                      <SelectTrigger className="bg-transparent border-0 border-b border-[#D35F39]  pb-2 text-gray-500 focus:ring-0 [&>span]:text-left">
+                        <SelectValue placeholder="Please select service" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="web">Web Development</SelectItem>
+                        <SelectItem value="mobile">
+                          Mobile Development
+                        </SelectItem>
+                        <SelectItem value="design">Design</SelectItem>
+                      </SelectContent>
+                    </Select>
+
+                    <Select>
+                      <SelectTrigger className="bg-transparent border-0 border-b border-[#D35F39]  pb-2 text-gray-500 focus:ring-0 [&>span]:text-left">
+                        <SelectValue placeholder="Please select service" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="5k">$5,000 - $10,000</SelectItem>
+                        <SelectItem value="10k">$10,000 - $25,000</SelectItem>
+                        <SelectItem value="25k">$25,000+</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full bg-[#D35F39] text-white py-2 px-4 rounded hover:bg-[#D35F39]/90 transition-colors"
+                  >
+                    Submit a request
+                  </button>
+                </form>
               </div>
-
-              <button
-                type="submit"
-                className="w-full bg-[#D35F39] text-white py-2 px-4 rounded hover:bg-[#D35F39]/90 transition-colors"
-              >
-                Submit a request
-              </button>
-            </form>
-          </div>
-        </div>
-      </DialogContent>
+            </div>
+          </DialogContent>
         </Dialog>
       </div>
 
@@ -171,7 +202,7 @@ export const Navbar = () => {
         <Links />
         <Button
           variant="destructive"
-          className="bg-[#E65722] hover:bg-[#E65722]/90 rounded-none"
+          className="bg-[#E65722] hover:bg-[#E65722]/90 "
         >
           <MailtoLink />
         </Button>
