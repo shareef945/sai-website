@@ -1,6 +1,6 @@
 "use client";
 
-import { GridBackground } from "./GridFade";
+import { GridBackground } from "./GridBackground";
 import { Globe } from "./ui/globe";
 
 export default function OurValues() {

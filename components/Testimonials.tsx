@@ -46,7 +46,7 @@ export default function Testimonials() {
 
   return (
     <div className="h-[41.1875rem] flex flex-col bg-[#151515] text-white gap-y-[103px] py-[103px]">
-      <p className="text-[40px] text-center">Why customers love working with us</p>
+      <p className="md:text-[40px] text-[30px] text-center">Why customers love working with us</p>
       <TestimonialCarousel testimonials={duplicatedTestimonials} />
     </div>
   )

@@ -18,7 +18,7 @@ const Projects = () => {
 
   return (
     <>
-      <GridBackground size="md" />
+      <GridBackground size="lg" />
       <div className="relative px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-24 overflow-auto py-4 mt-12 sm:py-6 lg:py-8">
         <div className="w-full lg:w-1/2">
           <h2 className="font-semibold text-3xl sm:text-4xl lg:text-[60px] text-white">

@@ -12,12 +12,13 @@ export function GridFade({ size = "md", variant = "viewport" }: GridFadeProps) {
 
   const gridSize = gridSizes[size]
 
+  // Simplified positioning class based on variant
   const positioningClass =
     variant === "viewport"
-      ? "absolute inset-0"
+      ? "absolute inset-0" 
       : variant === "fullScreen"
-        ? "fixed inset-0"
-        : "absolute inset-0 min-h-screen"
+        ? "w-full h-full" // Just fill the container
+        : "absolute inset-0 min-h-screen" // Original fullPage behavior
 
   return (
     <div className={positioningClass} style={{ backgroundColor: "#151515" }}>
@@ -52,4 +53,3 @@ export function GridFade({ size = "md", variant = "viewport" }: GridFadeProps) {
     </div>
   )
 }
-

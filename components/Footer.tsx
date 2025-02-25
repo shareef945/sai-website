@@ -1,82 +1,101 @@
-import Link from "next/link"
-import Image from "next/image"
-import { Instagram, Linkedin, PhoneIcon as WhatsApp, X } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
-export default function Footer() {
+const Footer = () => {
+  const year = new Date().getFullYear();
   return (
-    <footer className="w-full  h-[40.75rem] md:h-[32.5625rem] bg-[#151515] z-10 relative">
-      <div className="flex flex-col-reverse md:flex-row  md:min-h-[32.5625rem]">
-        {/* Logo Section - 60% width */}
-        <div className="w-full md:w-[60%] relative flex items-end h-[20.125rem] md:h-auto">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `linear-gradient(#333 1px, transparent 1px),
-                             linear-gradient(90deg, #333 1px, transparent 1px)`,
-              backgroundSize: "20px 20px",
-            }}
-          />
-          {/* Logo */}
-          <div className="relative z-20 w-full pb-8">
+    <section className="min-h-[20rem] z-10 relative md:h-[25rem] bg-[#151515] w-full py-8 md:py-0">
+      <div className="grid grid-cols-1 md:grid-cols-10 gap-4 md:gap-8 h-full md:pt-20 px-4 md:px-0">
+
+        {/* Logo section */}
+        <div className="col-span-1 md:col-span-6 relative before:absolute before:inset-0 before:content-[''] before:pointer-events-none before:bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] before:bg-[size:2rem_2rem]">
+          <div className="p-4 md:p-10 flex items-center md:items-end justify-center md:justify-start h-full">
             <Image
-              width={616.6}
-              height={118}
               src="/sai-footer.svg"
-              alt="SAI Technology Logo"
-              className="brightness-50 w-full h-full object-contain"
+              alt="Footer logo"
+              width={600}
+              height={800}
+              className="w-auto h-[100px] md:h-[100px] object-contain"
             />
           </div>
         </div>
 
-        {/* Right Content Section - 40% width */}
-        <div className="w-full md:w-[40%] p-8 h- flex flex-col justify-between">
-          <div className="space-y-8">
-            {/* Links */}
-            <nav className="flex flex-col space-y-2">
-              <Link href="#" className="text-white hover:text-gray-300 transition-colors text-sm">
-                Ventures
-              </Link>
-              <Link href="/privacy" className="text-white hover:text-gray-300 transition-colors text-sm">
-                Data Privacy & Security Policy
-              </Link>
-              <Link href="/certifications" className="text-white hover:text-gray-300 transition-colors text-sm">
-                Compliance & Certifications
-              </Link>
-            </nav>
-          </div>
-
-          <div className="flex flex-col gap-y-10">
+        {/* Links and social section */}
+        <div className="col-span-1 md:col-span-4 p-4 md:p-2 flex flex-col justify-between h-full gap-8 md:gap-0 text-white">
+          <div className="flex flex-col order-last md:order-first">
             <Link
-              href="mailto:info@saitechnology.co"
-              className="text-white hover:text-gray-300 transition-colors text-sm block"
+              href="/ventures"
+              className="no-underline hover:underline pb-2 text-sm md:text-base hover:opacity-80 cursor-pointer"
             >
-              info@saitechnology.co
+              Ventures
             </Link>
-
-            {/* Social Icons */}
-            <div className="flex space-x-4">
-              <Link href="#" className="text-white hover:text-gray-300 transition-colors">
-                <X className="h-[2.125rem] w-[2.125rem]" />
-                <span className="sr-only">X (Twitter)</span>
+            <Link
+              href="/privacy"
+              className="no-underline hover:underline pb-2 text-sm md:text-base hover:opacity-80 cursor-pointer"
+            >
+              Data Privacy and Security Policy
+            </Link>
+            <Link
+              href="/compliance"
+              className="no-underline hover:underline pb-2 text-sm md:text-base hover:opacity-80 cursor-pointer"
+            >
+              Compliance and Certification
+            </Link>
+          </div>
+          <div className="flex flex-col gap-4 md:gap-4 order-first md:order-last">
+            <a
+              href="mailto:info@sairealestate.casa"
+              className="no-underline hover:underline pb-2 text-sm md:text-base hover:opacity-80 cursor-pointer"
+            >
+              info@sairealestate.casa
+            </a>
+            <div className="flex gap-4 md:gap-8">
+              {/* Social icons */}
+              <Link href={"https://x.com/sairealestate_"}>
+                <Image
+                  src="/logos/x.png"
+                  alt="X (Twitter) logo"
+                  width={30}
+                  height={30}
+                  className="w-6 h-6 md:w-[30px] md:h-[30px] hover:opacity-80 cursor-pointer"
+                />
               </Link>
-              <Link href="#" className="text-white hover:text-gray-300 transition-colors">
-                <Instagram className="h-[2.125rem] w-[2.125rem]" />
-                <span className="sr-only">Instagram</span>
+              <Link href={"https://www.instagram.com/sairealestate___/"}>
+                <Image
+                  src="/logos/ig.png"
+                  alt="Instagram logo"
+                  width={30}
+                  height={30}
+                  className="w-6 h-6 md:w-[30px] md:h-[30px] hover:opacity-80 cursor-pointer"
+                />
               </Link>
-              <Link href="#" className="text-white hover:text-gray-300 transition-colors">
-                <Linkedin className="h-[2.125rem] w-[2.125rem]" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-              <Link href="#" className="text-white hover:text-gray-300 transition-colors">
-                <WhatsApp className="h-[2.125rem] w-[2.125rem]" />
-                <span className="sr-only">WhatsApp</span>
-              </Link>
+              <Image
+                src="/logos/linkedin.png"
+                alt="LinkedIn logo"
+                width={30}
+                height={30}
+                className="w-6 h-6 md:w-[30px] md:h-[30px] hover:opacity-80 cursor-pointer"
+              />
+              <Image
+                src="/logos/whatsapp.png"
+                alt="WhatsApp logo"
+                width={30}
+                height={30}
+                className="w-6 h-6 md:w-[30px] md:h-[30px] hover:opacity-80 cursor-pointer"
+              />
             </div>
-            <p className="text-white/70 text-xs">2025 All rights reserved. Powered by SAI Technology ®</p>
+            <a
+              className="underline pb-2 text-secondary text-xs md:text-base"
+              href="https://saitechnology.co"
+            >
+              {year} All rights reserved. Powered by SAI Technology ©
+            </a>
           </div>
         </div>
       </div>
-    </footer>
-  )
-}
+    </section>
+  );
+};
 
+export default Footer;

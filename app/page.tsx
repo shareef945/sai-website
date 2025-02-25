@@ -7,14 +7,12 @@ import TechStack from "@/components/TechStack";
 import { GridFade } from "@/components/GridFade";
 import Development from "@/components/Development";
 
-
-
 export default function Page() {
   return (
     <>
-      {/* Grid container */}
-      <div className="fixed top-0 left-0 right-0 h-[100vh] z-[1] overflow-hidden">
-        <GridFade size="sm" variant="viewport" />
+      {/* Grid container - fixed to viewport only */}
+      <div className="fixed top-0 left-0 right-0 h-[100vh] z-[1] overflow-hidden pointer-events-none">
+        <GridFade size="sm" variant="fullScreen" />
       </div>
 
       {/* Content container */}

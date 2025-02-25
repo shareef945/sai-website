@@ -1,11 +1,11 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import Links from "./ui/links";
 import Image from "next/image";
 import Link from "next/link";
 import MailtoLink from "./ui/mailto";
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 import {
   Select,
   SelectContent,
@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,7 +30,6 @@ export const Navbar = () => {
     desktopNav: "hidden lg:flex lg:items-center lg:gap-8",
     link: "flex w-full items-center text-secondary md:text-white text-xl md:text-sm font-semibold hover:text-gray-300 transition-colors", // Added hover effect
   };
-  
 
   useEffect(() => {
     const closeMenu = (event: MouseEvent) => {
@@ -54,7 +54,7 @@ export const Navbar = () => {
       ref={navRef}
       className="h-[10vh] top-0 left-0 right-0 flex w-full justify-between bg-transparent px-6 py-4 relative z-20"
     >
-      <div className="flex items-center">
+      <div className="flex items-center gap-x-2 justify-center">
         <Link href="/" className={COMMON_STYLES.logo} prefetch={false}>
           <Image
             src="/logos/sai-main.png"
@@ -65,29 +65,6 @@ export const Navbar = () => {
           />
           <p className={COMMON_STYLES.logoText}>TECHNOLOGY</p>
         </Link>
-      </div>
-
-      <div className="md:hidden">
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="text-white"
-        >
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            {isMenuOpen ? (
-              <path d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
       </div>
 
       <div className="hidden md:flex items-center gap-8">
@@ -192,21 +169,46 @@ export const Navbar = () => {
             </div>
           </DialogContent>
         </Dialog>
-      </div>
-
-      <div
-        className={`absolute top-full left-0 right-0 bg-[#111111] z-50 md:hidden ${
-          isMenuOpen ? "flex" : "hidden"
-        } flex-col items-center py-8 gap-8`}
-      >
-        <Links />
         <Button
           variant="destructive"
-          className="bg-[#E65722] hover:bg-[#E65722]/90 "
+          className="bg-[#E65722] hover:bg-[#E65722]/90 flex md:hidden"
         >
           <MailtoLink />
         </Button>
       </div>
+
+      <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+        <SheetTrigger asChild>
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-white md:hidden"
+          >
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              {isMenuOpen ? (
+                <path d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </SheetTrigger>
+        <SheetContent
+          side="left"
+          className="w-full  bg-[#111111] border-r border-[#898989] p-8"
+        >
+          <div className="flex flex-col items-start gap-y-8">
+            <Links />
+          </div>
+        </SheetContent>
+      </Sheet>
     </nav>
   );
 };

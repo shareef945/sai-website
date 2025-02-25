@@ -8,14 +8,13 @@ import { WhoWeAreSection } from "@/components/WhoWeAre";
 export default function Page() {
   return (
     <>
-      <CircleBackground />
-      <main className="relative z-10">
+      {/* <CircleBackground /> */}
+      <main className="relative z-20">
         <HeroSection />
         <WhoWeAreSection />
         <OurValues/>
         <WhatWeDo/>
         <WhyChoose/>
-
       </main>
     </>
   );

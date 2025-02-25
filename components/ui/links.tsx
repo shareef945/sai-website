@@ -9,7 +9,7 @@ const Links = () => {
   const isActive = (href: string) => path === href;
 
   return (
-    <div className="md:flex md:gap-6 w-full justify-center">
+    <div className="flex flex-col md:flex-row md:gap-6 gap-y-8 md:gap-y-0 w-full justify-center">
       <Link href="/about">
         <p className="text-gray-500 font-semibold text-base leading-none mb-4 md:mb-0">
           About
