@@ -20,11 +20,11 @@ const Projects = () => {
     <>
       <GridBackground size="lg" />
       <div className="relative px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-24 overflow-auto py-4 mt-12 sm:py-6 lg:py-8">
-        <div className="w-full lg:w-1/2">
-          <h2 className="font-semibold text-3xl sm:text-4xl lg:text-[60px] text-white">
+        <div className="text-center w-full lg:w-1/2 mx-auto">
+          <h2 className="font-semibold text-3xl sm:text-4xl text-center lg:text-[60px] text-white">
             Our Projects
           </h2>
-          <p className="text-base sm:text-lg text-[#898989] lg:w-2/3 pt-2 sm:pt-3 lg:pt-4 pb-6 sm:pb-8 lg:pb-12">
+          <p className="text-base sm:text-lg text-[#898989] text-center ml-16 lg:w-2/3 pt-2 sm:pt-3 lg:pt-4 pb-6 sm:pb-8 lg:pb-12">
             At SAI Technology, we take pride in delivering innovative and
             impactful projects that drive transformation across industries.
           </p>

@@ -91,7 +91,7 @@ export default function TestimonialCarousel({
 
   return (
     <div className="w-full px-[180px] overflow-hidden  ">
-      <div ref={scrollRef} className="flex gap-6 overflow-x-hidden">
+      <div ref={scrollRef} className="flex gap-6 overflow-hidden">
         {testimonials.map((testimonial, index) => (
           <TestimonialCard
             key={`${testimonial.id}-${index}`}
