@@ -20,14 +20,14 @@ export default function ProjectChallenges({ project }: ProjectProps) {
 
   return (
     <div className="w-full  text-white ">
-      <div className=" px-[180px] py-16 md:py-24">
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">Challenges & Solutions</h2>
+      <div className=" md:px-[180px]  py-16 md:py-24">
+        <h2 className="text-4xl md:text-5xl px-[20px] font-bold mb-16 text-center">Challenges & Solutions</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[21px]">
+        <div className="grid grid-cols-1 px-[20px] md:grid-cols-3 gap-[21px]">
           {challenges.map((item, index) => (
             <div key={index} className="bg-[#191919] px-[25px] pt-[40px] pb-[50px] ">
               <div className="flex flex-col gap-8">
-                <div className="w-16 h-16 rounded-full bg-[#e67e51] flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-[#ea5c1c] flex items-center justify-center">
                   <span className="text-[20px] font-medium text-white">{index+1}</span>
                 </div>
                 

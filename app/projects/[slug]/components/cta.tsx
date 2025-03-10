@@ -27,7 +27,7 @@ export default function ProjectCTA({ project }: ProjectProps) {
               href={project.url} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-block bg-[#e67e51] hover:bg-[#d06a40] text-white px-8 py-3 rounded-md font-medium transition-colors"
+              className="inline-block w-full md:w-[183px] bg-[#ea5c1c] hover:bg-[#d06a40] text-white px-8 py-3 text-center rounded-md font-medium transition-colors"
             >
               Visit site
             </Link>

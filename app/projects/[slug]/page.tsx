@@ -38,7 +38,6 @@ export default function ProjectPage({ params }: PageProps) {
   if (error || !project) {
     return notFound();
   }
-  console.log("🚀 ~ ProjectPage ~ project:", project)
 
   // Format the project date
   const formattedDate = new Date(project.dates).toLocaleDateString("en-US", {

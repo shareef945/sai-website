@@ -10,10 +10,10 @@ export default function ProjectGrid({ project }: ProjectProps) {
 
   return (
     <div className="w-full text-white">
-      <div className="w-full px-[190px] py-16 md:py-24">
-        <div className="grid grid-cols-2 gap-8">
+      <div className="w-full md:px-[180px] px-[20px] py-16 md:py-24">
+        <div className="md:grid md:grid-cols-2 md:gap-8 flex flex-col">
           {/* Left column - both images shifted down */}
-          <div className="space-y-8 mt-20">
+          <div className="space-y-8 md:mt-20">
             <div className="aspect-square relative animate-fadeIn">
               {gridImages[0] && (
                 <Image
@@ -36,7 +36,7 @@ export default function ProjectGrid({ project }: ProjectProps) {
             </div>
           </div>
           {/* Right column */}
-          <div className="space-y-8">
+          <div className="space-y-8 mt-8 md:mt-0">
             <div className="aspect-square relative animate-fadeIn">
               {gridImages[1] && (
                 <Image

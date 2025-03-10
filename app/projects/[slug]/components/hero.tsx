@@ -7,7 +7,7 @@ interface ProjectProps {
 
 export default function ProjectHero({ project }: ProjectProps) {
   return (
-    <div className="w-full px-[56px]  text-white border-b border-neutral-800">
+    <div className="w-full md:px-[56px] px-[20px]  text-white border-b border-neutral-800">
       <div className="py-8 ">
         <Image
           src={getDirectusImageUrl(project.landingMedia) || "/placeholder.svg"}

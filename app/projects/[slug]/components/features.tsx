@@ -4,13 +4,13 @@ import { getDirectusImageUrl } from "@/utils/directus";
 const ProjectFeatures: React.FC<any> = ({ project }) => {
   return (
     <div className="w-full text-white">
-      <div className="w-full  px-[180px] py-16 md:py-24">
+      <div className="w-full  md:px-[180px] py-16 md:py-24">
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">Key Features</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-[21px]">
           {/* First row - first item with flex row layout */}
           <div className="md:col-span-8 bg-neutral-900 p-6 rounded-lg min-h-[300px]">
-            <div className="h-full flex flex-row items-center">
+            <div className="h-full flex flex-col md:flex-row items-center">
               <div className="flex-1">
                 <h3 className="text-base font-semibold mb-2">Unified Dashboard</h3>
                 <p className="text-white/60 text-sm">
@@ -61,7 +61,7 @@ const ProjectFeatures: React.FC<any> = ({ project }) => {
                 <img 
                   src={getDirectusImageUrl(project.feature3Img)}
                   alt="Real-Time Tracking" 
-                  className="w-[369px] h-[218px] object-cover"
+                  className="md:w-[369px] w-full h-[218px] object-cover"
                 />
               )}
             </div>
@@ -79,7 +79,7 @@ const ProjectFeatures: React.FC<any> = ({ project }) => {
                 <img 
                   src={getDirectusImageUrl(project.feature4Img)}
                   alt="Customizable Tools" 
-                  className="w-[369px] h-[218px] object-cover"
+                  className="md:w-[369px] w-full h-[218px] object-cover"
                 />
               )}
             </div>
@@ -97,7 +97,7 @@ const ProjectFeatures: React.FC<any> = ({ project }) => {
                 <img 
                   src={getDirectusImageUrl(project.feature5Img)}
                   alt="Multi-Language Support" 
-                  className="w-[369px] h-[218px] object-cover"
+                  className="md:w-[369px] w-full h-[218px] object-cover"
                 />
               )}
             </div>
