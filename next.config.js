@@ -14,8 +14,19 @@ const nextConfig = {
         protocol: "https",
         hostname: "files.saitechnology.co",
       },
+      {
+        protocol: "https",
+        hostname: "cms.saitechnology.co",
+      },
+
     ],
   },
 };
+
+const withMarkdoc = require('@markdoc/next.js');
+
+module.exports = withMarkdoc(/* options */)({
+  pageExtensions: ['md', 'mdoc', 'js', 'jsx', 'ts', 'tsx']
+});
 
 module.exports = nextConfig;
