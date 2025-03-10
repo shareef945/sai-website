@@ -13,18 +13,17 @@ import ProjectTestimonial from "./components/testimonial";
 import ProjectCTA from "./components/cta";
 import ProjectGrid from "./components/grid";
 
-// Define the shape of the resolved params object
+
 interface Params {
   slug: string;
 }
-
 interface PageProps {
-  params: Params | Promise<Params>;
+  params: Promise<Params>;
 }
 
 export default function ProjectPage({ params }: PageProps) {
-  // Check if params is a Promise and unwrap it if needed
-  const resolvedParams = params instanceof Promise ? use(params) : params;
+  // Always unwrap the params promise
+  const resolvedParams = use(params);
   const { project, isLoading, error } = useProjects(resolvedParams.slug);
 
   if (isLoading) {
@@ -49,15 +48,14 @@ export default function ProjectPage({ params }: PageProps) {
     <>
       <GridBackground size="lg" />
       <div className="relative z-20">
-      <ProjectHeader project={project} />
-      <ProjectHero project={project} />
-      <ProjectCTA project={project} />
-      <ProjectChallenges project={project} />
-      <ProjectFeatures project={project} />
-      <ProjectGrid project={project} />
-
-      <ProjectResults project={project} />
-      <ProjectTestimonial project={project} />
+        <ProjectHeader project={project} />
+        <ProjectHero project={project} />
+        <ProjectCTA project={project} />
+        <ProjectChallenges project={project} />
+        <ProjectFeatures project={project} />
+        <ProjectGrid project={project} />
+        <ProjectResults project={project} />
+        <ProjectTestimonial project={project} />
       </div>
     </>
   );

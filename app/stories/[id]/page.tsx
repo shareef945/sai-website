@@ -6,12 +6,13 @@ import { posts } from "../page";
 import { notFound } from "next/navigation";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
-export default function BlogPost({ params }: PageProps) {
+export default async function BlogPost(props: PageProps) {
+  const params = await props.params;
   const post = posts.find((post) => post.id === params.id);
 
   if (!post) {

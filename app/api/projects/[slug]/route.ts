@@ -1,11 +1,9 @@
 import { NextResponse } from 'next/server';
 
-export async function GET(
-  request: Request,
-  { params }: { params: { slug: string } }
-) {
+export async function GET(request: Request, props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const slug = params.slug;
-  
+
   try {
     // Fetch all projects first
     const response = await fetch("https://cms.saitechnology.co/items/saiTechnologyProjects");
