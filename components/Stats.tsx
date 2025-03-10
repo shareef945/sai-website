@@ -23,7 +23,7 @@ export default function Stats() {
     ]
   
     return (
-      <section className="relative bg-[#151515] py-16 md:py-24 ">
+      <section className="relative bg-[#151515] md:px-[180px] py-16 md:py-24 ">
         {/* Grid background */}
         <div
           className="absolute inset-0 opacity-20"
@@ -41,9 +41,9 @@ export default function Stats() {
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-4">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="h-0.5 w-[206px] text-left mx-0 mb-6 bg-[#FF5533]" />
+                <div className="h-0.5 md:w-[206px]  w-full text-left mx-0 mb-6 bg-[#FF5533]" />
                 <div className="text-white text-3xl md:text-4xl font-bold mb-2 text-left">{stat.value}</div>
-                <div className="text-gray-400 text-left text-sm">{stat.label}</div>
+                <div className="text-gray-400 text-left text-lg md:text-sm">{stat.label}</div>
               </div>
             ))}
           </div>

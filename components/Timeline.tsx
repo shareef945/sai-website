@@ -1,44 +1,21 @@
 "use client";
-
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import projectData from "./data.json";
+import { projects } from "@/config/projects";
+import { dateToComparableNumber } from "@/utils/utils";
 
-interface Company {
-  ID: string;
-  Name: string;
-}
-
-interface Project {
-  title: string;
-  description: string;
-  url: string;
-  imageUrl: string;
-}
-
-interface ProjectData {
-  Companies: Company[];
-  "Staging URL": string;
-  "Landing Media Url": string;
-  "Short Description": string;
-  Name: string;
-}
-
-export const TimelineComponent = ({ data }: { data: Project[] }) => {
+export const TimelineComponent = () => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
-  const transformedData: Project[] = [
-    {
-      title: projectData.Companies[0].Name,
-      description: projectData["Short Description"],
-      url: projectData["Staging URL"],
-      imageUrl: projectData["Landing Media Url"],
-    },
-  ];
+  const sortedProjects = [...projects]
+    .sort(
+      (a, b) => dateToComparableNumber(b.date) - dateToComparableNumber(a.date)
+    )
+    .slice(0, 3);
 
   useEffect(() => {
     if (ref.current) {
@@ -56,23 +33,15 @@ export const TimelineComponent = ({ data }: { data: Project[] }) => {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <div
-      className="w-full bg-[#1A1A1A] dark:bg-neutral-950 font-sans md:px-10"
-      ref={containerRef}
-      style={{
-        backgroundImage: "radial-gradient(#333 1px, transparent 0)",
-        backgroundSize: "40px 40px",
-        backgroundPosition: "-19px -19px",
-      }}
-    >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-lg md:text-[40px] mb-4 text-white font-medium max-w-4xl">
+    <div className="w-full bg-[#151515] md:px-[180px] font-sans" ref={containerRef}>
+      <div className="max-w-7xl mx-auto py-20 px-4">
+        <h2 className="text-3xl md:text-[40px] md:mb-4 mb-1 text-white font-medium">
           Our Recent Projects
         </h2>
       </div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
-        {transformedData.map((item, index) => (
+        {sortedProjects.map((item, index) => (
           <div
             key={index}
             className="flex justify-start pt-10 md:pt-40 md:gap-10"
@@ -82,12 +51,10 @@ export const TimelineComponent = ({ data }: { data: Project[] }) => {
                 <h3 className="hidden md:block text-xl md:pl-20 md:text-4xl font-bold text-neutral-500">
                   {item.title}
                 </h3>
-                <div className="hidden md:block md:pl-20 pr-4">
-                  <p className="text-sm text-neutral-500 mb-4">
-                    {item.description}
-                  </p>
+                <div className="hidden md:block md:pl-20">
+                  <p className="text-sm text-neutral-500 mb-4">{item.body}</p>
                   <Link
-                    href={item.url}
+                    href={item.link}
                     className="inline-block px-6 py-2 bg-[#EA5C1C] text-white rounded hover:bg-[#EA5C1C]/90 transition-colors"
                   >
                     Visit
@@ -96,37 +63,33 @@ export const TimelineComponent = ({ data }: { data: Project[] }) => {
               </div>
             </div>
 
-            <div className="relative pl-20 pr-4 md:pl-4 w-full">
-              <div className="md:hidden">
-                <h3 className="text-2xl mb-4 text-left font-bold text-neutral-500">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-neutral-500 mb-4">
-                  {item.description}
-                </p>
-                <Link
-                  href={item.url}
-                  className="inline-block px-6 py-2 mb-6 bg-[#EA5C1C] text-white rounded hover:bg-[#EA5C1C]/90 transition-colors"
-                >
-                  Visit
-                </Link>
-              </div>
-              <div className="relative w-full aspect-[16/9] rounded-lg overflow-hidden">
+            <div className="relative w-full md:pl-4 ">
+              <div className="flex items-center justify-center relative md:w-full w-[345px] max-h-[514px] aspect-[16/9] overflow-hidden mx-auto mb-2 md:mb-0">
                 <Image
-                  src={item.imageUrl || "/placeholder.svg"}
+                  src={item.imageSrc || "/placeholder.svg"}
                   alt={item.title}
                   fill
                   className="object-cover"
                 />
               </div>
+              <div className="md:hidden mx-auto max-w-[345px]">
+                <h3 className="text-2xl mb-4 text-left font-bold text-neutral-500">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-neutral-500 mb-4">{item.body}</p>
+                <Link
+                  href={item.link}
+                  className="inline-block px-6 py-2 mb-6 bg-[#EA5C1C] text-white rounded hover:bg-[#EA5C1C]/90 transition-colors"
+                >
+                  Visit
+                </Link>
+              </div>
             </div>
           </div>
         ))}
         <div
-          style={{
-            height: height + "px",
-          }}
-          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+          style={{ height: height + "px" }}
+          className="absolute md:block hidden md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
         >
           <motion.div
             style={{
@@ -137,9 +100,7 @@ export const TimelineComponent = ({ data }: { data: Project[] }) => {
           >
             <motion.div
               className="absolute w-4 h-4 -right-[6px] bg-[#EA5C1C] rounded-full"
-              style={{
-                top: heightTransform,
-              }}
+              style={{ top: heightTransform }}
             />
           </motion.div>
         </div>
@@ -148,6 +109,4 @@ export const TimelineComponent = ({ data }: { data: Project[] }) => {
   );
 };
 
-export default function Timeline() {
-  return <TimelineComponent data={[]} />;
-}
+export default TimelineComponent;

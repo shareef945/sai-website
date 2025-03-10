@@ -1,6 +1,8 @@
+import Image from "next/image";
+
 const GDPRSection = () => {
     return (
-      <div className="w-[57rem] mx-auto text-white py-16 px-6 md:px-20">
+      <div className="w-full max-w-[57rem] mx-auto text-white py-16 px-6 md:px-20">
         {/* GDPR Title */}
         <h1 className="text-4xl font-bold mb-12">GDPR</h1>
   
@@ -14,8 +16,10 @@ const GDPRSection = () => {
           </p>
   
           <div className="bg-[#191919] p-8 rounded-lg border border-gray-700 flex flex-col items-center text-center">
-            <img
-              src="/gdpr-logo.png"
+            <Image
+              src="/logos/gdr.svg"
+              height={85}
+              width={65}
               alt="GDPR Compliant"
               className="w-16 h-16 mb-4"
             />

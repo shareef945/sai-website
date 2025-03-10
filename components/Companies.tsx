@@ -47,7 +47,7 @@ export default function Companies() {
   }, [isHovered]);
 
   return (
-    <section className="py-12 border-t border-gray-800">
+    <section className="py-12 bg-[#151515]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="relative overflow-hidden">
           <div 
@@ -69,7 +69,7 @@ export default function Companies() {
             ))}
           </div>
         </div>
-        <p className="text-center text-gray-300 mt-10 text-sm">
+        <p className="text-center text-gray-300 mt-[22px] text-sm">
           Trusted by fast-growing companies worldwide
         </p>
       </div>

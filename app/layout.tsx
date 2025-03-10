@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from 'next/font/google';
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/main-nav";
-import React from 'react';
+import React from "react";
 import Footer from "@/components/Footer";
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"], // Ensures proper language support
+  weight: ["300", "400", "500", "600", "700"], // Include desired font weights
+  variable: "--font-space-grotesk", // Define a CSS variable
+});
+
 const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
+  subsets: ["latin"], // Ensures proper language support
+  weight: ["400", "500", "600", "700"], // Include desired font weights
+  variable: "--font-inter", // Define a CSS variable
 });
 
 export const metadata: Metadata = {
@@ -23,14 +30,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} relative bg-[#111111]`}>
+      <body
+        className={`${spaceGrotesk.className} ${inter.variable} relative bg-[#111111]`}
+      >
         <div className="relative min-h-screen">
-          <div className="relative z-10">
+          <div className="relative z-[2]">
             <Navbar />
           </div>
-          <main className="relative z-0">
-            {children}
-          </main>
+          <main>{children}</main>
           <Footer />
         </div>
       </body>

@@ -29,7 +29,7 @@ export const RequestDialog: React.FC<RequestDialogProps> = ({
           <p className="text-gray-600">Contact form will go here</p>
           <Button
             onClick={onClose}
-            className="w-full bg-[#E65722] hover:bg-[#E65722]/90 rounded-none"
+            className="w-full bg-[#E65722] hover:bg-[#E65722]/90 "
           >
             Close
           </Button>

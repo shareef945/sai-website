@@ -60,11 +60,11 @@ export default function ServicesComponent() {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center mt-14 w-full mb-32">
-      <h1 className="text-[50px] font-medium text-center text-white">
+    <div className="flex flex-col items-center justify-center mt-[7.875rem] bg-[#151515] w-full py-24 ">
+      <h1 className="md:text-[50px] text-[30px] font-medium text-center text-white">
         Services we Offer
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-4 max-w-[72rem] h-[47.5625rem] ">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-4 max-w-[72rem] md:h-[47.5625rem] h-[145.3125rem]  ">
         {services.map((service: any, index: number) => (
           <div
             key={index}
