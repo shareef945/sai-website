@@ -72,7 +72,7 @@ const TechCard = ({
           alt={tech.name}
           width={170}
           height={170}
-          className="w-[9.0625rem] h-[6rem] object-contain opacity-50 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0"
+          className="w-[9.0625rem] h-[6rem] object-contain opacity-50  transition-opacity grayscale "
         />
       </div>
     </motion.div>
@@ -239,7 +239,7 @@ export default function TechStack() {
                     transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                     className="relative"
                   >
-                    <div className="flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-3 md:gap-4 p-0 md:p-4">
+                    <div className=" grid grid-cols-3 overflow-x-auto overflow-hidden gap-3 md:gap-4 p-0 md:p-4">
                       {techStacks[categories[currentCategory].id as keyof typeof techStacks].map((tech, index) => (
                         <TechCard key={tech.name} tech={tech} index={index} shouldAnimate={shouldAnimate} />
                       ))}
