@@ -1,129 +1,222 @@
 "use client"
 
+import { useScroll, useTransform, motion } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
-import { CircleIcon, PencilRulerIcon, Settings2Icon, WrenchIcon } from "lucide-react"
+import Image from "next/image"
+import { cn } from "@/lib/utils"
 
-export default function Development() {
-  const [activeSection, setActiveSection] = useState("consultation")
-  const observerRef = useRef<IntersectionObserver | null>(null)
+// Define the service item type
+interface ServiceItem {
+  id: string
+  title: string
+  description: string
+  icon: string
+  logoSrc?: string
+}
 
+// Sample service data
+const services: ServiceItem[] = [
+  {
+    id: "consultation",
+    title: "Consultation & Strategy",
+    description:
+      "Designing engaging and intuitive interfaces for web and mobile applications. Crafting user experiences that are not only visually appealing but also user-friendly, ensuring your audience enjoys every interaction with your product.",
+    icon: "lightbulb",
+    logoSrc:
+      "/development-logo1.svg",
+  },
+  {
+    id: "design",
+    title: "Design & User Experience",
+    description:
+      "Designing engaging and intuitive interfaces for web and mobile applications. Crafting user experiences that are not only visually appealing but also user-friendly, ensuring your audience enjoys every interaction with your product.",
+    icon: "pencil",
+    logoSrc:
+      "/development-logo2.svg",
+  },
+  {
+    id: "development",
+    title: "Development & Implementation",
+    description:
+      "Designing engaging and intuitive interfaces for web and mobile applications. Crafting user experiences that are not only visually appealing but also user-friendly, ensuring your audience enjoys every interaction with your product.",
+    icon: "code",
+    logoSrc:
+      "/development-logo2.svg",
+  },
+  {
+    id: "testing",
+    title: "Testing & Quality Assurance",
+    description:
+      "Designing engaging and intuitive interfaces for web and mobile applications. Crafting user experiences that are not only visually appealing but also user-friendly, ensuring your audience enjoys every interaction with your product.",
+    icon: "check-circle",
+    logoSrc:
+      "/development-logo1.svg",
+  },
+]
+
+export const ServicesTimeline = () => {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const timelineRef = useRef<HTMLDivElement>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [timelineHeight, setTimelineHeight] = useState(0)
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  // Set up the timeline height based on the visible items, not the full container
   useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
-          }
-        })
-      },
-      {
-        root: null,
-        rootMargin: "-50% 0px",
-        threshold: 0,
-      },
-    )
-
-    const sections = document.querySelectorAll("[data-section]")
-    sections.forEach((section) => {
-      observerRef.current?.observe(section)
-    })
-
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect()
+    if (timelineRef.current && itemRefs.current.length > 0) {
+      const lastItem = itemRefs.current[itemRefs.current.length - 1];
+      if (lastItem) {
+        const lastItemBottom = lastItem.getBoundingClientRect().bottom;
+        const timelineTop = timelineRef.current.getBoundingClientRect().top;
+        const calculatedHeight = lastItemBottom - timelineTop;
+        setTimelineHeight(calculatedHeight);
       }
     }
-  }, [])
+  }, []);
+
+  // Set up scroll tracking for each item
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current) return
+
+      const containerTop = containerRef.current.getBoundingClientRect().top
+      const viewportHeight = window.innerHeight
+      const triggerPoint = viewportHeight * 0.4 // 40% down the viewport
+
+      let newActiveIndex = activeIndex;
+
+      itemRefs.current.forEach((item, index) => {
+        if (!item) return
+        const itemTop = item.getBoundingClientRect().top
+        const itemPosition = itemTop - viewportHeight / 2;
+        
+        if (itemPosition < 0) {
+          newActiveIndex = index;
+        }
+      })
+
+      if (newActiveIndex !== activeIndex) {
+        setActiveIndex(newActiveIndex);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    handleScroll() // Initial check
+
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [activeIndex])
+
+  // Set up scroll progress for the timeline line
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 20%", "end 80%"],
+  })
+
+  const lineHeight = useTransform(scrollYProgress, [0, 1], [0, timelineHeight])
 
   return (
-    <div className="bg-[#151515] min-h-screen text-white">
-      <div className="max-w-6xl mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold text-center mb-16">How development with SAI works</h1>
+    <div className="w-full px-5 md:px-[185px] bg-[#151515] py-20 font-sans" ref={containerRef}>
+      <div className="md:px-6 lg:px-8">
+        <h1 className="md:text-4xl text-[30px] py-4 font-medium text-white mb-16 text-center">How development with SAI works</h1>
 
-        <div className="flex gap-8">
-          {/* Left side navigation */}
-          <nav className="hidden lg:block w-64 sticky top-16 h-fit">
-            <div className="space-y-4">
-              {sections.map((section) => (
-                <a
-                  key={section.id}
-                  href={`#${section.id}`}
-                  className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${
-                    activeSection === section.id ? "bg-orange-600/20 text-orange-500" : "hover:bg-white/5"
-                  }`}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    document.getElementById(section.id)?.scrollIntoView({
-                      behavior: "smooth",
-                    })
-                  }}
-                >
-                  {section.icon}
-                  <span className="font-medium">{section.label}</span>
-                </a>
-              ))}
-            </div>
-          </nav>
+        <div className="relative">
+          {/* Timeline line - hidden on mobile, now positioned to go through icons */}
+          <div 
+            ref={timelineRef}
+            className="absolute left-[28px]  md:left-[25px] top-12 w-[2px] bg-gray-800 hidden md:block"
+            style={{ height: `${timelineHeight}px` }}
+          >
+            <motion.div className="absolute top-0 left-0 w-full bg-[#EA5C1C]" style={{ height: lineHeight }}>
+              <motion.div
+                className="absolute w-4 h-4 -left-[6px] -translate-y-1/2 bg-[#EA5C1C] rounded-full"
+                style={{ top: lineHeight }}
+              />
+            </motion.div>
+          </div>
 
-          {/* Right side content */}
-          <div className="flex-1 h-[1000px] overflow-y-auto pr-4 space-y-32">
-            <section id="consultation" data-section className="min-h-[400px] space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-orange-600 flex items-center justify-center">
-                  <Settings2Icon className="w-6 h-6" />
+          {/* Timeline items */}
+          <div className="space-y-16 md:space-y-48 pb-20">
+            {services.map((service, index) => (
+              <div
+                key={service.id}
+                ref={(el) => (itemRefs.current[index] = el)}
+                className="flex flex-col md:flex-row md:items-start justify-between"
+              >
+                {/* Left side - Timeline marker - Hidden on mobile */}
+                <div className="hidden md:flex items-center gap-4 md:w-[200px] z-10 mb-4 md:mb-0">
+                  <div
+                    className={cn(
+                      "w-[50px] h-[50px] rounded-full flex items-center justify-center z-10 border-4 p-3",
+                      activeIndex === index ? "bg-[#EA5C1C] border-[#EA5C1C]" : "bg-gray-800 border-gray-800",
+                    )}
+                  >
+                    {service.icon === "lightbulb" && (
+                     <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M20.1875 40.375C18.2962 40.375 16.4474 40.9358 14.8748 41.9866C13.3023 43.0373 12.0766 44.5308 11.3529 46.2781C10.6291 48.0254 10.4397 49.9481 10.8087 51.8031C11.1777 53.658 12.0884 55.3619 13.4258 56.6992C14.7631 58.0365 16.467 58.9473 18.3219 59.3163C20.1769 59.6852 22.0996 59.4959 23.8469 58.7721C25.5942 58.0483 27.0876 56.8227 28.1384 55.2501C29.1891 53.6776 29.75 51.8288 29.75 49.9375C29.75 47.4014 28.7425 44.9691 26.9492 43.1758C25.1559 41.3825 22.7236 40.375 20.1875 40.375ZM20.1875 55.25C19.1367 55.25 18.1096 54.9384 17.236 54.3547C16.3624 53.7709 15.6814 52.9412 15.2794 51.9705C14.8773 50.9998 14.7721 49.9316 14.977 48.9011C15.182 47.8706 15.688 46.924 16.431 46.181C17.1739 45.438 18.1205 44.9321 19.151 44.7271C20.1816 44.5221 21.2497 44.6273 22.2205 45.0294C23.1912 45.4315 24.0209 46.1124 24.6046 46.986C25.1884 47.8597 25.5 48.8868 25.5 49.9375C25.5 50.6351 25.3625 51.326 25.0956 51.9705C24.8286 52.615 24.4373 53.2007 23.944 53.694C23.4507 54.1873 22.865 54.5786 22.2205 54.8456C21.5759 55.1126 20.8851 55.25 20.1875 55.25ZM11.2465 28.2466L15.0582 24.4375L11.2465 20.6284C10.8478 20.2297 10.6238 19.6889 10.6238 19.125C10.6238 18.5611 10.8478 18.0203 11.2465 17.6216C11.6453 17.2228 12.1861 16.9988 12.75 16.9988C13.3139 16.9988 13.8547 17.2228 14.2534 17.6216L18.0625 21.4333L21.8715 17.6216C22.2703 17.2228 22.8111 16.9988 23.375 16.9988C23.9389 16.9988 24.4797 17.2228 24.8784 17.6216C25.2771 18.0203 25.5011 18.5611 25.5011 19.125C25.5011 19.6889 25.2771 20.2297 24.8784 20.6284L21.0667 24.4375L24.8784 28.2466C25.2771 28.6453 25.5011 29.1861 25.5011 29.75C25.5011 30.3139 25.2771 30.8547 24.8784 31.2534C24.4797 31.6522 23.9389 31.8762 23.375 31.8762C22.8111 31.8762 22.2703 31.6522 21.8715 31.2534L18.0625 27.4417L14.2534 31.2534C13.8547 31.6522 13.3139 31.8762 12.75 31.8762C12.1861 31.8762 11.6453 31.6522 11.2465 31.2534C10.8478 30.8547 10.6238 30.3139 10.6238 29.75C10.6238 29.1861 10.8478 28.6453 11.2465 28.2466ZM61.0034 53.7466C61.2008 53.944 61.3574 54.1784 61.4643 54.4363C61.5711 54.6943 61.6261 54.9708 61.6261 55.25C61.6261 55.5292 61.5711 55.8057 61.4643 56.0637C61.3574 56.3216 61.2008 56.556 61.0034 56.7534C60.806 56.9509 60.5716 57.1075 60.3136 57.2143C60.0557 57.3212 59.7792 57.3762 59.5 57.3762C59.2207 57.3762 58.9443 57.3212 58.6863 57.2143C58.4283 57.1075 58.194 56.9509 57.9965 56.7534L54.1875 52.9417L50.3784 56.7534C49.9797 57.1522 49.4389 57.3762 48.875 57.3762C48.3111 57.3762 47.7703 57.1522 47.3715 56.7534C46.9728 56.3547 46.7488 55.8139 46.7488 55.25C46.7488 54.6861 46.9728 54.1453 47.3715 53.7466L51.1832 49.9375L47.3715 46.1284C46.9728 45.7297 46.7488 45.1889 46.7488 44.625C46.7488 44.0611 46.9728 43.5203 47.3715 43.1216C47.7703 42.7228 48.3111 42.4988 48.875 42.4988C49.4389 42.4988 49.9797 42.7228 50.3784 43.1216L54.1875 46.9333L57.9965 43.1216C58.3953 42.7228 58.9361 42.4988 59.5 42.4988C60.0639 42.4988 60.6047 42.7228 61.0034 43.1216C61.4021 43.5203 61.6261 44.0611 61.6261 44.625C61.6261 45.1889 61.4021 45.7297 61.0034 46.1284L57.1917 49.9375L61.0034 53.7466ZM48.9998 29.9705C47.3582 35.9019 42.2742 41.0284 36.6403 42.4362C36.4718 42.4785 36.2987 42.4999 36.125 42.5C35.6068 42.499 35.1068 42.3088 34.7191 41.965C34.3314 41.6212 34.0826 41.1476 34.0196 40.6333C33.9567 40.119 34.0838 39.5993 34.3771 39.1722C34.6704 38.745 35.1097 38.4397 35.6123 38.3138C39.764 37.2752 43.674 33.2908 44.9092 28.8363C45.7565 25.7816 45.7645 21.1331 41.0018 16.3784L40.375 15.7542V21.25C40.375 21.8136 40.1511 22.3541 39.7526 22.7526C39.354 23.1511 38.8135 23.375 38.25 23.375C37.6864 23.375 37.1459 23.1511 36.7474 22.7526C36.3488 22.3541 36.125 21.8136 36.125 21.25V10.625C36.125 10.0614 36.3488 9.52091 36.7474 9.1224C37.1459 8.72388 37.6864 8.5 38.25 8.5H48.875C49.4385 8.5 49.979 8.72388 50.3776 9.1224C50.7761 9.52091 51 10.0614 51 10.625C51 11.1886 50.7761 11.7291 50.3776 12.1276C49.979 12.5261 49.4385 12.75 48.875 12.75H43.3792L44.0034 13.3716C48.8484 18.2192 50.6228 24.1134 48.9998 29.9705Z" fill="#fff"/>
+                     </svg>
+                     
+                    )}
+                    {service.icon === "pencil" && (
+                    <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 7.79163C17.0004 7.39102 16.8875 6.99847 16.6744 6.65924C16.4613 6.32001 16.1567 6.04792 15.7956 5.87436C15.4346 5.70079 15.0318 5.63282 14.6338 5.67828C14.2358 5.72374 13.8587 5.88078 13.5461 6.13129C9.83447 9.10346 7.8143 11.7073 6.7518 13.974C5.98672 15.5806 5.61476 17.3462 5.66663 19.125C5.66663 21.8053 7.01813 24.1683 9.07797 25.5708C8.51171 26.049 8.02743 26.6165 7.6443 27.251C6.29563 29.4326 5.66663 32.7675 5.66663 37.5558C5.66663 42.4065 6.3183 48.2318 7.3808 52.8841C7.9078 55.1961 8.5623 57.3296 9.34147 58.9305C9.72963 59.7266 10.2028 60.503 10.7865 61.1121C11.3701 61.71 12.2683 62.3475 13.4583 62.3475C14.6483 62.3475 15.5465 61.71 16.1273 61.1121C16.7187 60.4639 17.2061 59.7279 17.5723 58.9305C18.3543 57.3268 19.0088 55.1961 19.5358 52.8813C20.642 47.8459 21.2165 42.7083 21.25 37.553C21.25 32.7646 20.621 29.4326 19.2723 27.251C18.8892 26.6165 18.4049 26.049 17.8386 25.5708C18.8899 24.8562 19.7504 23.8952 20.345 22.7716C20.9396 21.6481 21.2503 20.3961 21.25 19.125C21.25 16.4985 20.0146 14.6653 19.074 13.2656L18.9918 13.1438C17.8868 11.4976 17 10.1433 17 7.79163ZM9.91663 19.125C9.91663 18.2806 9.91663 17.238 10.6023 15.7788C11.0783 14.756 11.9311 13.4583 13.4696 11.8943C14.0165 13.3591 14.7815 14.501 15.4303 15.4643L15.4643 15.5153C16.4758 17.0198 17 17.8811 17 19.125C17 20.0643 16.6268 20.9651 15.9626 21.6293C15.2984 22.2935 14.3976 22.6666 13.4583 22.6666C12.519 22.6666 11.6182 22.2935 10.954 21.6293C10.2898 20.9651 9.91663 20.0643 9.91663 19.125ZM9.91663 37.5558C9.91663 32.9573 10.557 30.6226 11.2596 29.4836C11.4734 29.1016 11.7932 28.7896 12.1805 28.5855C12.5822 28.4082 13.0197 28.3267 13.4583 28.3475C14.025 28.3475 14.4301 28.4353 14.7361 28.5855C15.0195 28.7215 15.3368 28.968 15.657 29.4836C16.3596 30.6226 17 32.9573 17 37.5558C17 42.092 16.3823 47.6 15.3935 51.9378C14.8948 54.1195 14.3281 55.8903 13.753 57.069C13.6616 57.2567 13.5633 57.441 13.4583 57.6215C13.3533 57.441 13.255 57.2567 13.1636 57.069C12.5885 55.8903 12.0218 54.1166 11.5231 51.9378C10.4901 47.2125 9.95166 42.3926 9.91663 37.5558ZM24.038 39.8848C25.4016 40.4842 26.8511 40.8647 28.3333 41.0125V34.7083C28.3333 33.499 28.5715 32.3016 29.0342 31.1844C29.497 30.0672 30.1753 29.0521 31.0304 28.197C31.8854 27.3419 32.9006 26.6637 34.0178 26.2009C35.135 25.7381 36.3324 25.5 37.5416 25.5H43.8458C43.6131 23.1808 42.8118 20.9549 41.5129 19.0196C40.214 17.0842 38.4577 15.4993 36.3996 14.4052C34.3415 13.3112 32.0453 12.7418 29.7145 12.7477C27.3837 12.7535 25.0904 13.3343 23.0378 14.4386C22.5968 13.5084 22.0774 12.6174 21.4851 11.7753L21.3435 11.5656L20.8363 10.795C23.5355 9.302 26.5664 8.51089 29.6508 8.49425C32.7353 8.4776 35.7746 9.23594 38.4897 10.6997C41.2048 12.1634 43.5088 14.2857 45.1902 16.8716C46.8716 19.4576 47.8765 22.4245 48.1128 25.5H53.125C54.3342 25.5 55.5316 25.7381 56.6488 26.2009C57.766 26.6637 58.7812 27.3419 59.6362 28.197C60.4913 29.0521 61.1696 30.0672 61.6324 31.1844C62.0951 32.3016 62.3333 33.499 62.3333 34.7083V50.2916C62.3333 51.5009 62.0951 52.6983 61.6324 53.8155C61.1696 54.9327 60.4913 55.9478 59.6362 56.8029C58.7812 57.658 57.766 58.3363 56.6488 58.799C55.5316 59.2618 54.3342 59.5 53.125 59.5H37.5416C35.0994 59.5 32.7573 58.5298 31.0304 56.8029C29.3035 55.076 28.3333 52.7338 28.3333 50.2916V45.2795C26.7682 45.1601 25.2247 44.8411 23.7405 44.3303C23.8821 42.8286 23.9841 41.3326 24.038 39.8848ZM53.125 29.75H47.9513C47.3489 33.6096 45.5357 37.178 42.7735 39.9402C40.0113 42.7024 36.4429 44.5155 32.5833 45.118V50.2916C32.5833 53.0286 34.8046 55.25 37.5416 55.25H53.125C54.44 55.25 55.7012 54.7276 56.631 53.7977C57.5609 52.8678 58.0833 51.6067 58.0833 50.2916V34.7083C58.0833 33.3933 57.5609 32.1321 56.631 31.2022C55.7012 30.2724 54.44 29.75 53.125 29.75ZM32.5833 40.8C35.3043 40.2413 37.8016 38.8966 39.7657 36.9324C41.7299 34.9682 43.0746 32.471 43.6333 29.75H37.5416C36.2266 29.75 34.9654 30.2724 34.0356 31.2022C33.1057 32.1321 32.5833 33.3933 32.5833 34.7083V40.8Z" fill="#fff"/>
+                    </svg>
+                    
+                    )}
+                    {service.icon === "code" && (
+                       <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                       <path d="M20.1875 40.375C18.2962 40.375 16.4474 40.9358 14.8748 41.9866C13.3023 43.0373 12.0766 44.5308 11.3529 46.2781C10.6291 48.0254 10.4397 49.9481 10.8087 51.8031C11.1777 53.658 12.0884 55.3619 13.4258 56.6992C14.7631 58.0365 16.467 58.9473 18.3219 59.3163C20.1769 59.6852 22.0996 59.4959 23.8469 58.7721C25.5942 58.0483 27.0876 56.8227 28.1384 55.2501C29.1891 53.6776 29.75 51.8288 29.75 49.9375C29.75 47.4014 28.7425 44.9691 26.9492 43.1758C25.1559 41.3825 22.7236 40.375 20.1875 40.375ZM20.1875 55.25C19.1367 55.25 18.1096 54.9384 17.236 54.3547C16.3624 53.7709 15.6814 52.9412 15.2794 51.9705C14.8773 50.9998 14.7721 49.9316 14.977 48.9011C15.182 47.8706 15.688 46.924 16.431 46.181C17.1739 45.438 18.1205 44.9321 19.151 44.7271C20.1816 44.5221 21.2497 44.6273 22.2205 45.0294C23.1912 45.4315 24.0209 46.1124 24.6046 46.986C25.1884 47.8597 25.5 48.8868 25.5 49.9375C25.5 50.6351 25.3625 51.326 25.0956 51.9705C24.8286 52.615 24.4373 53.2007 23.944 53.694C23.4507 54.1873 22.865 54.5786 22.2205 54.8456C21.5759 55.1126 20.8851 55.25 20.1875 55.25ZM11.2465 28.2466L15.0582 24.4375L11.2465 20.6284C10.8478 20.2297 10.6238 19.6889 10.6238 19.125C10.6238 18.5611 10.8478 18.0203 11.2465 17.6216C11.6453 17.2228 12.1861 16.9988 12.75 16.9988C13.3139 16.9988 13.8547 17.2228 14.2534 17.6216L18.0625 21.4333L21.8715 17.6216C22.2703 17.2228 22.8111 16.9988 23.375 16.9988C23.9389 16.9988 24.4797 17.2228 24.8784 17.6216C25.2771 18.0203 25.5011 18.5611 25.5011 19.125C25.5011 19.6889 25.2771 20.2297 24.8784 20.6284L21.0667 24.4375L24.8784 28.2466C25.2771 28.6453 25.5011 29.1861 25.5011 29.75C25.5011 30.3139 25.2771 30.8547 24.8784 31.2534C24.4797 31.6522 23.9389 31.8762 23.375 31.8762C22.8111 31.8762 22.2703 31.6522 21.8715 31.2534L18.0625 27.4417L14.2534 31.2534C13.8547 31.6522 13.3139 31.8762 12.75 31.8762C12.1861 31.8762 11.6453 31.6522 11.2465 31.2534C10.8478 30.8547 10.6238 30.3139 10.6238 29.75C10.6238 29.1861 10.8478 28.6453 11.2465 28.2466ZM61.0034 53.7466C61.2008 53.944 61.3574 54.1784 61.4643 54.4363C61.5711 54.6943 61.6261 54.9708 61.6261 55.25C61.6261 55.5292 61.5711 55.8057 61.4643 56.0637C61.3574 56.3216 61.2008 56.556 61.0034 56.7534C60.806 56.9509 60.5716 57.1075 60.3136 57.2143C60.0557 57.3212 59.7792 57.3762 59.5 57.3762C59.2207 57.3762 58.9443 57.3212 58.6863 57.2143C58.4283 57.1075 58.194 56.9509 57.9965 56.7534L54.1875 52.9417L50.3784 56.7534C49.9797 57.1522 49.4389 57.3762 48.875 57.3762C48.3111 57.3762 47.7703 57.1522 47.3715 56.7534C46.9728 56.3547 46.7488 55.8139 46.7488 55.25C46.7488 54.6861 46.9728 54.1453 47.3715 53.7466L51.1832 49.9375L47.3715 46.1284C46.9728 45.7297 46.7488 45.1889 46.7488 44.625C46.7488 44.0611 46.9728 43.5203 47.3715 43.1216C47.7703 42.7228 48.3111 42.4988 48.875 42.4988C49.4389 42.4988 49.9797 42.7228 50.3784 43.1216L54.1875 46.9333L57.9965 43.1216C58.3953 42.7228 58.9361 42.4988 59.5 42.4988C60.0639 42.4988 60.6047 42.7228 61.0034 43.1216C61.4021 43.5203 61.6261 44.0611 61.6261 44.625C61.6261 45.1889 61.4021 45.7297 61.0034 46.1284L57.1917 49.9375L61.0034 53.7466ZM48.9998 29.9705C47.3582 35.9019 42.2742 41.0284 36.6403 42.4362C36.4718 42.4785 36.2987 42.4999 36.125 42.5C35.6068 42.499 35.1068 42.3088 34.7191 41.965C34.3314 41.6212 34.0826 41.1476 34.0196 40.6333C33.9567 40.119 34.0838 39.5993 34.3771 39.1722C34.6704 38.745 35.1097 38.4397 35.6123 38.3138C39.764 37.2752 43.674 33.2908 44.9092 28.8363C45.7565 25.7816 45.7645 21.1331 41.0018 16.3784L40.375 15.7542V21.25C40.375 21.8136 40.1511 22.3541 39.7526 22.7526C39.354 23.1511 38.8135 23.375 38.25 23.375C37.6864 23.375 37.1459 23.1511 36.7474 22.7526C36.3488 22.3541 36.125 21.8136 36.125 21.25V10.625C36.125 10.0614 36.3488 9.52091 36.7474 9.1224C37.1459 8.72388 37.6864 8.5 38.25 8.5H48.875C49.4385 8.5 49.979 8.72388 50.3776 9.1224C50.7761 9.52091 51 10.0614 51 10.625C51 11.1886 50.7761 11.7291 50.3776 12.1276C49.979 12.5261 49.4385 12.75 48.875 12.75H43.3792L44.0034 13.3716C48.8484 18.2192 50.6228 24.1134 48.9998 29.9705Z" fill="#fff"/>
+                       </svg>
+                    )}
+                    {service.icon === "check-circle" && (
+                   <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                   <path d="M20.1875 40.375C18.2962 40.375 16.4474 40.9358 14.8748 41.9866C13.3023 43.0373 12.0766 44.5308 11.3529 46.2781C10.6291 48.0254 10.4397 49.9481 10.8087 51.8031C11.1777 53.658 12.0884 55.3619 13.4258 56.6992C14.7631 58.0365 16.467 58.9473 18.3219 59.3163C20.1769 59.6852 22.0996 59.4959 23.8469 58.7721C25.5942 58.0483 27.0876 56.8227 28.1384 55.2501C29.1891 53.6776 29.75 51.8288 29.75 49.9375C29.75 47.4014 28.7425 44.9691 26.9492 43.1758C25.1559 41.3825 22.7236 40.375 20.1875 40.375ZM20.1875 55.25C19.1367 55.25 18.1096 54.9384 17.236 54.3547C16.3624 53.7709 15.6814 52.9412 15.2794 51.9705C14.8773 50.9998 14.7721 49.9316 14.977 48.9011C15.182 47.8706 15.688 46.924 16.431 46.181C17.1739 45.438 18.1205 44.9321 19.151 44.7271C20.1816 44.5221 21.2497 44.6273 22.2205 45.0294C23.1912 45.4315 24.0209 46.1124 24.6046 46.986C25.1884 47.8597 25.5 48.8868 25.5 49.9375C25.5 50.6351 25.3625 51.326 25.0956 51.9705C24.8286 52.615 24.4373 53.2007 23.944 53.694C23.4507 54.1873 22.865 54.5786 22.2205 54.8456C21.5759 55.1126 20.8851 55.25 20.1875 55.25ZM11.2465 28.2466L15.0582 24.4375L11.2465 20.6284C10.8478 20.2297 10.6238 19.6889 10.6238 19.125C10.6238 18.5611 10.8478 18.0203 11.2465 17.6216C11.6453 17.2228 12.1861 16.9988 12.75 16.9988C13.3139 16.9988 13.8547 17.2228 14.2534 17.6216L18.0625 21.4333L21.8715 17.6216C22.2703 17.2228 22.8111 16.9988 23.375 16.9988C23.9389 16.9988 24.4797 17.2228 24.8784 17.6216C25.2771 18.0203 25.5011 18.5611 25.5011 19.125C25.5011 19.6889 25.2771 20.2297 24.8784 20.6284L21.0667 24.4375L24.8784 28.2466C25.2771 28.6453 25.5011 29.1861 25.5011 29.75C25.5011 30.3139 25.2771 30.8547 24.8784 31.2534C24.4797 31.6522 23.9389 31.8762 23.375 31.8762C22.8111 31.8762 22.2703 31.6522 21.8715 31.2534L18.0625 27.4417L14.2534 31.2534C13.8547 31.6522 13.3139 31.8762 12.75 31.8762C12.1861 31.8762 11.6453 31.6522 11.2465 31.2534C10.8478 30.8547 10.6238 30.3139 10.6238 29.75C10.6238 29.1861 10.8478 28.6453 11.2465 28.2466ZM61.0034 53.7466C61.2008 53.944 61.3574 54.1784 61.4643 54.4363C61.5711 54.6943 61.6261 54.9708 61.6261 55.25C61.6261 55.5292 61.5711 55.8057 61.4643 56.0637C61.3574 56.3216 61.2008 56.556 61.0034 56.7534C60.806 56.9509 60.5716 57.1075 60.3136 57.2143C60.0557 57.3212 59.7792 57.3762 59.5 57.3762C59.2207 57.3762 58.9443 57.3212 58.6863 57.2143C58.4283 57.1075 58.194 56.9509 57.9965 56.7534L54.1875 52.9417L50.3784 56.7534C49.9797 57.1522 49.4389 57.3762 48.875 57.3762C48.3111 57.3762 47.7703 57.1522 47.3715 56.7534C46.9728 56.3547 46.7488 55.8139 46.7488 55.25C46.7488 54.6861 46.9728 54.1453 47.3715 53.7466L51.1832 49.9375L47.3715 46.1284C46.9728 45.7297 46.7488 45.1889 46.7488 44.625C46.7488 44.0611 46.9728 43.5203 47.3715 43.1216C47.7703 42.7228 48.3111 42.4988 48.875 42.4988C49.4389 42.4988 49.9797 42.7228 50.3784 43.1216L54.1875 46.9333L57.9965 43.1216C58.3953 42.7228 58.9361 42.4988 59.5 42.4988C60.0639 42.4988 60.6047 42.7228 61.0034 43.1216C61.4021 43.5203 61.6261 44.0611 61.6261 44.625C61.6261 45.1889 61.4021 45.7297 61.0034 46.1284L57.1917 49.9375L61.0034 53.7466ZM48.9998 29.9705C47.3582 35.9019 42.2742 41.0284 36.6403 42.4362C36.4718 42.4785 36.2987 42.4999 36.125 42.5C35.6068 42.499 35.1068 42.3088 34.7191 41.965C34.3314 41.6212 34.0826 41.1476 34.0196 40.6333C33.9567 40.119 34.0838 39.5993 34.3771 39.1722C34.6704 38.745 35.1097 38.4397 35.6123 38.3138C39.764 37.2752 43.674 33.2908 44.9092 28.8363C45.7565 25.7816 45.7645 21.1331 41.0018 16.3784L40.375 15.7542V21.25C40.375 21.8136 40.1511 22.3541 39.7526 22.7526C39.354 23.1511 38.8135 23.375 38.25 23.375C37.6864 23.375 37.1459 23.1511 36.7474 22.7526C36.3488 22.3541 36.125 21.8136 36.125 21.25V10.625C36.125 10.0614 36.3488 9.52091 36.7474 9.1224C37.1459 8.72388 37.6864 8.5 38.25 8.5H48.875C49.4385 8.5 49.979 8.72388 50.3776 9.1224C50.7761 9.52091 51 10.0614 51 10.625C51 11.1886 50.7761 11.7291 50.3776 12.1276C49.979 12.5261 49.4385 12.75 48.875 12.75H43.3792L44.0034 13.3716C48.8484 18.2192 50.6228 24.1134 48.9998 29.9705Z" fill="#fff"/>
+                   </svg>
+                    )}
+                  </div>
+                  <h3
+                    className={cn(
+                      "text-[30px] font-medium w-[320px]",
+                      activeIndex === index ? "text-white" : "text-gray-500",
+                    )}
+                  >
+                    {service.title}
+                  </h3>
                 </div>
-                <h2 className="text-2xl font-semibold">Consultation & Strategy</h2>
-              </div>
-              <div className="aspect-video bg-white/5 rounded-xl" />
-              <p className="text-gray-400 leading-relaxed">
-                Initial consultation to understand your project requirements, goals, and vision. We develop a
-                comprehensive strategy tailored to your specific needs and objectives, ensuring alignment with your
-                business goals.
-              </p>
-            </section>
 
-            <section id="design" data-section className="min-h-[400px] space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                  <PencilRulerIcon className="w-6 h-6" />
-                </div>
-                <h2 className="text-2xl font-semibold">Design & User Experience</h2>
-              </div>
-              <div className="aspect-video bg-white/5 rounded-xl" />
-              <p className="text-gray-400 leading-relaxed">
-                Designing engaging and intuitive interfaces for web and mobile applications. Crafting user experiences
-                that are not only visually appealing but also user-friendly, ensuring your audience enjoys every
-                interaction with your product.
-              </p>
-            </section>
+                {/* Mobile title - only visible on mobile */}
+                <h3 className="text-[26px] text-center  font-medium text-white md:hidden mb-4">{service.title}</h3>
 
-            <section id="development" data-section className="min-h-[400px] space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                  <WrenchIcon className="w-6 h-6" />
+                {/* Right side - Card */}
+                <div className="flex-1 md:flex md:justify-end">
+                  <motion.div
+                    className="bg-[#1A1A1A] rounded-lg w-full md:w-[536px] "
+                    style={{ height: "370px" }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{
+                      opacity: activeIndex === index ? 1 : 0.5,
+                      y: activeIndex === index ? 0 : 20,
+                    }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    {/* Image section - exactly half height */}
+                    <div className="w-full h-1/2 relative bg-[#151515] border rounded-none flex items-center justify-center  border-white/30">
+                      <Image
+                        src={service.logoSrc || "/placeholder.svg?height=100&width=100"}
+                        alt={service.title}
+                        width={100}
+                        height={100}
+                        className="object-contain"
+                      />
+                    </div>
+                    
+                    {/* Text section - exactly half height */}
+                    <div className="p-6 text-sm flex items-center justify-center text-gray-400  h-1/2 overflow-y-auto">
+                      <p>{service.description}</p>
+                    </div>
+                  </motion.div>
                 </div>
-                <h2 className="text-2xl font-semibold">Development & Implementation</h2>
               </div>
-              <div className="aspect-video bg-white/5 rounded-xl" />
-              <p className="text-gray-400 leading-relaxed">
-                Transforming designs into fully functional applications using cutting-edge technologies and best
-                practices. Our development process ensures scalable, maintainable, and high-performance solutions.
-              </p>
-            </section>
-
-            <section id="testing" data-section className="min-h-[400px] space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                  <CircleIcon className="w-6 h-6" />
-                </div>
-                <h2 className="text-2xl font-semibold">Testing & Deployment</h2>
-              </div>
-              <div className="aspect-video bg-white/5 rounded-xl" />
-              <p className="text-gray-400 leading-relaxed">
-                Rigorous testing procedures to ensure quality and reliability. Smooth deployment process with continuous
-                monitoring and support to ensure optimal performance in production.
-              </p>
-            </section>
+            ))}
           </div>
         </div>
       </div>
@@ -131,26 +224,4 @@ export default function Development() {
   )
 }
 
-const sections = [
-  {
-    id: "consultation",
-    label: "Consultation & Strategy",
-    icon: <Settings2Icon className="w-5 h-5" />,
-  },
-  {
-    id: "design",
-    label: "Design & User Experience",
-    icon: <PencilRulerIcon className="w-5 h-5" />,
-  },
-  {
-    id: "development",
-    label: "Development & Implementation",
-    icon: <WrenchIcon className="w-5 h-5" />,
-  },
-  {
-    id: "testing",
-    label: "Testing & Deployment",
-    icon: <CircleIcon className="w-5 h-5" />,
-  },
-]
-
+export default ServicesTimeline

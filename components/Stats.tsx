@@ -23,14 +23,14 @@ export default function Stats() {
     ]
   
     return (
-      <section className="relative bg-[#151515] md:px-[180px] py-16 md:py-24 ">
+      <section className="relative  md:px-[180px] py-16 md:py-24 ">
         {/* Grid background */}
         <div
           className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%23FFFFFF' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")`,
-            backgroundSize: "40px 40px",
-          }}
+          // style={{
+          //   backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%23FFFFFF' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")`,
+          //   backgroundSize: "40px 40px",
+          // }}
         />
   
         <div className="relative container mx-auto px-4">
