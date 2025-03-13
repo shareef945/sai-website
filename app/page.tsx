@@ -17,7 +17,7 @@ export default function Page() {
       </div>
 
       {/* Content container */}
-      <div className="relative z-[2]">
+      <div className="relative z-20">
         <Hero />
         <ServicesComponent />
         <Stats />
