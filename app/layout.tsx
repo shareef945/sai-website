@@ -1,9 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/main-nav";
+import React from "react";
+import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"], // Ensures proper language support
+  weight: ["300", "400", "500", "600", "700"], // Include desired font weights
+  variable: "--font-space-grotesk", // Define a CSS variable
+});
+
+const inter = Inter({
+  subsets: ["latin"], // Ensures proper language support
+  weight: ["400", "500", "600", "700"], // Include desired font weights
+  variable: "--font-inter", // Define a CSS variable
+});
 
 export const metadata: Metadata = {
   title: "SAI Technology",
@@ -18,9 +30,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Navbar />
-        {children}
+      <body
+        className={`${spaceGrotesk.className} ${inter.variable} relative bg-[#111111]`}
+      >
+        <div className="relative min-h-screen">
+          <div className="relative z-[2]">
+            <Navbar />
+          </div>
+          <main>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
