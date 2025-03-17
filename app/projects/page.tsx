@@ -249,7 +249,7 @@ const Projects = () => {
                   ) : (
                     <>
                       <div
-                        className="w-2/5 border-[#ffffff0a] h-full font-inter bg-[#191919] border border-[#898989] relative transition-transform duration-300 group-hover:scale-[1.01] cursor-pointer"
+                        className="w-2/5 border border-[#898989] h-full font-inter bg-[#191919]  relative transition-transform duration-300 group-hover:scale-[1.01] cursor-pointer"
                         onClick={() => handleCardClick(project.slug)}
                       >
                         <div className="h-full flex flex-col p-6">
@@ -302,7 +302,7 @@ const Projects = () => {
                         </div>
                       </div>
                       <div
-                        className="w-4/5 border-[#ffffff0a] h-full bg-[#191919] ml-6 border border-[#898989] flex flex-col justify-between transition-transform duration-300 group-hover:scale-[1.01] cursor-pointer"
+                        className="w-4/5 border border-[#898989] h-full bg-[#191919] ml-6  flex flex-col justify-between transition-transform duration-300 group-hover:scale-[1.01] cursor-pointer"
                         onClick={() => handleCardClick(project.slug)}
                       >
                         <div className="flex-1 bg-[#191919] p-6 text-[40px] text-[#898989]">
