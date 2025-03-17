@@ -27,23 +27,23 @@ export function GridBackground({
 
   return (
     <div className={`${positioningClass} z-0`}>
-      {/* Base grid pattern */}
+      {/* Base grid pattern with increased visibility */}
       <div
         className="absolute inset-0"
         style={{
           backgroundImage: `
-            repeating-linear-gradient(to right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05) 1px, transparent 1px, transparent ${gridSize}px),
-            repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05) 1px, transparent 1px, transparent ${gridSize}px)
+            repeating-linear-gradient(to right, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15) 1px, transparent 1px, transparent ${gridSize}px),
+            repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15) 1px, transparent 1px, transparent ${gridSize}px)
           `,
         }}
       />
 
-      {/* Gradient overlay */}
+      {/* Updated gradient overlay with stronger fading */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to bottom right, rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.8) 60%, rgba(17, 17, 17, 1) 100%)",
+            "linear-gradient(to right, rgba(21, 21, 21, 0) 0%, rgba(21, 21, 21, 0.7) 40%, rgba(21, 21, 21, 1) 70%), linear-gradient(to bottom, rgba(21, 21, 21, 0) 0%, rgba(21, 21, 21, 0.8) 40%, rgba(21, 21, 21, 1) 70%)",
         }}
       />
     </div>

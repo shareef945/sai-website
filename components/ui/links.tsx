@@ -23,6 +23,11 @@ const Links = () => {
           Stories
         </p>
       </Link>
+      <Link href="/hosting">
+        <p className="text-gray-500 md:text-base text-[32px] font-semibold leading-none hover:text-gray-400 transition-colors">
+          Hosting
+        </p>
+      </Link>
     </div>
   )
 }

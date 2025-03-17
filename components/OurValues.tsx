@@ -5,7 +5,7 @@ import { Globe } from "./ui/globe";
 
 export default function OurValues() {
   return (
-    <div className="min-h-screen lg:grid lg:grid-cols-2">
+<div className="min-h-screen lg:grid lg:grid-cols-2 md:px-[180px] place-items-center">
       <div className="flex flex-col justify-center p-8 lg:p-16">
         {/* Title - stays at top for both mobile and desktop */}
         <h2 className="text-4xl font-medium text-white mb-8 text-center lg:text-left">Our Values</h2>
@@ -58,10 +58,10 @@ function ValueItem({
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-2 md:justify-start justify-center">
-        <div className="hidden md:block h-4 w-1 bg-[#FB6415]" />
+        <div className="hidden md:block h-6 w-1 bg-[#FB6415]" />
         <h3 className="text-xl font-medium text-white">{title}</h3>
       </div>
-      <p className="text-zinc-400 text-sm leading-relaxed md:pl-6 text-center md:text-left">
+      <p className="text-zinc-400 text-sm relative md:right-6 leading-relaxed md:pl-6 text-center md:text-left">
         {description}
       </p>
     </div>

@@ -1,6 +1,6 @@
 export function WhoWeAreSection() {
     return (
-      <section className="relative py-24 px-4 bg-[#111111]">
+      <section className="relative py-24 px-4 bg-[#151515]">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">Who We Are</h2>
           <div className="space-y-8 text-gray-400">

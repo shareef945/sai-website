@@ -12,6 +12,7 @@ import Connect from "./icons/Connect";
 import React from "react";
 import Dashboard from "./icons/Dashboard";
 
+
 export default function ServicesComponent() {
   const services = [
     {
@@ -60,15 +61,18 @@ export default function ServicesComponent() {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center mt-[7.875rem] bg-[#151515] w-full py-24 ">
+    <div className="relative flex flex-col items-center justify-center mt-[7.875rem] bg-[#151515] w-full py-24">
+      {/* Gradient Fade at the Top */}
+      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#151515] to-transparent pointer-events-none" />
+
       <h1 className="md:text-[50px] text-[30px] font-medium text-center text-white">
         Services we Offer
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-4 max-w-[72rem] md:h-[47.5625rem] h-[145.3125rem]  ">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-4 max-w-[72rem] md:h-[47.5625rem] h-[145.3125rem]">
         {services.map((service: any, index: number) => (
           <div
             key={index}
-            className="relative p-6 bg-[#191919] rounded-lg overflow-hidden"
+            className="relative p-6 border border-[#898989] bg-[#191919] rounded-lg overflow-hidden"
           >
             {service.gridBackground && (
               <div className="absolute inset-0">
