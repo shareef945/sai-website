@@ -37,7 +37,7 @@ const Footer = () => {
               Data Privacy and Security Policy
             </Link>
             <Link
-              href="/compliance"
+              href="/certifications"
               className="no-underline hover:underline pb-2 text-sm md:text-base hover:opacity-80 cursor-pointer"
             >
               Compliance and Certification
@@ -45,14 +45,14 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-4 md:gap-4 order-first md:order-last">
             <a
-              href="mailto:info@sairealestate.casa"
+              href="mailto:info@saitechnology.com"
               className="no-underline hover:underline pb-2 text-sm md:text-base hover:opacity-80 cursor-pointer"
             >
-              info@sairealestate.casa
+              info@saietechnology.com
             </a>
             <div className="flex gap-4 md:gap-8">
               {/* Social icons */}
-              <Link href={"https://x.com/sairealestate_"}>
+              <Link href={"https://x.com/saitechnology_"}>
                 <Image
                   src="/logos/x.png"
                   alt="X (Twitter) logo"
@@ -61,7 +61,7 @@ const Footer = () => {
                   className="w-6 h-6 md:w-[30px] md:h-[30px] hover:opacity-80 cursor-pointer"
                 />
               </Link>
-              <Link href={"https://www.instagram.com/sairealestate___/"}>
+              <Link href={"https://www.instagram.com/saitechnology/"}>
                 <Image
                   src="/logos/ig.png"
                   alt="Instagram logo"

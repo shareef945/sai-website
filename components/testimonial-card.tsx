@@ -119,7 +119,7 @@ export default function TestimonialCarousel({
   }, [])
 
   return (
-    <div className="w-full md:px-[180px] px-[20px] ">
+    <div className="w-full md:px-[190px] px-[20px] ">
       <div
         ref={scrollRef}
         className="flex gap-6 overflow-hidden"

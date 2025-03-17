@@ -51,9 +51,9 @@ export default function Hero() {
   }, [isHovered]);
 
   return (
-    <section className="relative mt-24 md:pt-0 flex flex-col justify-center items-center h-[90vh] px-6 pt-20 pb-10">
+    <section className="relative md:mt-12 mt-[10rem] md:pt-0 flex flex-col justify-center items-center h-[90vh] px-6 pt-20 pb-10 md:px-[170px]">
       <div className="max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16 ">
           <div className="flex md:block flex-col space-y-6">
             <h1 className="text-white text-5xl lg:text-[4.375rem] font-bold leading-tight">
               We design and build solutions
@@ -88,7 +88,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 md:px-[323px] text-white/60">
+        <div className="  px-6 md:px-[123px] text-[#898989]">
           <div className="relative overflow-hidden">
             <div
               ref={scrollRef}

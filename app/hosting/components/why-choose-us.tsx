@@ -1,55 +1,62 @@
-import Link from "next/link";
+import Link from "next/link"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { CheckCircle } from "lucide-react"
 
 export default function WhyChooseUs() {
+  const benefits = [
+    {
+      title: "Reliable Performance",
+      description: "High-speed servers ensure fast load times and minimal downtime.",
+    },
+    {
+      title: "Secure Hosting",
+      description: "Regular backups, SSL encryption, and robust security measures.",
+    },
+    {
+      title: "Scalable Plans",
+      description: "Flexible pricing to accommodate startups, growing businesses, and enterprises.",
+    },
+    {
+      title: "Professional Support",
+      description: "Dedicated support team ready to assist you with any issues.",
+    },
+  ]
+
   return (
-    <div className="h-[753px]  w-full mt-32 text-white px-6 sm:px-12 md:px-[180px]">
+    <div className="w-full mt-32 text-white px-6 sm:px-12 md:px-[180px]">
       <div className="py-16 w-full">
         <div className="mx-auto max-w-4xl">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12">Why Choose Us?</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 text-center">Why Choose Us?</h1>
 
-          <ul className="space-y-4 sm:space-y-6 text-lg sm:text-xl mb-8 sm:mb-12 text-white/60">
-            <li className="flex items-start">
-              <span className="mr-2 sm:mr-3 mt-1.5">•</span>
-              <span>
-                <strong>Reliable Performance</strong> – High-speed servers ensure fast load times and minimal downtime.
-              </span>
-            </li>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            {benefits.map((benefit, index) => (
+              <Card key={index} className="bg-zinc-800 border-zinc-700">
+                <CardHeader className="pb-2">
+                  <CardTitle className="flex items-center text-white">
+                    <CheckCircle className="h-5 w-5 mr-2 text-accent" />
+                    {benefit.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-[#898989]">{benefit.description}</CardContent>
+              </Card>
+            ))}
+          </div>
 
-            <li className="flex items-start">
-              <span className="mr-2 sm:mr-3 mt-1.5">•</span>
-              <span>
-                <strong>Secure Hosting</strong> – Regular backups, SSL encryption, and robust security measures.
-              </span>
-            </li>
+          <div className="text-center">
+            <p className="text-lg sm:text-xl text-[#898989] mb-6 sm:mb-8">
+              Take your business to the next level with our Managed CMS & Website Hosting Services. Get started today!
+            </p>
 
-            <li className="flex items-start">
-              <span className="mr-2 sm:mr-3 mt-1.5">•</span>
-              <span>
-                <strong>Scalable Plans</strong> – Flexible pricing to accommodate startups, growing businesses, and
-                enterprises.
-              </span>
-            </li>
-
-            <li className="flex items-start">
-              <span className="mr-2 sm:mr-3 mt-1.5">•</span>
-              <span>
-                <strong>Professional Support</strong> – Dedicated support team ready to assist you with any issues.
-              </span>
-            </li>
-          </ul>
-
-          <p className="text-lg sm:text-xl text-white/60 mb-6 sm:mb-8">
-            Take your business to the next level with our Managed CMS & Website Hosting Services. Get started today!
-          </p>
-
-          <p className="text-lg text-white/60 sm:text-xl">
-            <Link href="/contact" className="text-accent hover:underline">
-              [Contact Us]
-            </Link>{" "}
-            to find the perfect plan for your business.
-          </p>
+            <p className="text-lg text-[#898989] sm:text-xl">
+              <Link href="/contact" className="text-accent hover:underline">
+                [Contact Us]
+              </Link>{" "}
+              to find the perfect plan for your business.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  );
+  )
 }
+
