@@ -258,31 +258,31 @@ export const Navbar = () => {
             </button>
           </SheetTrigger>
           <SheetContent side="left" className="w-full bg-[#111111] border-none p-8 flex flex-col justify-between">
-            <div className="flex flex-col items-start gap-y-12">
+            <div className="flex flex-col mt-[6rem] items-start gap-y-12">
               <Links />
             </div>
             <div className="flex flex-col gap-y-6">
               <Link
                 href="/ventures"
-                className="text-gray-500 hover:text-gray-400 transition-colors underline underline-offset-4"
+                className="text-gray-500 text-[14px] hover:text-gray-400 transition-colors underline underline-offset-4"
               >
                 Ventures
               </Link>
               <Link
                 href="/privacy"
-                className="text-gray-500 hover:text-gray-400 transition-colors underline underline-offset-4"
+                className="text-gray-500 text-[14px] hover:text-gray-400 transition-colors underline underline-offset-4"
               >
                 Data Privacy & Security Policy
               </Link>
               <Link
                 href="/compliance"
-                className="text-gray-500 hover:text-gray-400 transition-colors underline underline-offset-4"
+                className="text-gray-500 text-[14px] hover:text-gray-400 transition-colors underline underline-offset-4"
               >
                 Compliance & Certifications
               </Link>
               <Link
                 href="mailto:info@saitechnology.co"
-                className="text-gray-500 hover:text-gray-400 transition-colors underline underline-offset-4"
+                className="text-gray-500 text-[14px] hover:text-gray-400 transition-colors underline underline-offset-4"
               >
                 info@saitechnology.co
               </Link>
