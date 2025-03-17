@@ -25,7 +25,7 @@ export default function StoriesPage() {
   return (
     <>
       <GridBackground size="sm" />
-      <main className="mx-auto px-4 sm:px-6 md:px-8 lg:px-[180px] min-h-screen relative pt-16 sm:pt-24 md:pt-32 lg:pt-[229px]">
+      <main className="mx-auto px-4 sm:px-6 md:px-8 lg:px-[180px] min-h-screen relative pt-16  md:mt-12">
         <h1 className="mb-8 sm:mb-12 lg:mb-16 text-3xl sm:text-4xl md:text-5xl lg:text-[4.375rem] font-bold tracking-tight text-white">
           Stories
         </h1>

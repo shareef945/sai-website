@@ -42,7 +42,7 @@ export default function WebsiteCMSHosting() {
                 <div className="flex flex-col gap-y-[33px] relative top-[53px] px-[25px]">
                   <div className="flex flex-col gap-y-4">
                     <p className="text-base text-white font-inter">Features</p>
-                    <p className="font-light text-white/60 text-sm font-inter">
+                    <p className="font-light text-[#898989] text-sm font-inter">
                       {plan.features}
                     </p>
                   </div>
