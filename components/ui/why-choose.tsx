@@ -54,8 +54,8 @@ export default function ClientsAndPartners() {
                   <Image
                     src={partner.logo}
                     alt={partner.name}
-                    width={120}
-                    height={60}
+                    width={160}
+                    height={80}
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>

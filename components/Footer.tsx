@@ -45,10 +45,10 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-4 md:gap-4 order-first md:order-last">
             <a
-              href="mailto:info@saitechnology.com"
+              href="mailto:info@saitechnology.co"
               className="no-underline hover:underline pb-2 text-sm md:text-base hover:opacity-80 cursor-pointer"
             >
-              info@saietechnology.com
+              info@saitechnology.co
             </a>
             <div className="flex gap-4 md:gap-8">
               {/* Social icons */}
