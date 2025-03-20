@@ -71,7 +71,7 @@ export default function WebsiteCMSHosting() {
           <div className="hidden md:block">
             <Table className="border border-[#ffffff0a]">
               <TableHeader>
-                <TableRow className="bg-[#2d2d2d border-b border-[#ffffff0a]">
+                <TableRow className="bg-[#2d2d2d] border-b border-[#ffffff0a]">
                   <TableHead className="w-[200px] border-r border-[#ffffff0a] text-white">
                     Plan
                   </TableHead>
