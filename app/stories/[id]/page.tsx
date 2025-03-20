@@ -23,7 +23,7 @@ export default async function BlogPost(props: PageProps) {
     <>
       <Link
         href="/stories"
-        className="relative md:top-[55px] top-6 inline-flex items-center md:left-[49px] left-4 text-gray-400 hover:text-orange-500 transition-colors"
+        className="relative md:top-[55px] top-6 inline-flex items-center md:left-[49px] left-4 text-[#898989] hover:text-orange-500 transition-colors"
       >
         <ArrowLeft className="mr-2 h-4 w-4" />
         <span>Back</span>
@@ -42,7 +42,7 @@ export default async function BlogPost(props: PageProps) {
             <h1 className="text-2xl md:text-[3.125rem] font-bold leading-tight mb-4 md:mb-6">
               {post.title}
             </h1>
-            <div className="flex items-center space-x-4 text-gray-400 text-sm mb-6 md:mb-8">
+            <div className="flex items-center space-x-4 text-[#898989] text-sm mb-6 md:mb-8">
               <time>{post.date}</time>
               <span>•</span>
               <span>{post.readTime}</span>
@@ -72,7 +72,10 @@ export default async function BlogPost(props: PageProps) {
           {/* Content */}
           <div className="prose prose-invert prose-lg max-w-none">
             {post.content.split("\n\n").map((paragraph, index) => (
-              <p key={index} className="text-gray-300 leading-relaxed text-base md:text-lg">
+              <p
+                key={index}
+                className="text-[#898989] leading-relaxed text-base md:text-lg"
+              >
                 {paragraph}
               </p>
             ))}

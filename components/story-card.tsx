@@ -38,7 +38,7 @@ export function BlogPostHeader({
         }}
       >
         <div className="flex flex-col justify-center space-y-4 sm:space-y-6">
-          <div className="flex items-center space-x-2 text-xs sm:text-sm text-white text-opacity-70">
+          <div className="flex items-center space-x-2 text-xs sm:text-sm text-[#898989]">
             <time dateTime={date}>{date}</time>
             <span>•</span>
             <span>{readTime}</span>
@@ -51,14 +51,14 @@ export function BlogPostHeader({
             {title}
           </motion.h1>
 
-          <p className="text-base sm:text-lg font-normal text-white text-opacity-70">{description}</p>
+          <p className="text-base sm:text-lg font-normal text-[#898989]">{description}</p>
 
           <div className="flex items-center space-x-3">
             <Avatar className="h-8 w-8 sm:h-10 sm:w-10">
               <AvatarImage src={author.avatar} alt={author.name} />
               <AvatarFallback>{author.name[0]}</AvatarFallback>
             </Avatar>
-            <span className="text-xs sm:text-sm font-medium text-white text-opacity-70">{author.name}</span>
+            <span className="text-xs sm:text-sm font-medium text-[#898989]">{author.name}</span>
           </div>
         </div>
 

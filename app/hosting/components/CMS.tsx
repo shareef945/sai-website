@@ -15,7 +15,7 @@ export default function CMSHostingPlans() {
           <h1 className="text-4xl font-medium md:font-bold mb-4">
             CMS Hosting Plans
           </h1>
-          <p className="md:text-xl textbase text-[#898989] text max-w-3xl">
+          <p className="md:text-xl text-base text-[#898989] text max-w-3xl">
             Ideal for businesses that already have a website but need a robust,
             managed CMS to update and manage their content efficiently.
           </p>
@@ -65,16 +65,16 @@ export default function CMSHostingPlans() {
 
           {/* Desktop View */}
           <div className="hidden md:block">
-            <Table>
+            <Table className="border border-[#ffffff0a]">
               <TableHeader>
-                <TableRow className="bg-[#2d2d2d]">
-                  <TableHead className="w-[200px] border-r text-white">
+                <TableRow className="bg-[#2d2d2d] border-b-[1px] border-[#ffffff0a]">
+                  <TableHead className="w-[200px] border-r border-[#ffffff0a] text-white">
                     Plan
                   </TableHead>
-                  <TableHead className="border-r text-white">
+                  <TableHead className="border-r border-[#ffffff0a] text-white">
                     Features
                   </TableHead>
-                  <TableHead className="text-right border-r text-white">
+                  <TableHead className="text-right border-r border-[#ffffff0a] text-white">
                     Monthly Price (GHS)
                   </TableHead>
                   <TableHead className="text-right text-white">
@@ -82,35 +82,39 @@ export default function CMSHostingPlans() {
                   </TableHead>
                 </TableRow>
               </TableHeader>
-              <TableBody className="border">
-                <TableRow className="border">
-                  <TableCell className="font-medium border-r">
+              <TableBody className="border border-[#ffffff0a]">
+                <TableRow className="border bg-[#191919] border-[#ffffff0a]">
+                  <TableCell className="font-medium border-r border-[#ffffff0a]">
                     Starter
                   </TableCell>
-                  <TableCell className="border-r">
+                  <TableCell className="border-r border-[#ffffff0a]">
                     Hosting, setup, up to 5 users, 2GB storage, email support
                   </TableCell>
-                  <TableCell className="text-right border-r">GHS 50</TableCell>
+                  <TableCell className="text-right border-r border-[#ffffff0a]">
+                    GHS 50
+                  </TableCell>
                   <TableCell className="text-right">GHS 500</TableCell>
                 </TableRow>
-                <TableRow>
-                  <TableCell className="font-medium border-r">
+                <TableRow className="border bg-[#191919] border-[#ffffff0a]">
+                  <TableCell className="font-medium border-r border-[#ffffff0a]">
                     Business
                   </TableCell>
-                  <TableCell className="border-r">
+                  <TableCell className="border-r border-[#ffffff0a]">
                     10 users, 5GB storage, backups, priority support
                   </TableCell>
-                  <TableCell className="text-right border-r">GHS 150</TableCell>
+                  <TableCell className="text-right border-r border-[#ffffff0a]">
+                    GHS 150
+                  </TableCell>
                   <TableCell className="text-right">GHS 1000</TableCell>
                 </TableRow>
-                <TableRow>
-                  <TableCell className="font-medium border-r">
+                <TableRow className="border bg-[#191919] border-[#ffffff0a]">
+                  <TableCell className="font-medium border-r border-[#ffffff0a]">
                     Enterprise
                   </TableCell>
-                  <TableCell className="border-r">
+                  <TableCell className="border-r border-[#ffffff0a]">
                     Unlimited users, 20GB+ storage, custom domain, integrations
                   </TableCell>
-                  <TableCell className="text-right border-r">
+                  <TableCell className="text-right border-r border-[#ffffff0a]">
                     Custom Quote
                   </TableCell>
                   <TableCell className="text-right">Custom Quote</TableCell>

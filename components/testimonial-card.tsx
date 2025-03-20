@@ -17,7 +17,7 @@ interface TestimonialCardProps {
 
 function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
-    <div className="relative w-[18rem] h-[17.6875rem] shrink-0 p-8">
+    <div className="relative w-[18rem] h-[17.6875rem] border-[#ffffff0a] shrink-0 p-8">
       {/* Main background gradient */}
       <div
         className="absolute inset-0 -z-10"

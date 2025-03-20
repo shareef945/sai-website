@@ -4,14 +4,14 @@ import { getDirectusImageUrl } from "@/utils/directus";
 const ProjectFeatures: React.FC<any> = ({ project }) => {
   return (
     <div className="w-full text-white">
-      <div className="w-full  md:px-[180px] py-16 md:py-24">
+      <div className="w-full  md:px-[180px] px-[20px] py-16 md:py-24">
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">
           Key Features
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-[21px]">
           {/* First row - first item with flex row layout */}
-          <div className="md:col-span-8 bg-neutral-900 p-6 rounded-lg min-h-[300px]">
+          <div className="md:col-span-8 border border-[#ffffff0a] bg-neutral-900 p-6  min-h-[300px]">
             <div className="h-full flex flex-col md:flex-row items-center">
               <div className="flex-1">
                 <h3 className="text-base font-semibold mb-2">
@@ -35,7 +35,7 @@ const ProjectFeatures: React.FC<any> = ({ project }) => {
           </div>
 
           {/* First row - second item */}
-          <div className="md:col-span-4 bg-neutral-900 rounded-lg min-h-[300px] overflow-hidden">
+          <div className="md:col-span-4 border border-[#ffffff0a] bg-neutral-900 px-[20px]  min-h-[300px] overflow-hidden">
             <div className="p-6 pb-0">
               <h3 className="text-base font-semibold mb-2">
                 Quick Ticket Purchase
@@ -56,7 +56,7 @@ const ProjectFeatures: React.FC<any> = ({ project }) => {
           </div>
 
           {/* Bottom row */}
-          <div className="md:col-span-4 bg-neutral-900 rounded-lg overflow-hidden">
+          <div className="md:col-span-4 border border-[#ffffff0a] bg-neutral-900  overflow-hidden">
             <div className="p-6 pb-0">
               <h3 className="text-base font-semibold mb-2">
                 Real-Time Tracking
@@ -77,7 +77,7 @@ const ProjectFeatures: React.FC<any> = ({ project }) => {
             </div>
           </div>
 
-          <div className="md:col-span-4 bg-neutral-900 rounded-lg overflow-hidden">
+          <div className="md:col-span-4 border border-[#ffffff0a] bg-neutral-900  overflow-hidden">
             <div className="p-6 pb-0">
               <h3 className="text-base font-semibold mb-2">
                 Customizable Tools
@@ -98,7 +98,7 @@ const ProjectFeatures: React.FC<any> = ({ project }) => {
             </div>
           </div>
 
-          <div className="md:col-span-4 bg-neutral-900 rounded-lg overflow-hidden">
+          <div className="md:col-span-4 border border-[#ffffff0a] bg-neutral-900  overflow-hidden">
             <div className="p-6 pb-0">
               <h3 className="text-base font-semibold mb-2">
                 Multi-Language Support

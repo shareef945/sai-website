@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import { useProjects } from "@/hooks/use-projects";
 import { getDirectusImageUrl } from "@/utils/directus";
+import { ProjectsPageError, ProjectsPageLoading } from "@/components/Loading";
 
 type FilterType = "all" | "mobile" | "web";
 
@@ -25,6 +26,11 @@ const Projects = () => {
     );
   });
 
+  // After filtering the projects but before rendering
+const sortedProjects = [...filteredProjects].sort((a, b) => {
+  return new Date(b.dates).getTime() - new Date(a.dates).getTime();
+});
+
   // Format project number
   const formatProjectNumber = (index: number): string => {
     return (index + 1).toString().padStart(2, "0");
@@ -36,19 +42,11 @@ const Projects = () => {
   };
 
   if (isLoading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#ea5c1c]"></div>
-      </div>
-    );
+    return <ProjectsPageLoading />;
   }
-
+  
   if (error) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-red-500">Error loading projects: {error}</div>
-      </div>
-    );
+    return <ProjectsPageError error={error} />;
   }
 
   return (
@@ -62,7 +60,7 @@ const Projects = () => {
           <p className="text-base sm:text-lg text-[#898989] text-center mx-auto max-w-2xl pt-2 sm:pt-3 lg:pt-4 pb-6 sm:pb-8 lg:pb-12">
             At SAI Technology, we take pride in delivering innovative and
             impactful projects that drive transformation across industries. Here
-            are some of our standout initiatives:
+            are some of our publicly available standout initiatives.
           </p>
         </div>
 
@@ -94,11 +92,11 @@ const Projects = () => {
         </div>
 
         <div className="space-y-4 sm:space-y-6 z-50 lg:space-y-8">
-          {filteredProjects.map((project, index) => (
+        {sortedProjects.map((project, index) => (
             <div key={project.id}>
-              <div className="min-h-[24rem] sm:min-h-[32rem] lg:h-[47rem]">
+              <div className="min-h-[24rem] sm:min-h-[32rem] lg:h-[36rem]">
                 {/* Mobile Layout */}
-                <div className="flex flex-col border border-[#898989] lg:hidden h-full">
+                <div className="flex flex-col border border-[#ffffff0a] lg:hidden h-full">
                   <div
                     className="w-full border-[#ffffff0a] h-full bg-[#191919] border flex flex-col justify-between mb-4 transition-transform duration-300 hover:scale-[1.01] cursor-pointer"
                     onClick={() => handleCardClick(project.slug)}
@@ -179,7 +177,7 @@ const Projects = () => {
                   {index % 2 === 0 ? (
                     <>
                       <div
-                        className="w-4/5 border border-[#898989] h-full bg-[#191919] mr-6  flex flex-col justify-between transition-transform duration-300 group-hover:scale-[1.01] cursor-pointer"
+                        className="w-4/5 border border-[#ffffff0a] h-full bg-[#191919] mr-6  flex flex-col justify-between transition-transform duration-300 group-hover:scale-[1.01] cursor-pointer"
                         onClick={() => handleCardClick(project.slug)}
                       >
                         <div className="flex-1 bg-[#191919] p-6 text-[40px] text-[#898989]">
@@ -199,7 +197,7 @@ const Projects = () => {
                         </div>
                       </div>
                       <div
-                        className="w-2/5  h-full bg-[#191919] border border-[#898989] relative transition-transform duration-300 group-hover:scale-[1.01] cursor-pointer"
+                        className="w-2/5  h-full bg-[#191919] border border-[#ffffff0a] relative transition-transform duration-300 group-hover:scale-[1.01] cursor-pointer"
                         onClick={() => handleCardClick(project.slug)}
                       >
                         <div className="h-full flex flex-col p-6">
@@ -249,7 +247,7 @@ const Projects = () => {
                   ) : (
                     <>
                       <div
-                        className="w-2/5 border border-[#898989] h-full font-inter bg-[#191919]  relative transition-transform duration-300 group-hover:scale-[1.01] cursor-pointer"
+                        className="w-2/5 border border-[#ffffff0a] h-full font-inter bg-[#191919]  relative transition-transform duration-300 group-hover:scale-[1.01] cursor-pointer"
                         onClick={() => handleCardClick(project.slug)}
                       >
                         <div className="h-full flex flex-col p-6">
@@ -258,7 +256,7 @@ const Projects = () => {
                             {project.services?.map((tag) => (
                               <span
                                 key={tag}
-                                className="px-4 py-1.5 rounded-sm bg-[#202020] backdrop-blur-sm text-gray-300 text-sm font-medium"
+                                className="px-4 py-1.5 rounded-sm bg-[#202020] backdrop-blur-sm text-[#898989] text-sm font-medium"
                               >
                                 {tag}
                               </span>
@@ -302,7 +300,7 @@ const Projects = () => {
                         </div>
                       </div>
                       <div
-                        className="w-4/5 border border-[#898989] h-full bg-[#191919] ml-6  flex flex-col justify-between transition-transform duration-300 group-hover:scale-[1.01] cursor-pointer"
+                        className="w-4/5 border border-[#ffffff0a] h-full bg-[#191919] ml-6  flex flex-col justify-between transition-transform duration-300 group-hover:scale-[1.01] cursor-pointer"
                         onClick={() => handleCardClick(project.slug)}
                       >
                         <div className="flex-1 bg-[#191919] p-6 text-[40px] text-[#898989]">

@@ -12,6 +12,8 @@ import ProjectResults from "./components/results";
 import ProjectTestimonial from "./components/testimonial";
 import ProjectCTA from "./components/cta";
 import ProjectGrid from "./components/grid";
+import { GridFade } from "@/components/GridFade";
+import { ProjectDetailError, ProjectDetailLoading } from "@/components/Loading";
 
 
 interface Params {
@@ -27,15 +29,11 @@ export default function ProjectPage({ params }: PageProps) {
   const { project, isLoading, error } = useProjects(resolvedParams.slug);
 
   if (isLoading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#ea5c1c]"></div>
-      </div>
-    );
+    return <ProjectDetailLoading />;
   }
-
+  
   if (error || !project) {
-    return notFound();
+    return <ProjectDetailError />;
   }
 
   // Format the project date
@@ -46,7 +44,7 @@ export default function ProjectPage({ params }: PageProps) {
 
   return (
     <>
-      <GridBackground size="lg" />
+      <GridFade size="lg" />
       <div className="relative z-20">
         <ProjectHeader project={project} />
         <ProjectHero project={project} />

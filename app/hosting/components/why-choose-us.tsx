@@ -1,32 +1,39 @@
-import Link from "next/link"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { CheckCircle } from "lucide-react"
+import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function WhyChooseUs() {
   const benefits = [
     {
       title: "Reliable Performance",
-      description: "High-speed servers ensure fast load times and minimal downtime.",
+      description:
+        "High-speed servers ensure fast load times and minimal downtime.",
     },
     {
       title: "Secure Hosting",
-      description: "Regular backups, SSL encryption, and robust security measures.",
+      description:
+        "Regular backups, SSL encryption, and robust security measures.",
     },
     {
       title: "Scalable Plans",
-      description: "Flexible pricing to accommodate startups, growing businesses, and enterprises.",
+      description:
+        "Flexible pricing to accommodate startups, growing businesses, and enterprises.",
     },
     {
       title: "Professional Support",
-      description: "Dedicated support team ready to assist you with any issues.",
+      description:
+        "Dedicated support team ready to assist you with any issues.",
     },
-  ]
+  ];
 
   return (
-    <div className="w-full mt-32 text-white px-6 sm:px-12 md:px-[180px]">
+    <div className="w-full mt-8 text-white px-6 sm:px-12 md:px-[180px]">
       <div className="py-16 w-full">
         <div className="mx-auto max-w-4xl">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 text-center">Why Choose Us?</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 text-center">
+            Why Choose Us?
+          </h1>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {benefits.map((benefit, index) => (
@@ -37,26 +44,30 @@ export default function WhyChooseUs() {
                     {benefit.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="text-[#898989]">{benefit.description}</CardContent>
+                <CardContent className="text-[#898989]">
+                  {benefit.description}
+                </CardContent>
               </Card>
             ))}
           </div>
 
           <div className="text-center">
             <p className="text-lg sm:text-xl text-[#898989] mb-6 sm:mb-8">
-              Take your business to the next level with our Managed CMS & Website Hosting Services. Get started today!
+              Take your business to the next level with our Managed CMS &
+              Website Hosting Services. Get started today!
             </p>
 
-            <p className="text-lg text-[#898989] sm:text-xl">
-              <Link href="/contact" className="text-accent hover:underline">
-                [Contact Us]
-              </Link>{" "}
-              to find the perfect plan for your business.
-            </p>
+            <Button
+              asChild
+              className="bg-[#E65722] hover:bg-[#E65722]/90 text-white px-12 py-6"
+            >
+              <Link href="/contact">
+                Contact Us
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
-

@@ -16,16 +16,23 @@ export default function ProjectChallenges({ project }: ProjectProps) {
       challenge: project.challenge3,
       solution: project.solution3
     }
-  ]
+  ].filter(item => item.challenge && item.challenge.trim() !== '');
+
+  // If there are no challenges, don't render the component
+  if (challenges.length === 0) {
+    return null;
+  }
+
 
   return (
-    <div className="w-full  text-white ">
-      <div className=" md:px-[180px]  py-16 md:py-24">
+    <div className="w-full text-white">
+      <div className="md:px-[180px] py-16 md:py-24">
         <h2 className="text-4xl md:text-5xl px-[20px] font-bold mb-16 text-center">Challenges & Solutions</h2>
         
-        <div className="grid grid-cols-1 px-[20px] md:grid-cols-3 gap-[21px]">
+        {/* Adjust grid columns based on number of challenges */}
+        <div className={`grid grid-cols-1 px-[20px] md:grid-cols-${challenges.length} gap-[21px]`}>
           {challenges.map((item, index) => (
-            <div key={index} className="bg-[#191919] px-[25px] pt-[40px] pb-[50px] ">
+            <div key={index} className="bg-[#191919] border border-[#ffffff0a] px-[25px] pt-[40px] pb-[50px]">
               <div className="flex flex-col gap-8">
                 <div className="w-16 h-16 rounded-full bg-[#ea5c1c] flex items-center justify-center">
                   <span className="text-[20px] font-medium text-white">{index+1}</span>
