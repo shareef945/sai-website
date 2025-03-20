@@ -1,3 +1,5 @@
+"use client"
+
 interface GridProps {
   size?: "sm" | "md" | "lg"
   variant?: "viewport" | "fullPage" | "fullScreen"
@@ -15,13 +17,14 @@ export function GridFade({ size = "md", variant = "viewport" }: GridProps) {
   // Simplified positioning class based on variant
   const positioningClass =
     variant === "viewport"
-      ? "absolute inset-0"
+      ? "fixed inset-0 h-screen"
       : variant === "fullScreen"
-      ? "w-full h-full"
+      ? "fixed inset-0"
       : "absolute inset-0 min-h-screen"
 
   return (
-    <div className={positioningClass} style={{ backgroundColor: "#151515" }}>
+    <div className={`${positioningClass} z-0`} style={{ backgroundColor: "#151515" }}>
+      {/* Base grid pattern - without any fade overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{

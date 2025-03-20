@@ -9,6 +9,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useProjects } from "@/hooks/use-projects";
 import { getDirectusImageUrl } from "@/utils/directus";
 import { ProjectsPageError, ProjectsPageLoading } from "@/components/Loading";
+import { GridFade } from "@/components/GridFade";
 
 type FilterType = "all" | "mobile" | "web";
 
@@ -51,7 +52,7 @@ const sortedProjects = [...filteredProjects].sort((a, b) => {
 
   return (
     <>
-      <GridBackground size="lg" />
+      <GridFade size="lg" />
       <div className="relative px-4 font-inter sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-24 overflow-auto py-4 mt-12 sm:py-6 lg:py-8">
         <div className="text-center w-full mx-auto">
           <h2 className="font-semibold text-3xl sm:text-4xl text-center lg:text-[60px] text-white">
