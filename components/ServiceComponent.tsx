@@ -11,9 +11,11 @@ import Phone from "./icons/Phone";
 import Connect from "./icons/Connect";
 import React from "react";
 import Dashboard from "./icons/Dashboard";
-
+import AI from "./icons/AI";
+import Messages from "./icons/Messages";
 
 export default function ServicesComponent() {
+  // to be exported
   const services = [
     {
       title: "Web Design & Development",
@@ -48,7 +50,7 @@ export default function ServicesComponent() {
       title: "Robotic Process Automation (RPA)",
       description:
         "Creating intuitive and impactful mobile applications for iOS and Android platforms.",
-      icon: Cpu,
+      icon: AI,
       grid: true,
       gridBackground: true,
     },
@@ -56,23 +58,23 @@ export default function ServicesComponent() {
       title: "IT Consulting",
       description:
         "Providing expert IT consulting to optimize your technology strategy.",
-      icon: MessageSquare,
+      icon: Messages,
     },
   ];
 
   return (
-    <div className="relative flex flex-col items-center justify-center mt-[7.875rem] bg-[#151515] w-full py-24">
+    <div className="relative flex flex-col items-center justify-center mt-[3.875rem] bg-[#151515] w-full py-24">
       {/* Gradient Fade at the Top */}
       <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#151515] to-transparent pointer-events-none" />
 
-      <h1 className="md:text-[50px] text-[30px] font-medium text-center text-white">
+      <h1 className="md:text-[50px] mb-16 text-[30px] font-medium text-center text-white">
         Services we Offer
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-4 max-w-[72rem] md:h-[47.5625rem] h-[145.3125rem]">
         {services.map((service: any, index: number) => (
           <div
             key={index}
-            className="relative p-6 border border-[#898989] bg-[#191919] rounded-lg overflow-hidden"
+            className="relative p-6 border border-[#ffffff0a] bg-[#191919] rounded-none overflow-hidden"
           >
             {service.gridBackground && (
               <div className="absolute inset-0">
@@ -147,12 +149,12 @@ function updateGutters() {
                 <h2 className="text-xl font-semibold text-white mb-2 text-left">
                   {service.title}
                 </h2>
-                <p className="text-gray-400 text-sm text-left mb-8">
+                <p className="text-[#898989] text-sm text-left mb-8">
                   {service.description}
                 </p>
               </div>
               <div className="flex-grow flex items-center justify-center">
-                <service.icon className="w-24 h-24 text-gray-400 [&>path]:stroke-[1.5] [&>*]:stroke-orange-500" />
+                <service.icon className="w-24 h-24 text-[#898989] [&>path]:stroke-[1.5] [&>*]:stroke-orange-500" />
               </div>
             </div>
           </div>

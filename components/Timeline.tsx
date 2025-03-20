@@ -48,11 +48,11 @@ export const TimelineComponent = () => {
           >
             <div className="sticky flex flex-col md:flex-row z-40 items-start top-40 self-start max-w-xs lg:max-w-sm md:w-full">
               <div className="flex flex-col space-y-4">
-                <h3 className="hidden md:block text-xl md:pl-20 md:text-4xl font-bold text-neutral-500">
+                <h3 className="hidden md:block text-xl md:pl-20 text-[20px] font-normal text-white">
                   {item.title}
                 </h3>
                 <div className="hidden md:block md:pl-20">
-                  <p className="text-sm text-neutral-500 mb-4">{item.body}</p>
+                  <p className="text-sm text-[#898989] mb-4">{item.body}</p>
                   <Link
                     href={item.link}
                     className="inline-block px-6 py-2 bg-[#EA5C1C] text-white rounded hover:bg-[#EA5C1C]/90 transition-colors"
@@ -73,10 +73,10 @@ export const TimelineComponent = () => {
                 />
               </div>
               <div className="md:hidden mx-auto max-w-[345px]">
-                <h3 className="text-2xl mb-4 text-left font-bold text-neutral-500">
+                <h3 className="text-2xl mb-4 text-left  font-normal text-white">
                   {item.title}
                 </h3>
-                <p className="text-sm text-neutral-500 mb-4">{item.body}</p>
+                <p className="text-sm text-[#898989] mb-4">{item.body}</p>
                 <Link
                   href={item.link}
                   className="inline-block px-6 py-2 mb-6 bg-[#EA5C1C] text-white rounded hover:bg-[#EA5C1C]/90 transition-colors"

@@ -13,7 +13,7 @@ export default function WebsiteCMSHosting() {
       <div className="container mx-auto px-4 py-16">
         <div className="mb-16">
           <h1 className="text-4xl font-bold mb-4">Website + CMS Hosting</h1>
-          <p className="text-xl text-gray-400 max-w-3xl">
+          <p className="text-xl text-[#898989] max-w-3xl">
             Perfect for businesses looking for an all-in-one solution with both
             a website and a CMS for seamless content management.
           </p>
@@ -69,85 +69,66 @@ export default function WebsiteCMSHosting() {
 
           {/* Desktop View */}
           <div className="hidden md:block">
-            <Table>
+            <Table className="border border-[#ffffff0a]">
               <TableHeader>
-                <TableRow className="bg-[#2d2d2d] ">
-                  <TableHead className="w-[200px] text-white border-r">
+                <TableRow className="bg-[#2d2d2d]">
+                  <TableHead className="w-[200px] border-r border-[#ffffff0a] text-white">
                     Plan
                   </TableHead>
-                  <TableHead className="border-r text-white">
+                  <TableHead className="border-r border-[#ffffff0a] text-white">
                     Features
                   </TableHead>
-                  <TableHead className="text-right  text-white border-r">
+                  <TableHead className="text-right border-r border-[#ffffff0a] text-white">
                     Monthly Price (GHS)
                   </TableHead>
-                  <TableHead className="text-white text-right">
+                  <TableHead className="text-right text-white">
                     Setup Fee (One-Time, GHS)
                   </TableHead>
                 </TableRow>
               </TableHeader>
-              <TableBody className="border">
-                <TableRow className="border">
-                  <TableCell className="font-medium border-r">
-                    Basic Site
+              <TableBody className="border border-[#ffffff0a]">
+                <TableRow className="border bg-[#191919] border-[#ffffff0a]">
+                  <TableCell className="font-medium border-r border-[#ffffff0a]">
+                    Starter
                   </TableCell>
-                  <TableCell className="border-r">
-                    Static website (Dockerized), CMS integration, up to 5 pages
+                  <TableCell className="border-r border-[#ffffff0a]">
+                    Hosting, setup, up to 5 users, 2GB storage, email support
                   </TableCell>
-                  <TableCell className="text-right border-r">GHS 125</TableCell>
+                  <TableCell className="text-right border-r border-[#ffffff0a]">
+                    GHS 50
+                  </TableCell>
                   <TableCell className="text-right">GHS 500</TableCell>
                 </TableRow>
-                <TableRow>
-                  <TableCell className="font-medium border-r">
-                    Business Site
+                <TableRow className="border bg-[#191919] border-[#ffffff0a]">
+                  <TableCell className="font-medium border-r border-[#ffffff0a]">
+                    Business
                   </TableCell>
-                  <TableCell className="border-r">
-                    Dynamic site, blog, SEO optimization, CMS integration, 5+
-                    pages
+                  <TableCell className="border-r border-[#ffffff0a]">
+                    10 users, 5GB storage, backups, priority support
                   </TableCell>
-                  <TableCell className="text-right border-r">GHS 250</TableCell>
+                  <TableCell className="text-right border-r border-[#ffffff0a]">
+                    GHS 150
+                  </TableCell>
                   <TableCell className="text-right">GHS 1000</TableCell>
                 </TableRow>
-                <TableRow>
-                  <TableCell className="font-medium border-r">
-                    Enterprise Site
+                <TableRow className="border bg-[#191919] border-[#ffffff0a]">
+                  <TableCell className="font-medium border-r border-[#ffffff0a]">
+                    Enterprise
                   </TableCell>
-                  <TableCell className="border-r">
-                    Custom web app, API integration, advanced security
+                  <TableCell className="border-r border-[#ffffff0a]">
+                    Unlimited users, 20GB+ storage, custom domain, integrations
                   </TableCell>
-                  <TableCell className="text-right border-r">
+                  <TableCell className="text-right border-r border-[#ffffff0a]">
                     Custom Quote
                   </TableCell>
                   <TableCell className="text-right">Custom Quote</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell className="font-medium border-r">
-                    Basic Web App
-                  </TableCell>
-                  <TableCell className="border-r">
-                    Custom-built web application
-                  </TableCell>
-                  <TableCell className="text-right border-r">GHS 500</TableCell>
-                  <TableCell className="text-right">GHS 3000</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell className="font-medium border-r">
-                    Business Web App
-                  </TableCell>
-                  <TableCell className="border-r">
-                    Scalable web application with advanced features
-                  </TableCell>
-                  <TableCell className="text-right border-r">
-                    GHS 1000
-                  </TableCell>
-                  <TableCell className="text-right">GHS 5000</TableCell>
                 </TableRow>
               </TableBody>
             </Table>
           </div>
         </div>
 
-        <div>
+        <div className=" mt-12">
           <h2 className="text-4xl font-bold mb-8">Add-ons (Optional)</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-y-[11px] gap-x-2.5">

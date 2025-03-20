@@ -64,7 +64,7 @@ const TechCard = ({
         delay: index * 0.05,
         ease: [0.4, 0, 0.2, 1],
       }}
-      className="relative group bg-[#151515] border border-[#898989] border-opacity-60 p-4 md:p-6 transition-all duration-300 hover:bg-white/10 md:w-[173px] w-[104px] h-[104px] aspect-square md:h-[170px] flex items-center justify-center"
+      className="relative group bg-[#151515] border  border-[#ffffff0a] border-opacity-60 p-4 md:p-6 transition-all duration-300  md:w-[173px] w-[104px] h-[104px] aspect-square md:h-[170px] flex items-center justify-center"
     >
       <div className="flex items-center justify-center">
         <Image

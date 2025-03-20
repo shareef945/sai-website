@@ -8,7 +8,7 @@ interface ProjectProps {
         <div className="container mx-auto md:px-[180px] py-16 md:py-24 w-full">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-8">
             <div>
-              <h1 className="text-[70px] font-bold leading-tight mb-6">{project.clientName}</h1>
+              <h1 className="md:text-[70px] text-[40px] font-bold leading-tight mb-6">{project.clientName}</h1>
               <p className="text-[18px] text-neutral-400 max-w-3xl">
                 SAI Technology has innovated public transit with a multifaceted platform that simplifies ticket purchases,
                 vehicle management, and logistics coordination.
