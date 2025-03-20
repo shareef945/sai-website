@@ -55,7 +55,7 @@ export const EnhancedErrorScreen = ({ errorMessage = "We couldn't load the proje
           <Button 
             asChild
             variant="outline" 
-            className="border-[#ffffff0a] text-white hover:bg-[#202020]"
+            className="border-[#ffffff0a] text-black hover:bg-[#202020]"
           >
             <Link href="/">
               <ArrowLeft className="mr-2 h-4 w-4" />

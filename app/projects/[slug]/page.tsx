@@ -44,7 +44,7 @@ export default function ProjectPage({ params }: PageProps) {
 
   return (
     <>
-      <GridFade size="lg" />
+      <GridFade size="lg" variant="viewport" />
       <div className="relative z-20">
         <ProjectHeader project={project} />
         <ProjectHero project={project} />

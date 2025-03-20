@@ -56,7 +56,7 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16 ">
           <div className="flex md:block flex-col space-y-6">
-            <h1 className="text-white text-5xl lg:text-[4.375rem] font-bold leading-tight">
+            <h1 className="text-white text-5xl lg:text-[4.375rem] mt-16 font-bold leading-tight">
               We design and build solutions
             </h1>
             <p className="text-[#898989] text-lg max-w-xl">
