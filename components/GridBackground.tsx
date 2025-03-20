@@ -27,14 +27,15 @@ export function GridBackground({
 
   return (
     <div className={`${positioningClass} z-0`}>
-      {/* Base grid pattern with increased visibility */}
+      {/* Base grid pattern - simplified to only show grid lines */}
       <div
         className="absolute inset-0"
         style={{
           backgroundImage: `
-            repeating-linear-gradient(to right, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15) 1px, transparent 1px, transparent ${gridSize}px),
-            repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15) 1px, transparent 1px, transparent ${gridSize}px)
+            linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px)
           `,
+          backgroundSize: `${gridSize}px ${gridSize}px`,
         }}
       />
 
