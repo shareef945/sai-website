@@ -90,7 +90,7 @@ export default function TestimonialCarousel({
 
     let animationFrameId: number
     let startTime: number | null = null
-    const duration = 50000 // 50 seconds for one complete scroll
+    const duration = 100000 // 50 seconds for one complete scroll
 
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp

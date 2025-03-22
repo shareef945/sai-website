@@ -16,7 +16,7 @@ const Landing = () => {
             We <span className="font-bold text-[#741f28]">design</span> and
             <span className="font-bold text-[#741f28]"> build</span> solutions
           </p>
-          <p className="text-base md:text-lg font-light text-gray-500">
+          <p className="text-base md:text-lg font-light text-[#898989]">
             Accelerate your digital transformation and stay ahead of the
             competition with our proven expertise in delivering cutting-edge
             solutions for a wide range of industries.

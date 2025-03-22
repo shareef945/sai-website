@@ -28,7 +28,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <div className="w-full mt-8 text-white px-6 sm:px-12 md:px-[180px]">
+    <div className="w-full mt-0 text-white px-6 sm:px-12 md:px-[180px]">
       <div className="py-16 w-full">
         <div className="mx-auto max-w-4xl">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 text-center">

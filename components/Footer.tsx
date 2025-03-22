@@ -5,12 +5,12 @@ import React from "react";
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <section className="min-h-[20rem] z-10 relative md:h-[25rem] bg-[#151515] w-full py-8 md:py-0">
-      <div className="grid grid-cols-1 md:grid-cols-10 gap-4 md:gap-8 h-full md:pt-20 px-4 md:px-0">
+    <section className="min-h-[20rem]  z-10 relative md:h-[25rem] bg-[#151515] w-full  md:py-0">
+      <div className="grid grid-cols-1 md:grid-cols-10 gap-4 md:gap-8 h-full md:pt-20 px-0 md:px-0">
 
-        {/* Logo section */}
-        <div className="col-span-1 md:col-span-6 relative before:absolute before:inset-0 before:content-[''] before:pointer-events-none before:bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] before:bg-[size:2rem_2rem]">
-          <div className="p-4 md:p-10 flex items-center md:items-end justify-center md:justify-start h-full">
+        {/* Logo section - Order changed for mobile */}
+        <div className="col-span-1 md:col-span-6 relative min-h-[20rem] order-last md:order-first before:absolute before:inset-0 before:content-[''] before:pointer-events-none before:bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] before:bg-[size:2rem_2rem]">
+          <div className="p-4 md:p-10 flex  items-end justify-center md:justify-start h-full">
             <Image
               src="/sai-footer.svg"
               alt="Footer logo"
@@ -22,7 +22,7 @@ const Footer = () => {
         </div>
 
         {/* Links and social section */}
-        <div className="col-span-1 md:col-span-4 p-4 md:p-2 flex flex-col justify-between h-full gap-8 md:gap-0 text-white">
+        <div className="col-span-1 md:col-span-4 p-4 md:p-2 flex flex-col justify-between h-full gap-8 md:gap-0 text-white order-first md:order-last">
           <div className="flex flex-col order-last md:order-first">
             <Link
               href="/ventures"

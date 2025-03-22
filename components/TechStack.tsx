@@ -72,7 +72,7 @@ const TechCard = ({
           alt={tech.name}
           width={170}
           height={170}
-          className="w-[9.0625rem] h-[6rem] object-contain opacity-50 transition-opacity grayscale"
+          className="w-[9.0625rem] h-[6rem] object-contain grayscale"
         />
       </div>
     </motion.div>
@@ -216,7 +216,7 @@ export default function TechStack() {
                     {currentCategory === index && (
                       <motion.div
                         layoutId="indicator"
-                        className="absolute md:left-0 left-0 right-0 md:top-1/2 bottom-0 md:-translate-y-1/2 md:w-1 w-full md:h-4 h-0.5 bg-orange-500 rounded-full"
+                        className="absolute md:left-0 left-0 right-0  bottom-1 md:-translate-y-1/2 md:w-1 w-full md:h-7 h-0.5 bg-orange-500 rounded-full"
                       />
                     )}
                     {category.label}

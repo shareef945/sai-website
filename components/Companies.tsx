@@ -28,9 +28,12 @@ export default function Companies() {
       scrollInterval = setInterval(() => {
         if (!isHovered && scrollContainer) {
           scrollContainer.scrollLeft += 1;
-          
+
           // Reset scroll position when reaching the end
-          if (scrollContainer.scrollLeft >= (scrollContainer.scrollWidth - scrollContainer.clientWidth) / 2) {
+          if (
+            scrollContainer.scrollLeft >=
+            (scrollContainer.scrollWidth - scrollContainer.clientWidth) / 2
+          ) {
             scrollContainer.scrollLeft = 0;
           }
         }
@@ -50,26 +53,28 @@ export default function Companies() {
     <section className="py-12 bg-[#151515]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="relative overflow-hidden">
-          <div 
+          <div
             ref={scrollRef}
             className="flex items-center overflow-x-hidden scroll-smooth [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            {[...COMPANY_LOGOS, ...COMPANY_LOGOS, ...COMPANY_LOGOS].map((logo, i) => (
-              <div key={i} className="h-16 min-w-[200px] flex-shrink-0 px-4">
-                <Image
-                  src={logo}
-                  alt={`Company Logo ${i + 1}`}
-                  width={500}
-                  height={200}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            ))}
+            {[...COMPANY_LOGOS, ...COMPANY_LOGOS, ...COMPANY_LOGOS].map(
+              (logo, i) => (
+                <div key={i} className="h-16 min-w-[200px] flex-shrink-0 px-4">
+                  <Image
+                    src={logo}
+                    alt={`Company Logo ${i + 1}`}
+                    width={500}
+                    height={200}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              )
+            )}
           </div>
         </div>
-        <p className="text-center text-gray-300 mt-[22px] text-sm">
+        <p className="text-center text-[#898989] mt-[22px] text-sm">
           Trusted by fast-growing companies worldwide
         </p>
       </div>
