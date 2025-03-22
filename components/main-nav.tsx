@@ -18,10 +18,10 @@ export const Navbar = () => {
       }`,
     container: "flex h-16 w-full items-center justify-between px-6",
     logo: "flex items-center gap-4",
-    logoText: "text-white font-semibold ",
+    logoText: "text-white font-semibold text-sm md:text-base ",
     mobileButton: "lg:hidden text-white",
     desktopNav: "hidden lg:flex lg:items-center lg:gap-8",
-    link: "flex w-full items-center text-secondary md:text-white text-xl md:text-sm font-semibold hover:text-gray-300 transition-colors",
+    link: "flex w-full items-center text-secondary md:text-white text-xl md:text-sm font-semibold hover:text-[#898989] transition-colors",
   };
 
   useEffect(() => {
@@ -229,7 +229,7 @@ export const Navbar = () => {
             <RequestForm />
           </DialogContent>
         </Dialog>
-        
+
         <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
           <SheetTrigger asChild>
             <button
@@ -263,25 +263,25 @@ export const Navbar = () => {
             <div className="flex flex-col gap-y-6">
               <Link
                 href="/ventures"
-                className="text-gray-500 text-[14px] hover:text-[#898989] transition-colors underline underline-offset-4"
+                className="text-[#898989] text-[14px] hover:text-[#898989] transition-colors underline underline-offset-4"
               >
                 Ventures
               </Link>
               <Link
                 href="/privacy"
-                className="text-gray-500 text-[14px] hover:text-[#898989] transition-colors underline underline-offset-4"
+                className="text-[#898989] text-[14px] hover:text-[#898989] transition-colors underline underline-offset-4"
               >
                 Data Privacy & Security Policy
               </Link>
               <Link
                 href="/compliance"
-                className="text-gray-500 text-[14px] hover:text-[#898989] transition-colors underline underline-offset-4"
+                className="text-[#898989] text-[14px] hover:text-[#898989] transition-colors underline underline-offset-4"
               >
                 Compliance & Certifications
               </Link>
               <Link
                 href="mailto:info@saitechnology.co"
-                className="text-gray-500 text-[14px] hover:text-[#898989] transition-colors underline underline-offset-4"
+                className="text-[#898989] text-[14px] hover:text-[#898989] transition-colors underline underline-offset-4"
               >
                 info@saitechnology.co
               </Link>

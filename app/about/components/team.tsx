@@ -3,24 +3,8 @@ import Image from "next/image";
 
 export default function TeamSection() {
   return (
-    <div className=" min-h-screen w-full relative">
+    <div className=" min-h-screen w-full mx-auto relative">
       {/* Grid background */}
-      <div className="absolute inset-0 grid grid-cols-6 pointer-events-none">
-        {[...Array(7)].map((_, i) => (
-          <div
-            key={`v-${i}`}
-            className="h-full w-px bg-[#222222]"
-            style={{ left: `${(i / 6) * 100}%` }}
-          />
-        ))}
-        {[...Array(7)].map((_, i) => (
-          <div
-            key={`h-${i}`}
-            className="w-full h-px bg-[#222222]"
-            style={{ top: `${(i / 6) * 100}%` }}
-          />
-        ))}
-      </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 relative">
         {/* Heading */}

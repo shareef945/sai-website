@@ -136,7 +136,7 @@ const sortedProjects = [...filteredProjects].sort((a, b) => {
                       </div>
 
                       {/* Button in top right of the card - stop propagation to prevent card click */}
-                      <div className="absolute top-4 right-4">
+                      {/* <div className="absolute top-4 right-4">
                         <Button
                           asChild
                           variant="outline"
@@ -152,7 +152,7 @@ const sortedProjects = [...filteredProjects].sort((a, b) => {
                             <ArrowUpRight className="h-[30px] w-[30px]" />
                           </a>
                         </Button>
-                      </div>
+                      </div> */}
 
                       {/* Client name and description */}
                       <div className="mt-4">

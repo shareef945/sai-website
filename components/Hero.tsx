@@ -238,7 +238,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="  px-6 md:px-[123px] text-[#898989]">
+        <div className=" md:px-[123px] px-0 text-[#898989]">
           <div className="relative overflow-hidden">
             <div
               ref={scrollRef}
@@ -269,7 +269,7 @@ export default function Hero() {
               )}
             </div>
           </div>
-          <p className="text-center text-gray-300 mt-[22px] text-sm">
+          <p className="text-center text-[#898989] mt-[22px] text-sm">
             Trusted by fast-growing companies worldwide
           </p>
         </div>

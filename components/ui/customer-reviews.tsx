@@ -24,13 +24,13 @@ const CustomerReviews = () => {
 
   const handlePrevText = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? reviews.length - 1 : prevIndex - 1,
+      prevIndex === 0 ? reviews.length - 1 : prevIndex - 1
     );
   };
 
   const handleNextText = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === reviews.length - 1 ? 0 : prevIndex + 1,
+      prevIndex === reviews.length - 1 ? 0 : prevIndex + 1
     );
   };
 
@@ -57,7 +57,7 @@ const CustomerReviews = () => {
             <div className="hidden w-full justify-center md:flex md:w-1/5">
               <RiSingleQuotesL color="#741f28" size="4em" />
             </div>
-            <p className="px-4 text-center text-lg text-gray-500 md:px-0 md:pt-20">
+            <p className="px-4 text-center text-lg text-[#898989] md:px-0 md:pt-20">
               {reviews[currentIndex].comment}
             </p>
             <div className="hidden w-full justify-center md:flex md:w-1/5">
@@ -68,7 +68,7 @@ const CustomerReviews = () => {
             <p className="text-xl font-bold text-[#741f28] md:text-3xl">
               {reviews[currentIndex].name}
             </p>
-            <p className="text-sm font-light text-gray-500 md:text-base">
+            <p className="text-sm font-light text-[#898989] md:text-base">
               {reviews[currentIndex].role}
             </p>
           </div>

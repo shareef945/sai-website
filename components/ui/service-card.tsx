@@ -19,7 +19,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
     borderColor: headerColor !== "black" ? headerColor : "transparent",
     boxShadow: isSelected ? "0 4px 20px rgba(0, 0, 0, 0.1)" : "",
     transform: isSelected ? "translateY(8px)" : "",
-    transition: "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
+    transition:
+      "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
   };
 
   return (
@@ -32,8 +33,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       <div className="icon-circle flex justify-center items-center">
         <div className="text-3xl">{icon}</div>
       </div>
-      <p className="font-bold text-lg" style={{ color: headerColor }}>{title}</p>
-      <p className="text-sm text-wrap text-justify text-gray-500 font-light">
+      <p className="font-bold text-lg" style={{ color: headerColor }}>
+        {title}
+      </p>
+      <p className="text-sm text-wrap text-justify text-[#898989] font-light">
         {description}
       </p>
     </div>

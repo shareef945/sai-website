@@ -129,7 +129,7 @@ export default function ServicesComponent() {
               </div>
             )}
             {service.codeSnippet && (
-              <div className="absolute inset-0 opacity-10 font-mono text-xs text-gray-500 p-4">
+              <div className="absolute inset-0 opacity-10 font-mono text-xs text-[#898989] p-4">
                 {`// Type some code ->
 console.log("code goes here");
 // ⍺ ε υ τ ∞ ∆

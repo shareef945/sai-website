@@ -21,12 +21,12 @@ export const RequestDialog: React.FC<RequestDialogProps> = ({
           <h2 className="text-xl font-semibold text-[#741F26]">
             Submit Request
           </h2>
-          <button onClick={onClose} className="text-gray-500">
+          <button onClick={onClose} className="text-[#898989]">
             ✕
           </button>
         </div>
         <div className="space-y-4">
-          <p className="text-gray-600">Contact form will go here</p>
+          <p className="text-[#898989]">Contact form will go here</p>
           <Button
             onClick={onClose}
             className="w-full bg-[#E65722] hover:bg-[#E65722]/90 "

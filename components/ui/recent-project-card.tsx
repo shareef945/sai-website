@@ -30,7 +30,7 @@ const RecentProjectCard = ({
             <p className="text-3xl font-semibold text-[#741f28] mb-6">
               {title}
             </p>
-            <p className="text-wrap mb-6 text-light text-gray-500">{body}</p>
+            <p className="text-wrap mb-6 text-light text-[#898989]">{body}</p>
           </div>
           <a className="text-right sm:text-left text-[#741f28]" href={link}>
             Visit
