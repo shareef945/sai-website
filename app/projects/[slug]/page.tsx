@@ -14,7 +14,7 @@ import ProjectCTA from "./components/cta";
 import ProjectGrid from "./components/grid";
 import { GridFade } from "@/components/GridFade";
 import { ProjectDetailError, ProjectDetailLoading } from "@/components/Loading";
-
+import ProjectTechnologies from "./components/technologies";
 
 interface Params {
   slug: string;
@@ -24,24 +24,16 @@ interface PageProps {
 }
 
 export default function ProjectPage({ params }: PageProps) {
-  // Always unwrap the params promise
   const resolvedParams = use(params);
   const { project, isLoading, error } = useProjects(resolvedParams.slug);
 
   if (isLoading) {
     return <ProjectDetailLoading />;
   }
-  
+
   if (error || !project) {
     return <ProjectDetailError />;
   }
-
-  // Format the project date
-  const formattedDate = new Date(project.dates).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-  });
-
   return (
     <>
       <GridFade size="lg" variant="viewport" />
@@ -53,6 +45,7 @@ export default function ProjectPage({ params }: PageProps) {
         <ProjectFeatures project={project} />
         <ProjectGrid project={project} />
         <ProjectResults project={project} />
+        <ProjectTechnologies project={project} />
         <ProjectTestimonial project={project} />
       </div>
     </>

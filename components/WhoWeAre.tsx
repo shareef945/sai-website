@@ -13,7 +13,7 @@ export function WhoWeAreSection() {
             empower businesses and individuals to achieve their full potential.
           </p>
           <p className="text-lg">
-            Our Vision We envision a world where technology seamlessly
+            Our Vision: We envision a world where technology seamlessly
             integrates with everyday life, enhancing experiences and unlocking
             possibilities. Through our revolutionary SAI Technology, we aim to
             redefine boundaries, inspire progress, and create value for our

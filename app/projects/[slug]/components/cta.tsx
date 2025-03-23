@@ -16,7 +16,7 @@ export default function ProjectCTA({ project }: ProjectProps) {
           </p>
           
           <p className="text-neutral-400 text-lg">
-            Our Vision We envision a world where technology seamlessly integrates with everyday
+            Our Vision: We envision a world where technology seamlessly integrates with everyday
             life, enhancing experiences and unlocking possibilities. Through our revolutionary SAI
             Technology, we aim to redefine boundaries, inspire progress, and create value for our
             clients and communities.

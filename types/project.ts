@@ -4,6 +4,8 @@ export interface Project {
     date_created: string;
     shortDescription: string;
     longDescription: string;
+    industry:string;
+    location:string;
     url: string;
     landingMedia: string;
     services: string[] | null;
@@ -35,6 +37,7 @@ export interface Project {
     grid4: string | null;
     testimonial: string | null;
     testimonialOwner: string | null;
+    technologiesUsed:any;
     slug: string;
   }
   
