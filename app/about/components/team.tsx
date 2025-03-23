@@ -21,15 +21,15 @@ export default function TeamSection() {
           <div className="flex flex-col">
             <div className="mb-4 sm:mb-6">
               <Image
-                src="/team-member.png"
+                src="/people/shareef.JPG"
                 alt="Team member"
                 width={400}
                 height={400}
-                className="w-full"
+                className="w-full h-full object-cover"
               />
             </div>
-            <h3 className="text-[#ffffff] text-xl font-medium">Innovation</h3>
-            <p className="text-[#d9d9d9] text-sm">Design Lead</p>
+            <h3 className="text-[#ffffff] text-xl font-medium">Shareef Ali</h3>
+            <p className="text-[#d9d9d9] text-sm">Chief Executive Officer</p>
           </div>
 
           {/* Team member 2 - using the original image from your code */}
@@ -43,8 +43,10 @@ export default function TeamSection() {
                 className="w-full"
               />
             </div>
-            <h3 className="text-[#ffffff] text-xl font-medium">Innovation</h3>
-            <p className="text-[#d9d9d9] text-sm">Design Lead</p>
+            <h3 className="text-[#ffffff] text-xl font-medium">
+              Sarah Korteily
+            </h3>
+            <p className="text-[#d9d9d9] text-sm">Project Manager</p>
           </div>
 
           {/* Team member 3 - using the original image from your code */}
@@ -58,8 +60,10 @@ export default function TeamSection() {
                 className="w-full"
               />
             </div>
-            <h3 className="text-[#ffffff] text-xl font-medium">Innovation</h3>
-            <p className="text-[#d9d9d9] text-sm">Design Lead</p>
+            <h3 className="text-[#ffffff] text-xl font-medium">
+              Ebenezer Dzobo
+            </h3>
+            <p className="text-[#d9d9d9] text-sm">Cybersecurity Lead</p>
           </div>
         </div>
       </div>
