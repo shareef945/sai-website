@@ -18,10 +18,41 @@ const inter = Inter({
   variable: "--font-inter", // Define a CSS variable
 });
 
+
 export const metadata: Metadata = {
   title: "SAI Technology",
   description:
     "Advance your digital edge with our industry-wide innovative solutions.",
+  icons: {
+    icon: [
+      {
+        url: "/sai-main.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/sai-main.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+    ],
+  },
+  openGraph: {
+    title: "SAI Technology",
+    description:
+      "Advance your digital edge with our industry-wide innovative solutions.",
+    images: [
+      {
+        url: "/site-preview.png",
+        width: 1200,
+        height: 630,
+        alt: "SAI Real Estate Preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+    siteName: "SAI Real Estate",
+  },
 };
 
 export default function RootLayout({
