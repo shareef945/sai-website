@@ -4,30 +4,29 @@ import React, { useState, useEffect, useRef } from 'react';
 export default function Stats() {
   const stats = [
     {
-      value: "2016",
+      value: "2023",
       label: "In the industry since",
       isYear: true
     },
     {
-      value: "$100M+",
-      label: "Startup Business Raised",
-      prefix: "$",
-      suffix: "M+"
-    },
-    {
-      value: "300+",
+      value: "20",
       label: "Projects Completed",
       suffix: "+"
     },
     {
-      value: "300+",
-      label: "Projects Completed",
+      value: "20",
+      label: "Clients Served",
       suffix: "+"
     },
     {
-      value: "300+",
-      label: "Projects Completed",
-      suffix: "+"
+      value: "6",
+      label: "Average Project Duration",
+      suffix: " Months"
+    },
+    {
+      value: "99%",
+      label: "Customer Satisfaction Rate",
+      suffix: "%"
     },
   ];
 
@@ -64,27 +63,27 @@ export default function Stats() {
       const duration = 2000; // 2 seconds for the animation
       const framesPerSecond = 60;
       const totalFrames = duration / 1000 * framesPerSecond;
-      
+
       let frame = 0;
       const counter = setInterval(() => {
         frame++;
-        
+
         // Calculate progress (0 to 1)
         const progress = frame / totalFrames;
-        
+
         // Easing function to slow down as it approaches the end
         const easedProgress = 1 - Math.pow(1 - progress, 3);
-        
+
         // Calculate the current value
         const currentValue = Math.min(Math.floor(easedProgress * targetValue), targetValue);
-        
+
         // Update the state
         setCounters(prevCounters => {
           const newCounters = [...prevCounters];
           newCounters[index] = currentValue;
           return newCounters;
         });
-        
+
         // Stop when we reach the target
         if (frame >= totalFrames) {
           clearInterval(counter);
