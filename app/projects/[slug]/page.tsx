@@ -24,7 +24,6 @@ interface PageProps {
 }
 
 export default function ProjectPage({ params }: PageProps) {
-  // Always unwrap the params promise
   const resolvedParams = use(params);
   const { project, isLoading, error } = useProjects(resolvedParams.slug);
 
@@ -35,13 +34,6 @@ export default function ProjectPage({ params }: PageProps) {
   if (error || !project) {
     return <ProjectDetailError />;
   }
-
-  // Format the project date
-  const formattedDate = new Date(project.dates).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-  });
-
   return (
     <>
       <GridFade size="lg" variant="viewport" />
