@@ -17,7 +17,7 @@ export const services = [
     title: "Cybersecurity & Compliance",
     description:
       "Comprehensive security services and compliance solutions to protect your digital assets and meet regulatory requirements.",
-    icon: "Shield",
+  icon: "Shield",
     gridBackground: true,
     centerGrid: true,
   },

@@ -1,5 +1,10 @@
 interface ProjectProps {
-  project: any
+  project: {
+    clientName?: string;
+    industry?: string;
+    services?: string[];
+    location?: string;
+  };
 }
 
 export default function ProjectHeader({ project }: ProjectProps) {
@@ -9,7 +14,7 @@ export default function ProjectHeader({ project }: ProjectProps) {
         {/* Desktop view remains unchanged */}
         <div className="hidden md:grid md:grid-cols-[1fr_300px] gap-8">
           <div>
-            <h1 className="text-[70px] font-bold leading-tight mb-6">{project.clientName}</h1>
+            <h1 className="text-[70px] font-bold leading-tight mb-6">{project.clientName || "N/A"}</h1>
             <p className="text-[18px] text-neutral-400 max-w-3xl">
               SAI Technology has innovated public transit with a multifaceted platform that simplifies ticket purchases,
               vehicle management, and logistics coordination.
@@ -20,32 +25,36 @@ export default function ProjectHeader({ project }: ProjectProps) {
             <div>
               <h3 className="text-sm text-neutral-400 mb-2">Client</h3>
               <div className="flex gap-2">
-                <span className="text-[12px] px-3 py-1.5 bg-[#202020]">{project.clientName}</span>
+                <span className="text-[12px] px-3 py-1.5 bg-[#202020]">{project.clientName || "N/A"}</span>
               </div>
             </div>
 
             <div>
               <h3 className="text-sm text-neutral-400 mb-2">Industry</h3>
               <div className="flex gap-2">
-                <span className="text-[12px] px-3 py-1.5 bg-[#202020]">Public Transit & Logistics</span>
+                <span className="text-[12px] px-3 py-1.5 bg-[#202020]">{project.industry || "N/A"}</span>
               </div>
             </div>
 
             <div>
               <h3 className="text-sm text-neutral-400 mb-2">Service</h3>
               <div className="flex flex-wrap gap-2">
-                {project.services?.map((service: string, index: number) => (
-                  <span key={index} className="text-[12px] px-3 py-1.5 bg-[#202020]">
-                    {service}
-                  </span>
-                ))}
+                {(project.services && project.services.length > 0) ? (
+                  project.services.map((service, index) => (
+                    <span key={index} className="text-[12px] px-3 py-1.5 bg-[#202020]">
+                      {service}
+                    </span>
+                  ))
+                ) : (
+                  <span className="text-[12px] px-3 py-1.5 bg-[#202020]">N/A</span>
+                )}
               </div>
             </div>
 
             <div>
               <h3 className="text-sm text-neutral-400 mb-2">Location</h3>
               <div className="flex gap-2">
-                <span className="text-[12px] px-3 py-1.5 bg-[#202020]">France</span>
+                <span className="text-[12px] px-3 py-1.5 bg-[#202020]">{project.location || "N/A"}</span>
               </div>
             </div>
           </div>
@@ -53,33 +62,37 @@ export default function ProjectHeader({ project }: ProjectProps) {
 
         {/* Mobile view that matches the screenshot */}
         <div className="md:hidden">
-          <h1 className="text-[40px] font-bold leading-tight mb-6">{project.clientName}</h1>
+          <h1 className="text-[40px] font-bold leading-tight mb-6">{project.clientName || "N/A"}</h1>
           
           <div className="grid grid-cols-2 gap-x-4 gap-y-6 mb-6">
             <div>
               <h3 className="text-sm text-neutral-400 mb-2">Client</h3>
-              <span className="text-[12px] inline-block px-3 py-1.5 bg-[#202020]">{project.clientName}</span>
+              <span className="text-[12px] inline-block px-3 py-1.5 bg-[#202020]">{project.clientName || "N/A"}</span>
             </div>
 
             <div>
               <h3 className="text-sm text-neutral-400 mb-2">Industry</h3>
-              <span className="text-[12px] inline-block px-3 py-1.5 bg-[#202020]">Public Transit & Logistics</span>
+              <span className="text-[12px] inline-block px-3 py-1.5 bg-[#202020]">{project.industry || "N/A"}</span>
             </div>
 
             <div>
               <h3 className="text-sm text-neutral-400 mb-2">Service</h3>
               <div className="flex flex-wrap gap-2">
-                {project.services?.map((service: string, index: number) => (
-                  <span key={index} className="text-[12px] px-3 py-1.5 bg-[#202020]">
-                    {service}
-                  </span>
-                ))}
+                {(project.services && project.services.length > 0) ? (
+                  project.services.map((service, index) => (
+                    <span key={index} className="text-[12px] px-3 py-1.5 bg-[#202020]">
+                      {service}
+                    </span>
+                  ))
+                ) : (
+                  <span className="text-[12px] px-3 py-1.5 bg-[#202020]">N/A</span>
+                )}
               </div>
             </div>
 
             <div>
               <h3 className="text-sm text-neutral-400 mb-2">Location</h3>
-              <span className="text-[12px] inline-block px-3 py-1.5 bg-[#202020]">France</span>
+              <span className="text-[12px] inline-block px-3 py-1.5 bg-[#202020]">{project.location || "N/A"}</span>
             </div>
           </div>
           

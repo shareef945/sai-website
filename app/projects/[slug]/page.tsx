@@ -14,7 +14,7 @@ import ProjectCTA from "./components/cta";
 import ProjectGrid from "./components/grid";
 import { GridFade } from "@/components/GridFade";
 import { ProjectDetailError, ProjectDetailLoading } from "@/components/Loading";
-
+import ProjectTechnologies from "./components/technologies";
 
 interface Params {
   slug: string;
@@ -31,7 +31,7 @@ export default function ProjectPage({ params }: PageProps) {
   if (isLoading) {
     return <ProjectDetailLoading />;
   }
-  
+
   if (error || !project) {
     return <ProjectDetailError />;
   }
@@ -53,6 +53,7 @@ export default function ProjectPage({ params }: PageProps) {
         <ProjectFeatures project={project} />
         <ProjectGrid project={project} />
         <ProjectResults project={project} />
+        <ProjectTechnologies project={project} />
         <ProjectTestimonial project={project} />
       </div>
     </>
