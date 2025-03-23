@@ -15,15 +15,20 @@ export default function DevProcessCard({ items }: ComponentProps) {
     <div className="flex flex-col items-center justify-center py-12">
       {items.map((row, rowIndex) => (
         <div key={rowIndex} className="w-full">
-
-          <div className={`flex flex-col sm:flex-row ${rowIndex % 2 === 0 ? 'sm:items-start' : 'sm:items-end'} space-y-8 sm:space-y-0 sm:space-x-8 justify-center px-4`}>
+          <div
+            className={`flex flex-col sm:flex-row ${
+              rowIndex % 2 === 0 ? "sm:items-start" : "sm:items-end"
+            } space-y-8 sm:space-y-0 sm:space-x-8 justify-center px-4`}
+          >
             {row.map((item, itemIndex) => (
               <React.Fragment key={itemIndex}>
                 <Card className="w-full sm:w-auto sm:max-w-[300px] flex-grow">
                   <CardHeader>
-                    <CardTitle className="text-[#741f28] text-lg">{item.title}</CardTitle>
+                    <CardTitle className="text-[#741f28] text-lg">
+                      {item.title}
+                    </CardTitle>
                   </CardHeader>
-                  <CardContent className=" text-gray-500">
+                  <CardContent className=" text-[#898989]">
                     {item.content}
                   </CardContent>
                 </Card>

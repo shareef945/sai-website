@@ -216,7 +216,7 @@ export const ServicesTimeline = () => {
                   <h3
                     className={cn(
                       "text-[30px] font-medium w-[320px]",
-                      activeIndex === index ? "text-white" : "text-gray-500"
+                      activeIndex === index ? "text-white" : "text-[#898989]"
                     )}
                   >
                     {service.title}

@@ -72,7 +72,7 @@ export const EnhancedErrorScreen = ({ errorMessage = "We couldn't load the proje
 export const ProjectsPageLoading = () => <EnhancedLoadingScreen />;
 
 export const ProjectsPageError = ({ error }:any) => (
-  <EnhancedErrorScreen errorMessage={`Error loading projects: ${error || "Unknown error"}`} />
+  <EnhancedErrorScreen errorMessage={`Error loading projects`} />
 );
 
 export const ProjectDetailLoading = () => (

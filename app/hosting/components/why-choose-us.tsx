@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import RequestFormDialog from "@/components/ui/request-dialog";
+import { services } from "@/config/services";
 
 export default function WhyChooseUs() {
   const benefits = [
@@ -28,7 +30,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <div className="w-full mt-8 text-white px-6 sm:px-12 md:px-[180px]">
+    <div className="w-full mt-0 text-white px-6 sm:px-12 md:px-[180px]">
       <div className="py-16 w-full">
         <div className="mx-auto max-w-4xl">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 text-center">
@@ -57,14 +59,16 @@ export default function WhyChooseUs() {
               Website Hosting Services. Get started today!
             </p>
 
-            <Button
-              asChild
-              className="bg-[#E65722] hover:bg-[#E65722]/90 text-white px-12 py-6"
-            >
-              <Link href="/contact">
-                Contact Us
-              </Link>
-            </Button>
+            <div className="hidden justify-center md:flex items-center gap-x-6">
+              <RequestFormDialog
+                services={services}
+                isMobile={false}
+                text="Contact Us"
+              />
+            </div>
+            <div className="flex justify-center items-center gap-4 md:hidden">
+            <RequestFormDialog services={services} isMobile={true} text="Contact Us" />
+            </div>
           </div>
         </div>
       </div>

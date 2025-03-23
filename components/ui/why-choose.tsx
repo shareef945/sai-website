@@ -84,19 +84,19 @@ export default function ClientsAndPartners() {
 
         {/* Mobile Layout (hidden on medium and larger screens) */}
         <div className="md:hidden max-w-sm mx-auto">
-          <div className="flex flex-col items-center gap-8">
+          <div className="flex flex-col items-center gap-10">
             {/* First row - 3 logos */}
             <div className="flex justify-center gap-8 w-full">
               {partners.slice(0, 3).map((partner, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-center opacity-50 hover:opacity-100 transition-opacity"
+                  className="flex items-center justify-center opacity-50 hover:opacity-100 transition-opacity w-24 h-16"
                 >
-                  <Image
+                <Image
                     src={partner.logo}
                     alt={partner.name}
-                    width={80}
-                    height={40}
+                    width={160}
+                    height={80}
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>
@@ -108,13 +108,13 @@ export default function ClientsAndPartners() {
               {partners.slice(3, 6).map((partner, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-center opacity-50 hover:opacity-100 transition-opacity"
+                  className="flex items-center justify-center opacity-50 hover:opacity-100 transition-opacity w-24 h-16"
                 >
                   <Image
                     src={partner.logo}
                     alt={partner.name}
-                    width={80}
-                    height={40}
+                    width={120}
+                    height={60}
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>
@@ -126,13 +126,13 @@ export default function ClientsAndPartners() {
               {partners.slice(6, 8).map((partner, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-center opacity-50 hover:opacity-100 transition-opacity"
+                  className="flex items-center justify-center opacity-50 hover:opacity-100 transition-opacity w-24 h-16"
                 >
                   <Image
                     src={partner.logo}
                     alt={partner.name}
-                    width={80}
-                    height={40}
+                    width={120}
+                    height={60}
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>
