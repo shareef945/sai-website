@@ -55,13 +55,18 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16 ">
           <div className="flex md:block flex-col space-y-6">
-            <h1 className="text-white text-5xl lg:text-[4.375rem] md:pt-16 pt-0 font-bold leading-tight">
-              We design and build solutions
+            <span className="text-[#A3A3A3] font-medium">
+              Your Strategic Technology Partner
+            </span>
+            <h1 className="text-white text-2xl md:text-5xl  p-0 font-bold leading-tight">
+              Your Trusted Partner in Digital Innovation
             </h1>
             <p className="text-[#898989] text-lg max-w-xl">
-              Accelerate your digital transformation and stay ahead of the
-              competition with our proven expertise in delivering cutting-edge
-              solutions for a wide range of industries.
+              We work alongside you, not just for you. From strategy to
+              execution, we create smart, scalable, and secure solutions that
+              empower your business. Our expertise spans digital transformation,
+              enterprise software, data intelligence, and more—so you can
+              navigate the future with confidence.
             </p>
             <div className="hidden md:flex items-center gap-x-6">
               <RequestFormDialog
@@ -71,7 +76,11 @@ export default function Hero() {
               />
             </div>
             <div className="flex justify-center items-center gap-4 md:hidden">
-            <RequestFormDialog services={services} isMobile={true} text="Submit a request" />
+              <RequestFormDialog
+                services={services}
+                isMobile={true}
+                text="Submit a request"
+              />
             </div>
           </div>
           <div className="relative h-[515px]">
