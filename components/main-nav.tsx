@@ -12,6 +12,7 @@ import { services } from "@/config/services";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
   const COMMON_STYLES = {
     nav: (isScrolled: boolean) =>
@@ -44,10 +45,31 @@ export const Navbar = () => {
     };
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    
+    // Call once to set initial state
+    handleScroll();
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <nav
       ref={navRef}
-      className="h-[10vh] top-0 left-0 right-0 flex w-full justify-between bg-transparent px-6 py-4 relative z-20"
+      className={`sticky top-0 left-0 right-0 flex w-full justify-between px-6 py-4 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-[#151515] " : "bg-transparent"
+      }`}
     >
       <div className="flex items-center gap-x-2 justify-center">
         <Link href="/" className={COMMON_STYLES.logo} prefetch={false}>

@@ -1,45 +1,46 @@
 export const services = [
   {
-    title: "Web Design & Development",
+    title: "Digital Transformation & IT Strategy",
     description:
-      "Crafting visually stunning and user-friendly websites tailored to your brand's needs.",
-    icon: "Laptop",
+      "Strategic guidance to modernize your business processes and technology landscape for the digital era.",
+    icon: "Dashboard",
     gridBackground: true,
   },
   {
-    title: "Mobile App Development",
+    title: "Enterprise Software & Intelligent Automation",
     description:
-      "Creating intuitive and impactful mobile applications for iOS and Android platforms.",
-    icon: "Phone",
+      "Custom enterprise solutions and automation technologies to streamline operations and enhance productivity.",
+    icon: "AI",
     codeSnippet: true,
   },
   {
-    title: "API Development and Integration",
+    title: "Cybersecurity & Compliance",
     description:
-      "Developing scalable and secure APIs to extend the functionality of your digital products.",
-    icon: "Connect",
+      "Comprehensive security services and compliance solutions to protect your digital assets and meet regulatory requirements.",
+  icon: "Shield",
     gridBackground: true,
     centerGrid: true,
   },
   {
-    title: "Software Testing and Quality Assurance",
+    title: "Data & Business Intelligence",
     description:
-      "Ensuring the highest quality software with comprehensive testing services.",
-    icon: "Dashboard",
+      "Data analytics and business intelligence services to derive actionable insights and drive informed decision-making.",
+    icon: "Chart",
     concentric: true,
   },
   {
-    title: "Robotic Process Automation (RPA)",
+    title: "Cloud & Infrastructure Optimization",
     description:
-      "Creating intuitive and impactful mobile applications for iOS and Android platforms.",
-    icon: "AI",
+      "Expert cloud solutions and infrastructure management to enhance scalability, performance, and cost-efficiency.",
+    icon: "Cloud",
     grid: true,
     gridBackground: true,
   },
   {
-    title: "IT Consulting",
+    title: "API & System Integration",
     description:
-      "Providing expert IT consulting to optimize your technology strategy.",
-    icon: "Messages",
+      "Seamless integration services connecting disparate systems and applications for unified business operations.",
+    icon: "Connect",
+    grid: false,
   },
 ];

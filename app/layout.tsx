@@ -34,10 +34,8 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.className} ${inter.variable} relative bg-[#111111]`}
       >
-        <div className="relative min-h-screen">
-          <div className="relative z-[2]">
-            <Navbar />
-          </div>
+        <div className="min-h-screen">
+          <Navbar />
           <main>{children}</main>
           <Footer />
         </div>

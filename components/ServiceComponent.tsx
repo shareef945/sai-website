@@ -5,6 +5,11 @@ import Dashboard from "@/components/icons/Dashboard";
 import Laptop from "@/components/icons/Laptop";
 import Messages from "@/components/icons/Messages";
 import Phone from "@/components/icons/Phone";
+import { FaCloud as Cloud } from "react-icons/fa";
+import { FaShield as Shield } from "react-icons/fa6";
+import { FaChartBar as Chart } from "react-icons/fa";
+
+
 import React from "react";
 
 // Define the Icon component type with className prop
@@ -16,10 +21,13 @@ type IconComponentProps = {
 const iconComponents: Record<string, React.ComponentType<IconComponentProps>> = {
   Laptop,
   Phone,
+  Cloud,
   Connect,
   Dashboard,
   AI,
-  Messages
+  Shield,
+  Messages,
+  Chart
 };
 
 export default function ServicesComponent() {
@@ -120,7 +128,7 @@ function updateGutters() {
                 </div>
                 <div className="flex-grow flex items-center justify-center">
                   {IconComponent && (
-                    <IconComponent className="w-24 h-24 text-[#898989] [&>path]:stroke-[1.5] [&>*]:stroke-orange-500" />
+                    <IconComponent className="w-24 h-24 text-[#808080] [&>path]:stroke-[1.5]" />
                   )}
                 </div>
               </div>
