@@ -56,30 +56,30 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16 ">
           <div className="flex md:block flex-col space-y-6">
             <span className="text-[#A3A3A3] font-medium">
-              Your Strategic Technology Partner
+              Imagine - Innovate - Implement
             </span>
             <h1 className="text-white text-2xl md:text-5xl  p-0 font-bold leading-tight">
               Your Trusted Partner in Digital Innovation
             </h1>
             <p className="text-[#898989] text-lg max-w-xl">
-              We work alongside you, not just for you. From strategy to
-              execution, we create smart, scalable, and secure solutions that
-              empower your business. Our expertise spans digital transformation,
-              enterprise software, data intelligence, and more—so you can
-              navigate the future with confidence.
+              We don’t just build solutions—we build alongside you. From
+              strategy to execution, our expertise in digital transformation,
+              enterprise software, and data intelligence ensures your business
+              is future-ready. With smart, scalable, and secure technology, we
+              help you stay ahead in a rapidly evolving digital landscape.”
             </p>
             <div className="hidden md:flex items-center gap-x-6">
               <RequestFormDialog
                 services={services}
                 isMobile={false}
-                text="Submit a request"
+                text="Let’s Build Together"
               />
             </div>
             <div className="flex justify-center items-center gap-4 md:hidden">
               <RequestFormDialog
                 services={services}
                 isMobile={true}
-                text="Submit a request"
+                text="Let’s Build Together"
               />
             </div>
           </div>
