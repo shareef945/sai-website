@@ -16,7 +16,7 @@ export const Navbar = () => {
   const navRef = useRef<HTMLDivElement>(null);
   const COMMON_STYLES = {
     nav: (isScrolled: boolean) =>
-      ƒ`fixed top-0 z-50 w-full transition-all duration-300 py-2 px-2 ${
+      `fixed top-0 z-50 w-full transition-all duration-300 py-2 px-2 ${
         isScrolled ? "bg-[#151515] border-[#898989]" : "bg-transparent"
       }`,
     container: "flex h-16 w-full items-center justify-between px-6",
