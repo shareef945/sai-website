@@ -55,10 +55,10 @@ export const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    
+
     // Call once to set initial state
     handleScroll();
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -87,12 +87,20 @@ export const Navbar = () => {
       {/* Desktop navigation */}
       <div className="hidden md:flex items-center gap-x-6">
         <Links />
-        <RequestFormDialog services={services} isMobile={false} text="Submit a request" />
+        <RequestFormDialog
+          services={services}
+          isMobile={false}
+          text="Let’s Build Together"
+        />
       </div>
 
       {/* Mobile navigation */}
       <div className="flex items-center gap-4 md:hidden">
-        <RequestFormDialog services={services} isMobile={true} text="Submit a request" />
+        <RequestFormDialog
+          services={services}
+          isMobile={true}
+          text="Let’s Build Together"
+        />
 
         <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
           <SheetTrigger asChild>
