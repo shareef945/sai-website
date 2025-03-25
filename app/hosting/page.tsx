@@ -13,7 +13,7 @@ const PrivacyPolicy = () => {
       </div>
       <div className="relative z-[2] md:mt-[110px] mt-[65px]">
         <HostingHero/>
-        <CMSHostingPlans />
+        {/* <CMSHostingPlans /> */}
         <WebsiteCMSHosting/>
         <WhyChooseUs/>
 
