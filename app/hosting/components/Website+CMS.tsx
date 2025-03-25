@@ -92,22 +92,23 @@ export default function WebsiteCMSHosting() {
                     Starter
                   </TableCell>
                   <TableCell className="border-r border-[#ffffff0a]">
-                    Hosting, setup, up to 5 users, 2GB storage, email support
+                    Static website, CMS integration, up to 5 pages
                   </TableCell>
                   <TableCell className="text-right border-r border-[#ffffff0a]">
-                    GHS 50
+                    GHS 250
                   </TableCell>
-                  <TableCell className="text-right">GHS 500</TableCell>
+                  <TableCell className="text-right">GHS 1000</TableCell>
                 </TableRow>
                 <TableRow className="border bg-[#191919] border-[#ffffff0a]">
                   <TableCell className="font-medium border-r border-[#ffffff0a]">
                     Business
                   </TableCell>
                   <TableCell className="border-r border-[#ffffff0a]">
-                    10 users, 5GB storage, backups, priority support
+                    Dynamic site, blog, SEO optimization, CMS integration, 5+
+                    pages
                   </TableCell>
                   <TableCell className="text-right border-r border-[#ffffff0a]">
-                    GHS 150
+                    GHS 300
                   </TableCell>
                   <TableCell className="text-right">GHS 1000</TableCell>
                 </TableRow>
@@ -116,7 +117,7 @@ export default function WebsiteCMSHosting() {
                     Enterprise
                   </TableCell>
                   <TableCell className="border-r border-[#ffffff0a]">
-                    Unlimited users, 20GB+ storage, custom domain, integrations
+                    Custom web app, API integration, advanced security
                   </TableCell>
                   <TableCell className="text-right border-r border-[#ffffff0a]">
                     Custom Quote
@@ -132,24 +133,24 @@ export default function WebsiteCMSHosting() {
           <h2 className="text-4xl font-bold mb-8">Add-ons (Optional)</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-y-[11px] gap-x-2.5">
-            <div className="border-l-4 border-[#ea5c1c] bg-[#191919] pl-6 py-2 h-[97px] flex flex-col justify-center">
+            {/* <div className="border-l-4 border-[#ea5c1c] bg-[#191919] pl-6 py-2 h-[97px] flex flex-col justify-center">
               <h3 className="text-xl font-semibold mb-2">Extra Pages</h3>
               <p className="text-[#ea5c1c]">GHS 200/page</p>
-            </div>
+            </div> */}
 
             <div className="border-l-4 border-[#ea5c1c] bg-[#191919] pl-6 py-2 h-[97px] flex flex-col justify-center">
               <h3 className="text-xl font-semibold mb-2">
                 E-commerce Integration
               </h3>
-              <p className="text-[#ea5c1c]">GHS 5,000+ (one-time)</p>
+              <p className="text-[#ea5c1c]">GHS 30,000 (one-time)</p>
             </div>
 
-            <div className="border-l-4 border-[#ea5c1c] bg-[#191919] pl-6 py-2 h-[97px] flex flex-col justify-center">
+            {/* <div className="border-l-4 border-[#ea5c1c] bg-[#191919] pl-6 py-2 h-[97px] flex flex-col justify-center">
               <h3 className="text-xl font-semibold mb-2">
                 Mobile App (Optional)
               </h3>
               <p className="text-[#ea5c1c]">GHS 15,000+ (one-time)</p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -159,16 +160,16 @@ export default function WebsiteCMSHosting() {
 
 const plans = [
   {
-    name: "Basic Site",
-    features: "Static website (Dockerized), CMS integration, up to 5 pages",
-    monthlyPrice: "GHS 125",
-    setupFee: "GHS 1500",
+    name: "Starter",
+    features: "Static website, CMS integration, up to 5 pages",
+    monthlyPrice: "GHS 250",
+    setupFee: "GHS 1000",
   },
   {
-    name: "Business Site",
+    name: "Business",
     features: "Dynamic site, blog, SEO optimization, CMS integration, 5+ pages",
-    monthlyPrice: "GHS 250",
-    setupFee: "GHS 3000",
+    monthlyPrice: "GHS 300",
+    setupFee: "GHS 1000",
   },
   {
     name: "Enterprise Site",
@@ -176,16 +177,16 @@ const plans = [
     monthlyPrice: "Custom Quote",
     setupFee: "Custom Quote",
   },
-  {
-    name: "Basic Web App",
-    features: "Static website (Dockerized), CMS integration, up to 5 pages",
-    monthlyPrice: "GHS 500",
-    setupFee: "GHS 3000",
-  },
-  {
-    name: "Business Web App",
-    features: "Scalable web application with advanced features",
-    monthlyPrice: "GHS 1000",
-    setupFee: "GHS 5000",
-  },
+  // {
+  //   name: "Basic Web App",
+  //   features: "Static website (Dockerized), CMS integration, up to 5 pages",
+  //   monthlyPrice: "GHS 500",
+  //   setupFee: "GHS 3000",
+  // },
+  // {
+  //   name: "Business Web App",
+  //   features: "Scalable web application with advanced features",
+  //   monthlyPrice: "GHS 1000",
+  //   setupFee: "GHS 5000",
+  // },
 ];
