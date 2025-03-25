@@ -1,39 +1,43 @@
-"use client"
-import type React from "react"
-import { useState, type FormEvent, type ChangeEvent } from "react"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
-import { useFormSubmit } from "@/hooks/use-form-submit"
+"use client";
+import type React from "react";
+import { useState, type FormEvent, type ChangeEvent } from "react";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { useFormSubmit } from "@/hooks/use-form-submit";
 
 // Define types for the component props and state
 interface Service {
-  title: string
-  [key: string]: any // Allow for other properties in service objects
+  title: string;
+  [key: string]: any; // Allow for other properties in service objects
 }
 
 interface RequestFormDialogProps {
-  isMobile?: boolean
-  services?: Service[]
-  text: string
+  isMobile?: boolean;
+  services?: Service[];
+  text: string;
 }
 
 interface FormData {
-  firstName: string
-  lastName: string
-  emailAddress: string
-  phoneNumber: string
-  service: string
-  budgetRange: string
+  firstName: string;
+  lastName: string;
+  emailAddress: string;
+  phoneNumber: string;
+  service: string;
+  budgetRange: string;
 }
 
 interface FormErrors {
-  firstName: string
-  lastName: string
-  emailAddress: string
-  phoneNumber: string
+  firstName: string;
+  lastName: string;
+  emailAddress: string;
+  phoneNumber: string;
 }
 
-const RequestFormDialog: React.FC<RequestFormDialogProps> = ({ isMobile = false, services = [], text }) => {
+const RequestFormDialog: React.FC<RequestFormDialogProps> = ({
+  isMobile = false,
+  services = [],
+  text,
+}) => {
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -41,94 +45,98 @@ const RequestFormDialog: React.FC<RequestFormDialogProps> = ({ isMobile = false,
     phoneNumber: "",
     service: "",
     budgetRange: "$1000-$5000",
-  })
+  });
 
-  const { isSubmitting, submitSuccess, submitError, submitForm } = useFormSubmit()
+  const { isSubmitting, submitSuccess, submitError, submitForm } =
+    useFormSubmit();
 
   const [errors, setErrors] = useState<FormErrors>({
     firstName: "",
     lastName: "",
     emailAddress: "",
     phoneNumber: "",
-  })
+  });
 
   // Convert any server-side functions to simple string values
   const safeServices = services.map((service) => ({
     ...service,
-    title: typeof service.title === "string" ? service.title : "Unknown Service",
-  }))
+    title:
+      typeof service.title === "string" ? service.title : "Unknown Service",
+  }));
 
   const validateEmail = (email: string): boolean => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-  }
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
 
   const validatePhone = (phone: string): boolean => {
-    return /^\d{10,15}$/.test(phone.replace(/[^0-9]/g, ""))
-  }
+    return /^\d{10,15}$/.test(phone.replace(/[^0-9]/g, ""));
+  };
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
-    })
+    });
 
     // Clear the error when user types
     if (name in errors) {
       setErrors({
         ...errors,
         [name]: "",
-      })
+      });
     }
-  }
+  };
 
   const validateForm = (): boolean => {
-    let valid = true
+    let valid = true;
     const newErrors: FormErrors = {
       firstName: "",
       lastName: "",
       emailAddress: "",
       phoneNumber: "",
-    }
+    };
 
     if (!formData.firstName.trim()) {
-      newErrors.firstName = "First name is required"
-      valid = false
+      newErrors.firstName = "First name is required";
+      valid = false;
     }
 
     if (!formData.lastName.trim()) {
-      newErrors.lastName = "Last name is required"
-      valid = false
+      newErrors.lastName = "Last name is required";
+      valid = false;
     }
 
     if (!formData.emailAddress.trim()) {
-      newErrors.emailAddress = "Email address is required"
-      valid = false
+      newErrors.emailAddress = "Email address is required";
+      valid = false;
     } else if (!validateEmail(formData.emailAddress)) {
-      newErrors.emailAddress = "Please enter a valid email address"
-      valid = false
+      newErrors.emailAddress = "Please enter a valid email address";
+      valid = false;
     }
 
     if (!formData.phoneNumber.trim()) {
-      newErrors.phoneNumber = "Phone number is required"
-      valid = false
+      newErrors.phoneNumber = "Phone number is required";
+      valid = false;
     } else if (!validatePhone(formData.phoneNumber)) {
-      newErrors.phoneNumber = "Please enter a valid phone number"
-      valid = false
+      newErrors.phoneNumber = "Please enter a valid phone number";
+      valid = false;
     }
 
-    setErrors(newErrors)
-    return valid
-  }
+    setErrors(newErrors);
+    return valid;
+  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!validateForm()) {
-      return
+      return;
     }
 
-    const success = await submitForm(formData)
+    const success = await submitForm(formData);
 
     if (success) {
       // Reset form after successful submission
@@ -139,9 +147,9 @@ const RequestFormDialog: React.FC<RequestFormDialogProps> = ({ isMobile = false,
         phoneNumber: "",
         service: "",
         budgetRange: "$1000-$5000",
-      })
+      });
     }
-  }
+  };
 
   const formContent = (
     <>
@@ -163,29 +171,13 @@ const RequestFormDialog: React.FC<RequestFormDialogProps> = ({ isMobile = false,
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </div>
-          <h3 className="text-2xl font-medium text-white mb-2">Submission Successful!</h3>
+          <h3 className="text-2xl font-medium text-white mb-2">
+            Submission Successful!
+          </h3>
           <p className="text-[#898989] mb-8 max-w-md">
-            Thank you for your interest! Your information has been submitted successfully. We&#39;ll be in touch with you
-            shortly.
+            Thank you for your interest! Your information has been submitted
+            successfully. We&#39;ll be in touch with you shortly.
           </p>
-          {/* <Button
-            onClick={() => {
-              // Create a new instance of the form by resetting the state
-              setFormData({
-                firstName: "",
-                lastName: "",
-                emailAddress: "",
-                phoneNumber: "",
-                service: "",
-                budgetRange: "$1000-$5000",
-              })
-              // Force a re-render by submitting a new form with success=false
-              submitForm({ reset: true })
-            }}
-            className="bg-[#ea5c1c] hover:bg-[#ea5c1c]/90 text-white px-[25px] py-[17px] rounded-none"
-          >
-            Submit Another Request
-          </Button> */}
         </div>
       ) : submitError ? (
         <div className="flex flex-col items-center justify-center py-10 px-4 text-center">
@@ -206,60 +198,87 @@ const RequestFormDialog: React.FC<RequestFormDialogProps> = ({ isMobile = false,
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </div>
-          <h3 className="text-2xl font-medium text-white mb-2">Submission Failed</h3>
+          <h3 className="text-2xl font-medium text-white mb-2">
+            Submission Failed
+          </h3>
           <p className="text-[#898989] mb-8 max-w-md">
-            There was a problem submitting your request. Please try again or contact us directly for assistance.
+            There was a problem submitting your request. Please try again or
+            contact us directly for assistance.
           </p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-8">
           <div className={`${isMobile ? "" : "flex gap-6"}`}>
             <div className={`${isMobile ? "mb-8" : "flex-1"}`}>
-              <label className="block text-sm text-[#898989] mb-2">First Name</label>
+              <label className="block text-sm text-[#898989] mb-2">
+                First Name
+              </label>
               <input
                 type="text"
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleInputChange}
-                className={`w-full bg-transparent border-b-2 ${errors.firstName ? "border-red-500" : "border-[#ea5c1c]"} pb-2 focus:outline-none`}
+                className={`w-full bg-transparent border-b-2 ${
+                  errors.firstName ? "border-red-500" : "border-[#ea5c1c]"
+                } pb-2 focus:outline-none`}
               />
-              {errors.firstName && <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>}
+              {errors.firstName && (
+                <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>
+              )}
             </div>
             <div className={`${isMobile ? "" : "flex-1"}`}>
-              <label className="block text-sm text-[#898989] mb-2">Last Name</label>
+              <label className="block text-sm text-[#898989] mb-2">
+                Last Name
+              </label>
               <input
                 type="text"
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleInputChange}
-                className={`w-full bg-transparent border-b-2 ${errors.lastName ? "border-red-500" : "border-[#ea5c1c]"} pb-2 focus:outline-none`}
+                className={`w-full bg-transparent border-b-2 ${
+                  errors.lastName ? "border-red-500" : "border-[#ea5c1c]"
+                } pb-2 focus:outline-none`}
               />
-              {errors.lastName && <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>}
+              {errors.lastName && (
+                <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>
+              )}
             </div>
           </div>
 
           <div>
-            <label className="block text-sm text-[#898989] mb-2">Email Address</label>
+            <label className="block text-sm text-[#898989] mb-2">
+              Email Address
+            </label>
             <input
               type="email"
               name="emailAddress"
               value={formData.emailAddress}
               onChange={handleInputChange}
-              className={`w-full bg-transparent border-b-2 ${errors.emailAddress ? "border-red-500" : "border-[#ea5c1c]"} pb-2 focus:outline-none`}
+              className={`w-full bg-transparent border-b-2 ${
+                errors.emailAddress ? "border-red-500" : "border-[#ea5c1c]"
+              } pb-2 focus:outline-none`}
             />
-            {errors.emailAddress && <p className="text-red-500 text-xs mt-1">{errors.emailAddress}</p>}
+            {errors.emailAddress && (
+              <p className="text-red-500 text-xs mt-1">{errors.emailAddress}</p>
+            )}
           </div>
 
           <div>
-            <label className="block text-sm text-[#898989] mb-2">Phone Number</label>
+            <label className="block text-sm text-[#898989] mb-2">
+              Phone Number
+            </label>
             <input
               type="tel"
               name="phoneNumber"
               value={formData.phoneNumber}
               onChange={handleInputChange}
-              className={`w-full bg-transparent border-b-2 ${errors.phoneNumber ? "border-red-500" : "border-[#ea5c1c]"} pb-2 focus:outline-none`}
+              className={`w-full bg-transparent border-b-2 ${
+                errors.phoneNumber ? "border-red-500" : "border-[#ea5c1c]"
+              } pb-2 focus:outline-none`}
             />
-            {errors.phoneNumber && <p className="text-red-500 text-xs mt-1">{errors.phoneNumber}</p>}
+            {errors.phoneNumber && (
+              <p className="text-red-500 text-xs mt-1">{errors.phoneNumber}</p>
+            )}
           </div>
 
           <div>
@@ -269,17 +288,27 @@ const RequestFormDialog: React.FC<RequestFormDialogProps> = ({ isMobile = false,
                 name="service"
                 value={formData.service}
                 onChange={handleInputChange}
-                className="w-full text-base bg-transparent border-b-2 border-[#ea5c1c] pb-2 focus:outline-none appearance-none text-[#898989]"
+                className="w-full text-base bg-transparent border-b-2 border-[#ea5c1c] pb-2 focus:outline-none appearance-none text-white"
               >
                 <option value="">Please select service</option>
                 {safeServices.map((service, index) => (
-                  <option key={`${service.title}-${index}`} value={service.title}>
+                  <option
+                    className="text-white"
+                    key={`${service.title}-${index}`}
+                    value={service.title}
+                  >
                     {service.title}
                   </option>
                 ))}
               </select>
               <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M4 6L8 10L12 6"
                     stroke="#898989"
@@ -299,7 +328,7 @@ const RequestFormDialog: React.FC<RequestFormDialogProps> = ({ isMobile = false,
                 name="budgetRange"
                 value={formData.budgetRange}
                 onChange={handleInputChange}
-                className="w-full text-base bg-transparent border-b-2 border-[#ea5c1c] pb-2 focus:outline-none appearance-none text-[#898989]"
+                className="w-full text-base bg-transparent border-b-2 border-[#ea5c1c] pb-2 focus:outline-none appearance-none text-white"
               >
                 <option value="$1000-$5000" className="text-base">
                   $1000-$5000
@@ -315,7 +344,13 @@ const RequestFormDialog: React.FC<RequestFormDialogProps> = ({ isMobile = false,
                 </option>
               </select>
               <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M4 6L8 10L12 6"
                     stroke="#898989"
@@ -340,19 +375,26 @@ const RequestFormDialog: React.FC<RequestFormDialogProps> = ({ isMobile = false,
         </form>
       )}
     </>
-  )
+  );
 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="destructive" size={isMobile ? "sm" : "default"} className="bg-[#E65722] hover:bg-[#E65722]/90">
+        <Button
+          variant="destructive"
+          size={isMobile ? "sm" : "default"}
+          className="bg-[#E65722] hover:bg-[#E65722]/90"
+        >
           {text}
         </Button>
       </DialogTrigger>
       {isMobile ? (
         <DialogContent className="p-0 border-[6px] border-[#ffffff0a] flex items-center justify-center bg-[#151515] mx-auto max-w-[92vw] w-full max-h-[90vh] overflow-y-auto">
           <div className="p-4 w-full">
-            <h2 className="text-[20px] font-medium mb-6 text-white">Start a project</h2>
+            {/* Explicitly added text with better styling */}
+            <h2 className="text-[20px] font-medium mb-6 text-white w-full text-center">
+              Start a project
+            </h2>
             {formContent}
           </div>
         </DialogContent>
@@ -389,8 +431,7 @@ const RequestFormDialog: React.FC<RequestFormDialogProps> = ({ isMobile = false,
         </DialogContent>
       )}
     </Dialog>
-  )
-}
+  );
+};
 
-export default RequestFormDialog
-
+export default RequestFormDialog;

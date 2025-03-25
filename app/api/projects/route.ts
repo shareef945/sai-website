@@ -1,4 +1,3 @@
-// For Next.js App Router (/app/api/projects/route.ts)
 import { NextResponse } from 'next/server';
 
 export async function GET() {
