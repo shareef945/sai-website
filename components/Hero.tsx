@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import RequestFormDialog from "./ui/request-dialog";
 import { services } from "@/config/services";
 
@@ -15,45 +15,14 @@ const COMPANY_LOGOS = [
   "/comp7.svg",
   "/comp8.svg",
 ] as const;
+
 export default function Hero() {
   const [isHovered, setIsHovered] = useState(false);
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    let scrollInterval: NodeJS.Timeout;
-
-    const startScroll = () => {
-      scrollInterval = setInterval(() => {
-        if (!isHovered && scrollContainer) {
-          scrollContainer.scrollLeft += 1;
-
-          // Reset scroll position when reaching the end
-          if (
-            scrollContainer.scrollLeft >=
-            (scrollContainer.scrollWidth - scrollContainer.clientWidth) / 2
-          ) {
-            scrollContainer.scrollLeft = 0;
-          }
-        }
-      }, 20);
-    };
-
-    startScroll();
-
-    return () => {
-      if (scrollInterval) {
-        clearInterval(scrollInterval);
-      }
-    };
-  }, [isHovered]);
 
   return (
-    <section className="relative md:mt-12  md:pt-0 pt-12 flex flex-col justify-center items-center min-h-[90vh] px-6 pb-4 md:px-[170px]">
+    <section className="relative md:mt-12 md:pt-0 pt-12 flex flex-col justify-center items-center min-h-[90vh] px-6 pb-4 md:px-[170px]">
       <div className="max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16 ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="flex md:block flex-col space-y-6">
             <span className="text-[#A3A3A3] font-medium">
               Imagine - Innovate - Implement
@@ -94,19 +63,18 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className=" md:px-[123px] px-0 text-[#898989]">
+        <div className="md:px-[123px] px-0 text-[#898989]">
           <div className="relative overflow-hidden">
             <div
-              ref={scrollRef}
-              className="flex items-center overflow-x-hidden scroll-smooth [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]"
+              className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              {[...COMPANY_LOGOS, ...COMPANY_LOGOS, ...COMPANY_LOGOS].map(
-                (logo, i) => (
+              <div className={`flex items-center ${isHovered ? 'paused' : 'animate-scroll'}`}>
+                {[...COMPANY_LOGOS, ...COMPANY_LOGOS].map((logo, i) => (
                   <div
                     key={i}
-                    className="h-[74px] flex-shrink-0 px-0"
+                    className="h-[74px] flex-shrink-0"
                     style={{ maxWidth: "110px" }}
                   >
                     <Image
@@ -121,8 +89,8 @@ export default function Hero() {
                       }}
                     />
                   </div>
-                )
-              )}
+                ))}
+              </div>
             </div>
           </div>
           <p className="text-center text-[#898989] mt-[22px] text-sm">
@@ -130,6 +98,22 @@ export default function Hero() {
           </p>
         </div>
       </div>
+      <style jsx>{`
+        .animate-scroll {
+          animation: scroll-left 20s linear infinite;
+        }
+        .animate-scroll.paused {
+          animation-play-state: paused;
+        }
+        @keyframes scroll-left {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
     </section>
   );
 }

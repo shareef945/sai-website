@@ -26,20 +26,38 @@ export function GridBackground({
     : "absolute inset-0 min-h-screen"
 
   return (
-    <div className={`${positioningClass} z-0`}>
-      {/* Base grid pattern - simplified to only show grid lines */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px)
-          `,
-          backgroundSize: `${gridSize}px ${gridSize}px`,
-        }}
-      />
+    <div className={`${positioningClass} z-0 overflow-hidden`}>
+      {/* Crisp grid pattern using SVG for pixel-perfect rendering */}
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        className="absolute inset-0 w-full h-full"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <pattern 
+            id="grid" 
+            width={gridSize} 
+            height={gridSize} 
+            patternUnits="userSpaceOnUse"
+          >
+            <path 
+              d={`M ${gridSize} 0 L 0 0 0 ${gridSize}`} 
+              fill="none" 
+              stroke="rgba(255, 255, 255, 0.15)" 
+              strokeWidth="1"
+            />
+          </pattern>
+        </defs>
+        <rect 
+          x="0" 
+          y="0" 
+          width="100%" 
+          height="100%" 
+          fill="url(#grid)"
+        />
+      </svg>
 
-      {/* Updated gradient overlay with stronger fading */}
+      {/* Original gradient overlay */}
       <div
         className="absolute inset-0"
         style={{
