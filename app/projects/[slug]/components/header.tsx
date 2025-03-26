@@ -12,7 +12,7 @@ interface ProjectProps {
 export default function ProjectHeader({ project }: ProjectProps) {
   return (
     <div className="w-full text-white">
-      <div className="container mx-auto md:px-[180px] py-16 md:py-24 w-full">
+      <div className="container mx-auto md:pl-[180px] py-16 md:py-24 w-full">
         {/* Desktop view */}
         <div className="hidden md:grid md:grid-cols-[1fr_300px] gap-8">
           <div>
@@ -23,7 +23,7 @@ export default function ProjectHeader({ project }: ProjectProps) {
             </p>
           </div>
 
-          <div className="space-y-8 max-w-[198px]">
+          <div className="space-y-8 max-w-[298px]">
             <div>
               <h3 className="text-sm text-neutral-400 mb-2">Client</h3>
               <span className="text-[12px] px-3 py-1.5 bg-[#202020]">{project.clientName || "N/A"}</span>

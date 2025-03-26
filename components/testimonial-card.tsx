@@ -69,7 +69,7 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
             <p className="text-[12px] text-zinc-500">{testimonial.role}</p>
           </div>
         </div>
-        <p className="mt-8 text-[12px] leading-[1.7] text-zinc-400">
+        <p className="mt-8 text-[12px] leading-[1.7] text-[#898989]">
         {testimonial.text}
         </p>
       </div>

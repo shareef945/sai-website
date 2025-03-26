@@ -28,9 +28,9 @@ const Projects = () => {
   });
 
   // After filtering the projects but before rendering
-const sortedProjects = [...filteredProjects].sort((a, b) => {
-  return new Date(b.dates).getTime() - new Date(a.dates).getTime();
-});
+  const sortedProjects = [...filteredProjects].sort((a, b) => {
+    return new Date(b.dates).getTime() - new Date(a.dates).getTime();
+  });
 
   // Format project number
   const formatProjectNumber = (index: number): string => {
@@ -45,7 +45,7 @@ const sortedProjects = [...filteredProjects].sort((a, b) => {
   if (isLoading) {
     return <ProjectsPageLoading />;
   }
-  
+
   if (error) {
     return <ProjectsPageError error={error} />;
   }
@@ -93,7 +93,7 @@ const sortedProjects = [...filteredProjects].sort((a, b) => {
         </div>
 
         <div className="space-y-4 sm:space-y-6 z-50 lg:space-y-8">
-        {sortedProjects.map((project, index) => (
+          {sortedProjects.map((project, index) => (
             <div key={project.id}>
               <div className="min-h-[24rem] sm:min-h-[32rem] lg:h-[36rem]">
                 {/* Mobile Layout */}
@@ -202,20 +202,21 @@ const sortedProjects = [...filteredProjects].sort((a, b) => {
                         onClick={() => handleCardClick(project.slug)}
                       >
                         <div className="h-full flex flex-col p-6">
-                          {/* Tags at the top */}
-                          <div className="flex flex-wrap gap-2 mb-auto">
-                            {project.services?.map((tag) => (
-                              <span
-                                key={tag}
-                                className="px-4 py-1.5 rounded-sm bg-[#202020] backdrop-blur-sm text-[#898989] text-sm font-medium"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
+                          {/* Top section with tags and button */}
+                          <div className="flex justify-between items-start mb-auto">
+                            {/* Tags container */}
+                            <div className="flex flex-wrap gap-2">
+                              {project.services?.map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="px-4 py-1.5 rounded-sm bg-[#202020] backdrop-blur-sm text-[#898989] text-sm font-medium"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
 
-                          {/* Button inside the card - stop propagation to prevent card click */}
-                          <div className="absolute top-6 right-6">
+                            {/* Button */}
                             <Button
                               asChild
                               variant="outline"
@@ -234,7 +235,7 @@ const sortedProjects = [...filteredProjects].sort((a, b) => {
                           </div>
 
                           {/* Client name and description at the bottom */}
-                          <div className="mt-auto">
+                          <div>
                             <h3 className="text-base uppercase text-white font-normal mb-4">
                               {project.clientName}
                             </h3>
@@ -251,54 +252,54 @@ const sortedProjects = [...filteredProjects].sort((a, b) => {
                         className="w-2/5 border border-[#ffffff0a] h-full font-inter bg-[#191919]  relative transition-transform duration-300 group-hover:scale-[1.01] cursor-pointer"
                         onClick={() => handleCardClick(project.slug)}
                       >
-                        <div className="h-full flex flex-col p-6">
-                          {/* Tags at the top */}
-                          <div className="flex flex-wrap gap-2 mb-auto">
-                            {project.services?.map((tag) => (
-                              <span
-                                key={tag}
-                                className="px-4 py-1.5 rounded-sm bg-[#202020] backdrop-blur-sm text-[#898989] text-sm font-medium"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
+                 <div className="h-full flex flex-col p-6">
+  {/* Tags at the top */}
+  <div className="flex flex-wrap gap-2 mb-auto">
+    {project.services?.map((tag) => (
+      <span
+        key={tag}
+        className="px-4 py-1.5 rounded-sm bg-[#202020] backdrop-blur-sm text-[#898989] text-sm font-medium"
+      >
+        {tag}
+      </span>
+    ))}
+  </div>
 
-                          {/* Button inside the card - stop propagation to prevent card click */}
-                          <div className="absolute top-6 right-6">
-                            <Button
-                              asChild
-                              variant="outline"
-                              size="icon"
-                              className="rounded-full w-[50px] h-[50px] aspect-square bg-[#ea5c1c] hover:bg-[#ea5c1c]/90 text-white border-none transition-transform duration-300 hover:scale-110"
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              <a
-                                href={project.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <ArrowUpRight className="h-[30px] w-[30px]" />
-                              </a>
-                            </Button>
-                          </div>
+  {/* Button inside the card - stop propagation to prevent card click */}
+  <div className="absolute top-6 right-6">
+    <Button
+      asChild
+      variant="outline"
+      size="icon"
+      className="rounded-full w-[50px] h-[50px] aspect-square bg-[#ea5c1c] hover:bg-[#ea5c1c]/90 text-white border-none transition-transform duration-300 hover:scale-110"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <ArrowUpRight className="h-[30px] w-[30px]" />
+      </a>
+    </Button>
+  </div>
 
-                          {/* Client name and description at the bottom */}
-                          <div className="mt-auto">
-                            <h3 className="text-base text-white uppercase font-semibold mb-4">
-                              {project.clientName}
-                            </h3>
-                            <p className="text-[#898989] text-sm">
-                              {project.shortDescription}
-                            </p>
-                            <p className="text-[#898989] text-base mt-4">
-                              {new Date(project.dates).toLocaleDateString(
-                                "en-US",
-                                { year: "numeric", month: "long" }
-                              )}
-                            </p>
-                          </div>
-                        </div>
+  {/* Client name and description at the bottom */}
+  <div className="mt-auto">
+    <h3 className="text-base text-white uppercase font-semibold mb-4">
+      {project.clientName}
+    </h3>
+    <p className="text-[#898989] text-sm mb-2">
+      {project.shortDescription}
+    </p>
+    <p className="text-[#898989] text-sm">
+      {new Date(project.dates).toLocaleDateString(
+        "en-US",
+        { year: "numeric", month: "long" }
+      )}
+    </p>
+  </div>
+</div>
                       </div>
                       <div
                         className="w-4/5 border border-[#ffffff0a] h-full bg-[#191919] ml-6  flex flex-col justify-between transition-transform duration-300 group-hover:scale-[1.01] cursor-pointer"
