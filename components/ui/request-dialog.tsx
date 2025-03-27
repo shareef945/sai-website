@@ -363,7 +363,7 @@ const RequestFormDialog: React.FC<RequestFormDialogProps> = ({
             </div>
           </div>
 
-          <div className="pt-4 pb-4 flex justify-end">
+          <div className="pb-4 flex justify-end">
             <Button
               type="submit"
               disabled={isSubmitting}

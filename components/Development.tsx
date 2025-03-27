@@ -147,8 +147,7 @@ export const ServicesTimeline = () => {
                 className="flex flex-col md:flex-row md:items-start justify-between"
               >
                 {/* Left side - Timeline marker - Hidden on mobile */}
-                {/* Left side - Timeline marker - Hidden on mobile */}
-                <div className="hidden md:flex items-center gap-4 md:w-[200px] z-10 mb-4 md:mb-0">
+                <div className="hidden md:flex items-center gap-4 md:w-[350px] z-10 mb-4 md:mb-0">
                   <div className="relative">
                     {/* Outer ring */}
                     <div
