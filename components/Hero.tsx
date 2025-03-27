@@ -35,7 +35,7 @@ export default function Hero() {
               strategy to execution, our expertise in digital transformation,
               enterprise software, and data intelligence ensures your business
               is future-ready. With smart, scalable, and secure technology, we
-              help you stay ahead in a rapidly evolving digital landscape.”
+              help you stay ahead in a rapidly evolving digital landscape.
             </p>
             <div className="hidden md:flex items-center gap-x-6">
               <RequestFormDialog
