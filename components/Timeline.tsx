@@ -7,7 +7,6 @@ import { getDirectusImageUrl } from "@/utils/directus";
 import { ProjectsPageError } from "@/components/Loading";
 import { useProjects } from "@/hooks/use-projects";
 
-
 export const TimelineComponent = () => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -37,7 +36,6 @@ export const TimelineComponent = () => {
       setHeight(rect.height);
     }
   }, [projects, ref]); // Add projects as a dependency
-  
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
@@ -46,7 +44,7 @@ export const TimelineComponent = () => {
   }
 
   return (
-    <div className="w-full bg-[#151515] md:px-[180px] font-sans" ref={containerRef}>
+    <div className="w-full bg-[#151515] md:px-[180px] " ref={containerRef}>
       <div className="max-w-7xl mx-auto py-20 px-4">
         <h2 className="text-3xl md:text-[40px] md:mb-4 mb-1 text-white font-medium">
           Our Recent Projects
@@ -65,7 +63,9 @@ export const TimelineComponent = () => {
                   {item.clientName}
                 </h3>
                 <div className="hidden md:block md:pl-20">
-                  <p className="text-sm text-[#898989] mb-4">{item.shortDescription}</p>
+                  <p className="text-sm text-[#898989] mb-4">
+                    {item.shortDescription}
+                  </p>
                   <Link
                     href={item.url}
                     className="inline-block px-6 py-2 bg-[#EA5C1C] text-white rounded hover:bg-[#EA5C1C]/90 transition-colors"
@@ -78,18 +78,25 @@ export const TimelineComponent = () => {
 
             <div className="relative w-full md:pl-4 ">
               <div className="flex items-center justify-center relative md:w-full w-[345px] max-h-[514px] aspect-[16/9] overflow-hidden mx-auto mb-2 md:mb-0">
-                <Image
-                   src={getDirectusImageUrl(item.landingMedia) || "/placeholder.svg"}
-                   alt={item.clientName}
-                  fill
-                  className="object-cover"
-                />
+                <Link href={item.url}>
+                  <Image
+                    src={
+                      getDirectusImageUrl(item.landingMedia) ||
+                      "/placeholder.svg"
+                    }
+                    alt={item.clientName}
+                    fill
+                    className="object-cover"
+                  />
+                </Link>
               </div>
               <div className="md:hidden mx-auto max-w-[345px]">
                 <h3 className="text-2xl mb-4 text-left  font-normal text-white">
                   {item.clientName}
                 </h3>
-                <p className="text-sm text-[#898989] mb-4">{item.shortDescription}</p>
+                <p className="text-sm text-[#898989] mb-4">
+                  {item.shortDescription}
+                </p>
                 <Link
                   href={item.url}
                   className="inline-block px-6 py-2 mb-6 bg-[#EA5C1C] text-white rounded hover:bg-[#EA5C1C]/90 transition-colors"

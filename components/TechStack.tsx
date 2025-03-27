@@ -216,7 +216,7 @@ export default function TechStack() {
                     {currentCategory === index && (
                       <motion.div
                         layoutId="indicator"
-                        className="absolute md:left-0 left-0 right-0  bottom-1 md:-translate-y-1/2 md:w-1 w-full md:h-7 h-0.5 bg-orange-500 rounded-full"
+                        className="absolute md:left-0 left-0 right-0  bottom-[2px] md:-translate-y-1/2 md:w-1 w-full md:h-10 h-0.5 bg-orange-500 rounded-full"
                       />
                     )}
                     {category.label}
