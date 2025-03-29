@@ -56,7 +56,7 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
 
       {/* Content */}
       <div className="relative">
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-3">
           <Image
             width={45}
             height={45}
@@ -69,7 +69,7 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
             <p className="text-[12px] text-zinc-500">{testimonial.role}</p>
           </div>
         </div>
-        <p className="mt-8 text-[12px] leading-[1.7] text-[#898989]">
+        <p className="mt-3 text-[12px] leading-[1.7] text-[#898989]">
         {testimonial.text}
         </p>
       </div>
