@@ -20,7 +20,7 @@ const services: ServiceItem[] = [
     id: "consultation",
     title: "Consultation & Strategy",
     description:
-      "Designing engaging and intuitive interfaces for web and mobile applications. Crafting user experiences that are not only visually appealing but also user-friendly, ensuring your audience enjoys every interaction with your product.",
+      "We begin by understanding your business goals and technical requirements. Our expert team collaborates with you to develop a comprehensive roadmap, identifying the best technologies, architecture, and approaches tailored to your project's unique needs and constraints.",
     icon: "lightbulb",
     logoSrc: "/development-logo1.svg",
   },
@@ -28,7 +28,7 @@ const services: ServiceItem[] = [
     id: "design",
     title: "Design & User Experience",
     description:
-      "Designing engaging and intuitive interfaces for web and mobile applications. Crafting user experiences that are not only visually appealing but also user-friendly, ensuring your audience enjoys every interaction with your product.",
+      "Creating intuitive, accessible interfaces that delight your users. Our design process balances aesthetics with functionality, ensuring responsive layouts, consistent branding, and seamless user journeys across all platforms and devices while adhering to modern UX principles.",
     icon: "pencil",
     logoSrc: "/development-logo2.svg",
   },
@@ -36,7 +36,7 @@ const services: ServiceItem[] = [
     id: "development",
     title: "Development & Implementation",
     description:
-      "Designing engaging and intuitive interfaces for web and mobile applications. Crafting user experiences that are not only visually appealing but also user-friendly, ensuring your audience enjoys every interaction with your product.",
+      "Our experienced developers transform designs into robust, scalable applications using cutting-edge technologies. We focus on clean, maintainable code with proper documentation, following best practices for performance optimization and security to deliver high-quality solutions.",
     icon: "code",
     logoSrc: "/development-logo2.svg",
   },
@@ -44,7 +44,7 @@ const services: ServiceItem[] = [
     id: "testing",
     title: "Testing & Quality Assurance",
     description:
-      "Designing engaging and intuitive interfaces for web and mobile applications. Crafting user experiences that are not only visually appealing but also user-friendly, ensuring your audience enjoys every interaction with your product.",
+      "Comprehensive testing methodology ensuring your product meets the highest standards of quality. We perform automated and manual testing across different environments and devices, identifying and resolving issues before deployment to guarantee a flawless user experience.",
     icon: "check-circle",
     logoSrc: "/development-logo1.svg",
   },
