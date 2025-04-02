@@ -15,12 +15,12 @@ const ProjectFeatures: React.FC<any> = ({ project }) => {
             <div className="h-full flex flex-col md:flex-row items-center">
               <div className="flex-1">
                 <h3 className="text-base font-semibold mb-2">
-                  Unified Dashboard
+                  {project.feature1}
                 </h3>
-                <p className="text-[#898989] text-sm">
+                {/* <p className="text-[#898989] text-sm">
                   A centralized interface for ticket booking, tracking, and
                   fleet management.
-                </p>
+                </p> */}
               </div>
               <div className="flex-1">
                 {project.feature1Img && (
@@ -38,11 +38,11 @@ const ProjectFeatures: React.FC<any> = ({ project }) => {
           <div className="md:col-span-4 border border-[#ffffff0a] bg-neutral-900 px-[20px]  min-h-[300px] overflow-hidden">
             <div className="p-6 pb-0">
               <h3 className="text-base font-semibold mb-2">
-                Quick Ticket Purchase
+                {project.feature2}
               </h3>
-              <p className="text-[#898989] text-sm">
+              {/* <p className="text-[#898989] text-sm">
                 Integrated one-click ticketing with secure payment options.
-              </p>
+              </p> */}
             </div>
             <div className="mt-4">
               {project.feature2Img && (
@@ -59,12 +59,12 @@ const ProjectFeatures: React.FC<any> = ({ project }) => {
           <div className="md:col-span-4 border border-[#ffffff0a] bg-neutral-900  overflow-hidden">
             <div className="p-6 pb-0">
               <h3 className="text-base font-semibold mb-2">
-                Real-Time Tracking
+               {project.feature3}
               </h3>
-              <p className="text-[#898989] text-sm">
+              {/* <p className="text-[#898989] text-sm">
                 Interactive maps displaying vehicle locations and estimated
                 arrival times.
-              </p>
+              </p> */}
             </div>
             <div className="mt-4">
               {project.feature3Img && (
@@ -80,12 +80,12 @@ const ProjectFeatures: React.FC<any> = ({ project }) => {
           <div className="md:col-span-4 border border-[#ffffff0a] bg-neutral-900  overflow-hidden">
             <div className="p-6 pb-0">
               <h3 className="text-base font-semibold mb-2">
-                Customizable Tools
+                {project.feature4}
               </h3>
-              <p className="text-[#898989] text-sm">
+              {/* <p className="text-[#898989] text-sm">
                 Vehicle scheduling, maintenance tracking, and logistics planning
                 tailored to operator needs.
-              </p>
+              </p> */}
             </div>
             <div className="mt-4">
               {project.feature4Img && (
@@ -101,12 +101,12 @@ const ProjectFeatures: React.FC<any> = ({ project }) => {
           <div className="md:col-span-4 border border-[#ffffff0a] bg-neutral-900  overflow-hidden">
             <div className="p-6 pb-0">
               <h3 className="text-base font-semibold mb-2">
-                Multi-Language Support
+                {project.feature5}
               </h3>
-              <p className="text-[#898989] text-sm">
+              {/* <p className="text-[#898989] text-sm">
                 Accessible to diverse user bases with support for multiple
                 languages.
-              </p>
+              </p> */}
             </div>
             <div className="mt-4">
               {project.feature5Img && (

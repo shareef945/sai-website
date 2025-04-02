@@ -60,7 +60,7 @@ const Footer = () => {
                   className="w-6 h-6 md:w-[30px] md:h-[30px] hover:opacity-60 cursor-pointer"
                 />
               </Link>
-              <Link href={"https://www.instagram.com/saitechnology/"}>
+              <Link href={"https://www.instagram.com/saitechnology_/"}>
                 <Image
                   src="/logos/ig.png"
                   alt="Instagram logo"
@@ -85,7 +85,7 @@ const Footer = () => {
               />
             </div>
             <a
-              className="pb-2 hover:opacity-60 text-secondary text-xs md:text-base"
+              className="pb-2 hover:opacity-60 text-secondary text-sm md:text-base"
               href="https://saitechnology.co"
             >
               {year} All rights reserved. Powered by SAI Technology ©
