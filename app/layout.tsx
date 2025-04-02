@@ -63,7 +63,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${spaceGrotesk.className} ${inter.variable} relative bg-[#111111]`}
+        className={`${spaceGrotesk.className} ${inter.variable} relative bg-[#151515]`}
       >
         <div className="min-h-screen">
           <Navbar />
