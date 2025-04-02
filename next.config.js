@@ -18,15 +18,20 @@ const nextConfig = {
         protocol: "https",
         hostname: "cms.saitechnology.co",
       },
-
     ],
   },
+  // Configure pageExtensions to include md, mdx and mdoc
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx', 'mdoc'],
 };
 
-const withMarkdoc = require('@markdoc/next.js');
-
-module.exports = withMarkdoc(/* options */)({
-  pageExtensions: ['md', 'mdoc', 'js', 'jsx', 'ts', 'tsx']
+// Set up MDX
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
 });
 
-module.exports = nextConfig;
+// Merge configurations properly
+module.exports = withMDX(nextConfig);

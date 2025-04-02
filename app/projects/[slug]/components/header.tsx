@@ -1,9 +1,4 @@
-interface Project {
-  clientName?: string;
-  industry?: string;
-  services?: string[] | null; // Allow null explicitly
-  location?: string;
-}
+import { Project } from "@/types/project";
 
 interface ProjectProps {
   project: Project;
@@ -18,8 +13,7 @@ export default function ProjectHeader({ project }: ProjectProps) {
           <div>
             <h1 className="text-[70px] font-bold leading-tight mb-6">{project.clientName || "N/A"}</h1>
             <p className="text-[18px] text-neutral-400 max-w-3xl">
-              SAI Technology has innovated public transit with a multifaceted platform that simplifies ticket purchases,
-              vehicle management, and logistics coordination.
+              {project.shortDescription}
             </p>
           </div>
 
