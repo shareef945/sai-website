@@ -15,46 +15,54 @@ export default function ProjectGrid({ project }: ProjectProps) {
           {/* Left column - both images shifted down */}
           <div className="space-y-8 md:mt-20">
             {gridImages[0] && (
-              <div className="aspect-square relative animate-fadeIn">
-                <Image
-                  src={getDirectusImageUrl(gridImages[0]) || "/placeholder.svg"}
-                  alt="Project image 1"
-                  fill
-                  className="object-cover rounded-lg"
-                />
+              <div className="aspect-square relative animate-fadeIn overflow-hidden rounded-lg">
+                <div className="w-full h-full flex items-center justify-center">
+                  <Image
+                    src={getDirectusImageUrl(gridImages[0]) || "/placeholder.svg"}
+                    alt="Project image 1"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
             )}
             {gridImages[2] && (
-              <div className="aspect-square relative animate-fadeIn">
-                <Image
-                  src={getDirectusImageUrl(gridImages[2]) || "/placeholder.svg"}
-                  alt="Project image 3"
-                  fill
-                  className="object-cover rounded-lg"
-                />
+              <div className="aspect-square relative animate-fadeIn overflow-hidden rounded-lg">
+                <div className="w-full h-full flex items-center justify-center">
+                  <Image
+                    src={getDirectusImageUrl(gridImages[2]) || "/placeholder.svg"}
+                    alt="Project image 3"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
             )}
           </div>
           {/* Right column */}
           <div className="space-y-8 mt-8 md:mt-0">
             {gridImages[1] && (
-              <div className="aspect-square relative animate-fadeIn">
-                <Image
-                  src={getDirectusImageUrl(gridImages[1]) || "/placeholder.svg"}
-                  alt="Project image 2"
-                  fill
-                  className="object-cover rounded-lg"
-                />
+              <div className="aspect-square relative animate-fadeIn overflow-hidden rounded-lg">
+                <div className="w-full h-full flex items-center justify-center">
+                  <Image
+                    src={getDirectusImageUrl(gridImages[1]) || "/placeholder.svg"}
+                    alt="Project image 2"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
             )}
             {gridImages[3] && (
-              <div className="aspect-square relative animate-fadeIn">
-                <Image
-                  src={getDirectusImageUrl(gridImages[3]) || "/placeholder.svg"}
-                  alt="Project image 4"
-                  fill
-                  className="object-cover rounded-lg"
-                />
+              <div className="aspect-square relative animate-fadeIn overflow-hidden rounded-lg">
+                <div className="w-full h-full flex items-center justify-center">
+                  <Image
+                    src={getDirectusImageUrl(gridImages[3]) || "/placeholder.svg"}
+                    alt="Project image 4"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
             )}
           </div>

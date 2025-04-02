@@ -143,7 +143,9 @@ export const ServicesTimeline = () => {
             {services.map((service, index) => (
               <div
                 key={service.id}
-                ref={(el) => (itemRefs.current[index] = el)}
+                ref={(el) => {
+                  itemRefs.current[index] = el;
+                }}
                 className="flex flex-col md:flex-row md:items-start justify-between"
               >
                 {/* Left side - Timeline marker - Hidden on mobile */}
