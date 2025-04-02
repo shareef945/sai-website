@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { posts } from "../page";
 import { notFound } from "next/navigation";
 import { BG } from "@/components/BG";
+import { posts } from "@/content/posts";
 
 interface PageProps {
   params: Promise<{
